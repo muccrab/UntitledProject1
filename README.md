@@ -97,7 +97,10 @@ Stats/Levels:
 
 
 
+NEXT SHIT:
 
+  - Class(zbrane,stats,Spells/Zbrane),  nabozenstvo,  
+  - droprate, typ itemov(potions), topdown/pravolavo, 
 
 
 
