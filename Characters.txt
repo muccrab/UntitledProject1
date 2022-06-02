@@ -1,0 +1,83 @@
+
+
+CLASS:
+  
+  TANK:
+    - paladin       ✓✓✓✓✓✓ - kladivo 
+    - knight        ✓✓✓✓✓✓ - mec
+    - shieldslut    ✓✓✓✓✓✓ - shield
+            
+  RANGE:
+    - rangecavo     ✓✓✓✓✓✓ - bow/crossbow/
+    - hunter        ✓✓✓✓✓✓ - zadne pozicie = luk / predne = mec - dynamicky spells   
+    - thief         ✓✓✓✓✓✓ - zadne pozicie = dagger / predne = idkdaco - staticky spells
+    
+  MELEE:
+    - hunter        ✓✓✓✓✓✓ - zadne pozicie = luk / predne = mec  - dynamicky spells
+    - thief         ✓✓✓✓✓✓ - zadne pozicie = dagger / predne = idkdaco - staticky spells
+    - berserker     ✓✓✓✓✓✓ - insane/rage meter - stupa fess
+       
+  MAGIC:
+    - priest        ✓✓✓✓✓✓ - support heal - healslut        
+    - paladin       ✓✓✓✓✓✓ - heal support tank
+    - retazcavo     ✓✓✓✓✓✓ - zvieratka
+  
+    ----------------------------------------
+  - paladin
+  - rangecavo       
+  - shieldslut      
+  - retazcavo       
+  - berserker       
+  - knight
+  - priest          
+  - thief           
+  - hunter          
+  ----------------------------------------
+  UTOROK o 18:00:
+  
+    4/5 abilit
+
+    zbobo-bruh
+        rangedcavo    
+        thief
+        priest
+        
+    muctopus-darker
+        shieldslut
+        hunter
+        knight
+        
+    jacob-erasmos
+        retazcavo
+        berserker
+        paladin
+  ----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
