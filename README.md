@@ -98,7 +98,7 @@ Stats/Levels:
 
 
 NEXT SHIT:
-
+  - Staty treba dorobit
   - Class(zbrane,stats,Spells/Zbrane),  nabozenstvo,  
   - droprate, typ itemov(potions), topdown/pravolavo, 
 
