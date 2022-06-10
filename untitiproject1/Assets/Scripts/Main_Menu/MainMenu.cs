@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         ButtonSound = GetComponent<AudioSource>();
+    }
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Lvl1"); //zatial to da do Pause menu, ale tu sa to este pomeni aj zo save-ami
     }
 
     public void ExitButton()
@@ -20,6 +25,6 @@ public class MainMenu : MonoBehaviour
 
     public void ButtonSounds()
     {
-        ButtonSound.Play();
+        //ButtonSound.Play();
     }
 }

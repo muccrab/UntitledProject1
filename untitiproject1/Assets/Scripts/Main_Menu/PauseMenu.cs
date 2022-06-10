@@ -40,9 +40,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         pauznuta_hra = true;
     }
+    */
     public void Menu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
-    }*/
+    }
 }//mono
