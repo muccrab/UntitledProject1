@@ -10,12 +10,11 @@ public static class SaveLoad
     //Simple save of one instance....obviously it will get makeover once we'll have shit to save, but for now its just simple name save
     public static void saveSimple (string path,string name)
     {
+            Debug.Log(path);
             BinaryFormatter formatter = new BinaryFormatter();
             path = Application.persistentDataPath + path; 
-            FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
-
-            SaveDataObj data = new SaveDataObj(name);
-        
+            FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            SaveDataObj data = new SaveDataObj(path.Substring(Application.persistentDataPath.Length),name);
             formatter.Serialize(stream, data);
             stream.Close();
     }
@@ -53,10 +52,18 @@ public static class SaveLoad
         SaveDataObj[] data = new SaveDataObj[Files.Length];
         for (int i = 0; i< Files.Length; i++)   
         {
-            data[i] = SaveLoad.loadSimple(Files[0].ToString().Substring(path.Length));
+            data[i] = SaveLoad.loadSimple(Files[i].ToString().Substring(path.Length));
         }
         return data;
     }
-    
+    public static bool fileExists(string path) //Checks if File Exists...didnt want to use System.IO namespace all around my code
+    {
+        path = Application.persistentDataPath + path;
+        if (File.Exists(path))
+        {
+            return true;
+        }
+        return false;
+    }
 
 }

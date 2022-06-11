@@ -17,15 +17,15 @@ public class MainMenu : MonoBehaviour
     private void Update()
     {
         
-        if (/*Saves Loaded*/false)
+        if (/*Saves Loaded*/true)
         {
-            Menu.active = false;
-            MenuSaves.active = true;
+            Menu.SetActive(false);
+            MenuSaves.SetActive(true);
         }
         else
         {
-           Menu.active = true;
-           MenuSaves.active = false; 
+           Menu.SetActive(true);
+           MenuSaves.SetActive(false);
         }
     }
     public void StartGame()
