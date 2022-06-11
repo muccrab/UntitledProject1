@@ -1,0 +1,96 @@
+CHARACTERS:
+
+  - paladin
+  - rangecavo       
+  - shieldslut      
+  - retazcavo       
+  - berserker       
+  - knight
+  - priest          
+  - thief           
+  - hunter  
+----------------------------------------------------------------
+Role:
+Religion:
+Weapon:
+
+  Stats:
+    Strenght:
+    Health:
+    Defence(Armor):
+    Dexterity:
+    Willpower:
+    Devotion:
+    
+    
+    
+Ability:
+  1.  
+  2. 
+  3. 
+  4. 
+  5. 
+  6. 
+  7. 
+ ----------------------------------------------------------------
+
+RELIGION:
+
+  WAR
+    + death
+    - peace
+    | life
+    
+  PEACE
+    + life
+    - war
+    | death
+    
+  LIFE
+    + peace
+    - death
+    | war
+    
+  DEATH
+    + war
+    - life
+    | peace
+    
+
+DEDINA:
+  Hospital - cures, 
+  Armory - Armor/Weapons
+  
+  Tavern - stress- <- neveriaci
+  Church - stress- <- veriaci
+  
+  Cavovia
+  EnchantetChavovia
+  
+MUTATION:
+
+  Mutacia meter - 0-100
+
+  Sanca na zmutovanie od 1%
+
+  Sanca na zmutovanie rastie exponencionalne
+
+  Pod 100%:
+    - mensie mutacie
+    - dobre/zle
+
+  Na 100% - ista mutacia - 
+      -dobra - nove ruky -  +stats
+      -zla - cancer - dies
+ 
+
+WEAPONS:
+  Bow
+  Crossbow
+  Sword
+  Dagger
+  Mace
+  Axe
+  Shield
+  UltraShield
+  Chains
