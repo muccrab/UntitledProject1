@@ -1,0 +1,110 @@
+*-moge
+.-nemoge
+-- spojeny
+paladin
+	Spell1: Aura-   war
+			death
+			life
+			peace 
+	Spell2:	Hand-
+	Spell3: Strike-
+	Spell4: Ozembuch-
+	Spell5: 
+	Spell6:
+	Spell7:
+	Spell8:
+	Spell9: 
+
+Marksman
+	Spell1: Arrow storm- **.. .*-*-* aoe dmg 50%(no bobnus)
+	Spell2:	Take aim- **** +25% dmgbuff +20% critchance buff na 2 kola 
+	Spell3: Devastating arrow- **.. .*** 110% dmg 
+	Spell4: Poison arrow- **.. ..** 40% dmg poison dot(3 kola 120%dmg) 
+	Spell5: Multishot- **.. .*-*. 65% dmg, if blind +15%critchance 
+	Spell6: Vault- ..** *... move 2 back, knockback 1(50%) 30%dmg
+	Spell7: Crippling shot- ***. .*-*-* 15%dmg, blind:-40%acc  
+	Spell8: Precise arrow- **.. **** 70%dmg if blind +20%critchance
+	Spell9: Trap **** iba na seba, block next melee attac, 45%dmg, attackspeed debuff
+	       
+Shield Maiden
+	Spell1:
+	Spell2:
+	Spell3:
+	Spell4:
+	Spell5:
+	Spell6:
+	Spell7:
+	Spell8:
+	Spell9: 
+
+      
+Beast master
+	Cim dlhsie ma zviera- tym je vacsia sanca ze sa za neho obetuje pri smrtelnom uraze 
+	Spell1: Tame- **** **** pravdepodobne tamne enemy animal jednotku(ostane mu dokym nepominie) 
+	Spell2: Pull- **** **** enemy forv 2(upgrades more) +65%dmg 
+	Spell3: Kill command- **** od zvery zalezi kam, 100%dmg +zver dodava efekty
+	Spell4: Chain slash- .*** *-*-*. 65%dmg 
+	Spell5: Unyielding bind- .**. **** stun pre oboch(moznost cancel), strenght check kazde enemy kolo 
+	Spell6: ???- **** cure bleed +littel heal 
+	Spell7: Scare beast- **** **** animal only, +++fear, call fear check  
+	Spell8: Pet- **** animal +100%dmg, 20%critchance
+	Spell9: Torture- .*** ..*-* 25%, veryvery littel blead 
+        
+Berserker
+	-rage meter- cim mensi rage, mensi dmg, mensi def
+	-smrt++++, miss utoku++, hit utoku+, heal-, crit++, dostanie hitu(podla dmgu dostaneho+ az +++) 
+
+	Spell1: BERSERK- **** *-*-*-* utoci na vsetkych enemy naraz, cim menej enemies tym vacsi dmg,
+		dmg podla rage metra- resetuje rage, pri plnom rage je sanca ze ich zamiesa- complete madness/random bs  
+	Spell2: Slash- ..** *... 110%dmg
+	Spell3: Piss off!- ..** **.. 25% dmg, posuva jednotku o 2 dozadu 
+	Spell4: Skull cracker- ..** *... 35%dmg stun 1 kolo
+	Spell5: 102 Slashes- ..** *-*.. zoberie 1/5 rage 100%dmg 
+	Spell6: Shrooms- **** 50/50 heal/+rage
+	Spell7: Bloody rush- **.. *... 25%dmg 2 forw
+	Spell8: Intimidating shout- **** *-*-*-* x5 fear chance, call fear check
+	Spell9: Built different- **** self cure all debuffs
+       
+knight
+	Spell1: Courageous slash- ..** **.. 100% dmg 
+	Spell2: Banner of hope- *-*-*-* +moralka vsetkym +willpower boost(2 kola)
+ 	Spell3: Shield bash- ..** **.. 50%dmg, stun(90%)  
+	Spell4: Chaaarge- **.. *... posuva na prvu poz. 100% dmg
+	Spell5: Valiant assault- ..** *-*.. 60%, jemu +moralka 
+	Spell6: Brace- **** blok 1 dalsi attacc, dmg reduction 2 kola(20%)  
+	Spell7: Guard- ..** preorientuje 1 dalsi attac z targeted ally na seba(dmg reduction aj pocet blocked attac scaluje s levelom spellu) 
+	Spell8: Lunge- ...* ..** 75%dmg 
+	Spell9: War cry- **** +max health nono heal(2 kola) +littel self willpower
+ 
+priest 
+	Spell1:
+	Spell2:
+	Spell3:
+	Spell4:
+	Spell5:
+	Spell6:
+	Spell7:
+	Spell8:
+	Spell9:
+          
+thief    
+	Spell1: Assasinate- **** **** 1 use za fight 100%dmg, za kazde 1% en missing health +3%dmg, 1 back   
+	Spell2: Poison bomb- .*** .*-*. 10%dmg+ poison(100%dmg)
+	Spell3: Smoke bomb- .*** *-*-*-* 3 uses za fight, blind(acc -60%)
+	Spell4: Antidote- **** hocikomu -poison, littel heal, attackspeed buff
+	Spell5: Shadow strike- .**. **.. 50%dmg, if stealth +80% 
+	Spell6: To the shadows- ***. stealth 2 turns
+	Spell7: Cheap shot- .*** **.. 50%dmg +bleed
+	Spell8: Throwing knife- **.. ..** 90%dmg
+	Spell9: Stolen goods- .**. **** random enemy hit, 2 random debuffy 
+
+hunter 
+	Spell1: Wood cutter ..** **.. 100%dmg
+	Spell2: Cornered animal ..** **.. 35%dmg, riposte 2 attacks
+	Spell3: Throw- ..** **** random enemy hit 90%dmg
+	Spell4: Hide- ..** 2 back, stealth 
+	Spell5: Peekaboo- **.. **.. 2 front 30%dmg, if stealth, or enemy blind/stun +80%dmg
+	Spell6: Net throw- **.. **.. stun(95%)
+	Spell7: Vital shot- **.. .*** 20%dmg, bleed
+	Spell8: Single shot- **.. ..** 110%dmg
+	Spell9: Nature's gift- ****  -blead, littel heal, littel morale
