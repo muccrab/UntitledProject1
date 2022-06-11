@@ -8,9 +8,25 @@ public class MainMenu : MonoBehaviour
 {
     private AudioSource ButtonSound;
 
+    public GameObject MenuSaves;
+    public GameObject  Menu;
     private void Start()
     {
         ButtonSound = GetComponent<AudioSource>();
+    }
+    private void Update()
+    {
+        
+        if (/*Saves Loaded*/false)
+        {
+            Menu.active = false;
+            MenuSaves.active = true;
+        }
+        else
+        {
+           Menu.active = true;
+           MenuSaves.active = false; 
+        }
     }
     public void StartGame()
     {
