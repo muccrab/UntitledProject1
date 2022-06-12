@@ -65,5 +65,16 @@ public static class SaveLoad
         }
         return false;
     }
+    public static bool filesExist(string path) //Needed to know if sus files exist in a folder
+    {
+        path = Application.persistentDataPath + path;
+        DirectoryInfo d = new DirectoryInfo(path);
+        FileInfo[] Files = d.GetFiles("*.sus"); //Getting sus files
+        if (Files.Length <= 0)
+        {
+            return false;
+        }
+        return true;
+    }
 
 }

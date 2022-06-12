@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     private void Update()
     {
         
-        if (/*Saves Loaded*/true)
+        if (SaveLoad.filesExist(""))
         {
             Menu.SetActive(false);
             MenuSaves.SetActive(true);
@@ -28,8 +28,9 @@ public class MainMenu : MonoBehaviour
            MenuSaves.SetActive(false);
         }
     }
-    public void StartGame()
+    public void NewGame()
     {
+        
         SceneManager.LoadScene("Lvl1"); //zatial to da do Pause menu, ale tu sa to este pomeni aj zo save-ami
     }
 
