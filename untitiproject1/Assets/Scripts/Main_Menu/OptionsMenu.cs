@@ -9,11 +9,11 @@ public class OptionsMenu : MonoBehaviour
 
     public void music_volume(float music)//nastavenie zvuky cez slider pre musicu
     {
-        audioMixer.SetFloat("volume", music);
+        audioMixer.SetFloat("Music", music);
     }
 
     public void sfx_volume(float sfx)//nastavenie zvuky cez slider pre fx zvuky
     {
-        audioMixer.SetFloat("sfx", sfx);
+        audioMixer.SetFloat("SFX", sfx);
     }
 }

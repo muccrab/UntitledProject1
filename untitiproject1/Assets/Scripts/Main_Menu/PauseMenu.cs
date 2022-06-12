@@ -5,42 +5,39 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    /*public static bool pauznuta_hra = false;
-    public bool info_menu_on = true;
-    public GameObject Pause_menu_UI;
-    
-    void Update()
-    {
-        if (!info_menu_on)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (pauznuta_hra)
-                {
-                    Zapnut();
-                }
-                else
-                {
-                    Pauznut();
-                }
-            }
-        }
-    }//Update
+    public GameObject PauseMenuUI;
+    private bool gameStopped;
 
-    public void Zapnut()
+    public void ContinueButton()//Unpauses game, closes pause menu
     {
-        Pause_menu_UI.SetActive(false);
+        PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        pauznuta_hra = false;
+        gameStopped = false;
+    }
+    
+    public void PauseButton()//pauses game, opens or closes pause menu depending if game is stopped or not
+    {
+            if (gameStopped)
+            {
+                PauseMenuUI.SetActive(false);
+                Time.timeScale = 1f;
+                gameStopped = false;
+            }
+            else
+            {
+                PauseMenuUI.SetActive(true);
+                Time.timeScale = 0f;
+                gameStopped = true;
+            }
     }
 
-    void Pauznut()
+    public void ExitButton()
     {
-        Pause_menu_UI.SetActive(true);
-        Time.timeScale = 0f;
-        pauznuta_hra = true;
+        Application.Quit();//v unity este nefunguje az v legit hre
+        Debug.Log("Vypnute secko");
     }
-    */
+
+    
     public void Menu()
     {
         Time.timeScale = 1f;
