@@ -2,18 +2,23 @@
 .-nemoge
 -- spojeny
 paladin
-	Spell1: Aura-   war
-			death
-			life
-			peace 
-	Spell2:	Hand-
-	Spell3: Strike-
-	Spell4: Ozembuch-
-	Spell5: 
-	Spell6:
-	Spell7:
-	Spell8:
-	Spell9: 
+	Spell1: Aura-   war- **** dmg++ vsetkym 3kola  
+			death- **** *-*-*-* --enemy def
+			life- **** mini heal vsetkym
+			peace- **** mainke vsetky resisty vsetkym
+
+	Spell2:	Hand-   war- **** **** cim menej hp tym viac dmg(execute)
+			death- **** **** bleed+ poison
+			life- **** single target heal+ moralka(podla lvl odstranuje bleed...)
+			peace- **** **** stun 
+
+	Spell3: Devoted strike- ..** ***. 100%dmg 
+	Spell4: Quake- ..** *-*.. 60%dmg 100% reduce attackspeed
+	Spell5: Smite- .*** ***. 80% +40%dmg to unholy	
+	Spell6: Cleanse- **** -poison, -debuffs 
+	Spell7: Blinding light- **** *-*-*-* blind, dexterity debuff //stealth  
+	Spell8: Dauntless defence- **** self armor++
+
 
 Marksman
 	Spell1: Arrow storm- **.. .*-*-* aoe dmg 50%(no bobnus)
@@ -27,15 +32,15 @@ Marksman
 	Spell9: Trap **** iba na seba, block next melee attac, 45%dmg, attackspeed debuff
 	       
 Shield Maiden
-	Spell1:
-	Spell2:
-	Spell3:
-	Spell4:
-	Spell5:
-	Spell6:
-	Spell7:
-	Spell8:
-	Spell9: 
+	Spell1: Shield wall- ...* blokne dalsi ranged attac pre vsetkych(80%dmg reduc)
+	Spell2: Guard- ..** 2uses per fight sanca na 3 utoky blok(50%) riposte 
+	Spell3: Shield push- ...* **.. 40%dmg, move 1 back
+	Spell4: Hold the line- **.. posuva na 1. poziciu+ dmg reduc(20%) 1 turn
+	Spell5: Stab- ..** 10%dmg +low bleed
+	Spell6: Iron maiden- **** dmg reduc(20%) preorientuje 2 dalsie attac z targeted ally na seba
+	Spell7: Spear swing- ..** *-*.. 70%dmg
+	Spell8: Victorious outcry- **** *-*-*-* attackspeed debuff+ accuracy debuff+ dodge debuff
+	Spell9: Guard break- ..** **** 30%dmg +cancel all defence buffs 
 
       
 Beast master
@@ -72,20 +77,34 @@ knight
 	Spell4: Chaaarge- **.. *... posuva na prvu poz. 100% dmg
 	Spell5: Valiant assault- ..** *-*.. 60%, jemu +moralka 
 	Spell6: Brace- **** blok 1 dalsi attacc, dmg reduction 2 kola(20%)  
-	Spell7: Guard- ..** preorientuje 1 dalsi attac z targeted ally na seba(dmg reduction aj pocet blocked attac scaluje s levelom spellu) 
+	Spell7: Iron defence- ..** preorientuje 1 dalsi attac z targeted ally na seba(dmg reduction aj pocet blocked attac scaluje s levelom spellu) 
 	Spell8: Lunge- ...* ..** 75%dmg 
 	Spell9: War cry- **** +max health nono heal(2 kola) +littel self willpower
  
 priest 
-	Spell1:
-	Spell2:
-	Spell3:
-	Spell4:
-	Spell5:
-	Spell6:
-	Spell7:
-	Spell8:
-	Spell9:
+	Spell1: war- **** **** 125%dmg
+		peace- **** ..*-* stun
+		death- **** *-*.. bleed
+		life- **** single target heal
+
+	Spell2: war- **** .*-*-* 80%dmg
+		peace- 2 uses per fight *-*-*-* *-*-*-* kompletny cleanse, vsetky buffy, debuffy prec
+		death- **** ..*-* poison 
+		life- *-*-*-* heal
+
+	Spell3: war- **** self+ terget ally accuracy+crit+dmg buff
+		peace- **** targeted ally buffy: vsetky resisty sveta
+		death- 1 use per fight **** **** ignore all armor, random dmg 80%-800%
+		life- **** single target cleanse negativne eff
+
+	Spell4: war- **** **.. self willpower buff 3kola sanca(90%) ze targeted enemy udrie felaka
+		peace- **** targeted ally heal +morale
+		death- **** .*-*. -50%resistov(2 kola), 40%dmg
+		life- **** targeted ally armor buff(2 kola)
+	Spell5: war- **** ..** enemy 2 forv, defence debuff, 50%dmg
+		peace- **** **.. enemy 2 back, blind, self poison heal, self debuff resist
+		death- **** **** 110%dmg +dmg buff
+		life- **** self heal 50%dmg
           
 thief    
 	Spell1: Assasinate- **** **** 1 use za fight 100%dmg, za kazde 1% en missing health +3%dmg, 1 back   
