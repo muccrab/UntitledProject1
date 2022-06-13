@@ -1,18 +1,216 @@
 CHARACTERS:
 
-  - paladin
-  - rangecavo       
-  - shieldslut      
-  - retazcavo       
-  - berserker       
-  - knight
-  - priest          
-  - thief           
-  - hunter  
 ----------------------------------------------------------------
-Role:
+Role: Paladin
 Religion:
 Weapon:
+
+  Stats:
+
+    Strenght:
+    Health:
+    Defence(Armor):
+    Dexterity:
+    Willpower:
+    Devotion:
+    Attack speed:
+    
+    
+    
+Ability:
+  1.  
+  2. 
+  3. 
+  4. 
+  5. 
+  6. 
+  7. 
+ ----------------------------------------------------------------
+ ----------------------------------------------------------------
+Role: Marksman
+Religion: ALL
+Weapon: Bow, Crossbow
+
+  Stats:
+
+    Strenght:
+    Health:
+    Defence(Armor):
+    Dexterity:
+    Willpower:
+    Devotion:
+    Attack speed:
+    
+    
+    
+Ability:
+  1.  
+  2. 
+  3. 
+  4. 
+  5. 
+  6. 
+  7. 
+ ----------------------------------------------------------------
+ ----------------------------------------------------------------
+Role: Shield Maiden
+Religion:
+Weapon: UltraShield, Shield 
+
+  Stats:
+
+    Strenght:
+    Health:
+    Defence(Armor):
+    Dexterity:
+    Willpower:
+    Devotion:
+    Attack speed:
+    
+    
+    
+Ability:
+  1.  
+  2. 
+  3. 
+  4. 
+  5. 
+  6. 
+  7. 
+ ----------------------------------------------------------------
+ ----------------------------------------------------------------
+Role: Beast Master
+Religion: ALL
+Weapon: Chanis
+
+  Stats:
+
+    Strenght:
+    Health:
+    Defence(Armor):
+    Dexterity:
+    Willpower:
+    Devotion:
+    Attack speed:
+    
+    
+    
+Ability:
+  1.  
+  2. 
+  3. 
+  4. 
+  5. 
+  6. 
+  7. 
+ ----------------------------------------------------------------
+ ----------------------------------------------------------------
+Role: Berserker
+Religion: ALL -peace
+Weapon: 2x Axe/Mace
+
+  Stats:
+
+    Strenght:
+    Health:
+    Defence(Armor):
+    Dexterity:
+    Willpower:
+    Devotion:
+    Attack speed:
+    
+    
+    
+Ability:
+  1.  
+  2. 
+  3. 
+  4. 
+  5. 
+  6. 
+  7. 
+ ----------------------------------------------------------------
+ ----------------------------------------------------------------
+Role: Knight
+Religion: ALL
+Weapon: Sword
+
+  Stats:
+
+    Strenght:
+    Health:
+    Defence(Armor):
+    Dexterity:
+    Willpower:
+    Devotion:
+    Attack speed:
+    
+    
+    
+Ability:
+  1.  
+  2. 
+  3. 
+  4. 
+  5. 
+  6. 
+  7. 
+ ----------------------------------------------------------------
+ ----------------------------------------------------------------
+Role: Priest
+Religion: ALL -atheist
+Weapon: Staff
+
+  Stats:
+
+    Strenght:
+    Health:
+    Defence(Armor):
+    Dexterity:
+    Willpower:
+    Devotion:
+    Attack speed:
+    
+    
+    
+Ability:
+  1.  
+  2. 
+  3. 
+  4. 
+  5. 
+  6. 
+  7. 
+ ----------------------------------------------------------------
+ ----------------------------------------------------------------
+Role: Thief
+Religion: Atheist
+Weapon: Dagger
+
+  Stats:
+    Strenght:
+    Health:
+    Defence(Armor):
+    Dexterity:
+    Willpower:
+    Devotion:
+    Attack speed:
+    
+    
+    
+Ability:
+  1.  
+  2. 
+  3. 
+  4. 
+  5. 
+  6. 
+  7. 
+ ----------------------------------------------------------------
+ ----------------------------------------------------------------
+Role: Hunter
+Religion: ALL
+Weapon: Bow/Dagger
 
   Stats:
     Strenght:
@@ -94,3 +292,15 @@ WEAPONS:
   Shield
   UltraShield
   Chains
+  
+EFFECTS:
+  Bleed - stupa kolom
+  Poison - klesa kolom
+  Stun - cant do shit 1 round
+  Blind - miss chance ++
+  Armor reduction - armor--
+  Damage reduction - dmg --
+  Heal - h e a l X D
+
+
+
