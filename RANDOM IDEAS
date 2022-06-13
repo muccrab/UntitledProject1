@@ -2,18 +2,18 @@ CHARACTERS:
 
 ----------------------------------------------------------------
 Role: Paladin
-Religion:
-Weapon:
+Religion: ALL -atheist
+Weapon: shield, mace
 
   Stats:
 
-    Strenght:
-    Health:
-    Defence(Armor):
-    Dexterity:
-    Willpower:
-    Devotion:
-    Attack speed:
+    Strenght: 
+    Health: 
+    Defence(Armor): 
+    Dexterity: 
+    Willpower: 
+    Devotion: 
+    Attack speed: 
     
     
     
@@ -54,8 +54,8 @@ Ability:
  ----------------------------------------------------------------
  ----------------------------------------------------------------
 Role: Shield Maiden
-Religion:
-Weapon: UltraShield, Shield 
+Religion: ALL
+Weapon: UltraShield, Shield, Spear 
 
   Stats:
 
@@ -80,8 +80,8 @@ Ability:
  ----------------------------------------------------------------
  ----------------------------------------------------------------
 Role: Beast Master
-Religion: ALL
-Weapon: Chanis
+Religion: ALL -peace
+Weapon: Chains
 
   Stats:
 
@@ -106,7 +106,7 @@ Ability:
  ----------------------------------------------------------------
  ----------------------------------------------------------------
 Role: Berserker
-Religion: ALL -peace
+Religion: ALL -peace -life
 Weapon: 2x Axe/Mace
 
   Stats:
@@ -132,8 +132,8 @@ Ability:
  ----------------------------------------------------------------
  ----------------------------------------------------------------
 Role: Knight
-Religion: ALL
-Weapon: Sword
+Religion: ALL -atheist
+Weapon: Sword, Shield
 
   Stats:
 
@@ -210,7 +210,7 @@ Ability:
  ----------------------------------------------------------------
 Role: Hunter
 Religion: ALL
-Weapon: Bow/Dagger
+Weapon: Bow/Sword
 
   Stats:
     Strenght:
@@ -259,6 +259,8 @@ DEDINA:
   Hospital - cures, 
   Armory - Armor/Weapons
   
+  Shop - 
+  
   Tavern - stress- <- neveriaci
   Church - stress- <- veriaci
   
@@ -301,6 +303,11 @@ EFFECTS:
   Armor reduction - armor--
   Damage reduction - dmg --
   Heal - h e a l X D
+  Attack speed slow - attckspeed--
+  Morality decrease - 
+  Stealth - 
+  Willpower -  
+  
 
 
 
