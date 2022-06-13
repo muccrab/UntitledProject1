@@ -7,15 +7,12 @@ Weapon: shield, mace
 
   Stats:
 
-    Strenght: 
-    Health: 
-    Defence(Armor): 
-    Dexterity: 
-    Willpower: 
-    Devotion: 
-    Attack speed: 
-    
-    
+    Strenght: 3
+    Health: 10
+    Defence(Armor): 5
+    Dexterity: 3
+    Willpower: 5-10
+    Attack speed: 5
     
 Ability:
   1.  
@@ -33,13 +30,12 @@ Weapon: Bow, Crossbow
 
   Stats:
 
-    Strenght:
-    Health:
-    Defence(Armor):
-    Dexterity:
-    Willpower:
-    Devotion:
-    Attack speed:
+    Strenght: 10
+    Health: 3
+    Defence(Armor): 3
+    Dexterity: 7
+    Willpower: 2-6
+    Attack speed: 9
     
     
     
@@ -59,14 +55,12 @@ Weapon: UltraShield, Shield, Spear
 
   Stats:
 
-    Strenght:
-    Health:
-    Defence(Armor):
-    Dexterity:
-    Willpower:
-    Devotion:
-    Attack speed:
-    
+    Strenght: 2
+    Health: 6
+    Defence(Armor): 10
+    Dexterity: 2
+    Willpower: 7-10
+    Attack speed: 1    
     
     
 Ability:
@@ -85,15 +79,12 @@ Weapon: Chains
 
   Stats:
 
-    Strenght:
-    Health:
-    Defence(Armor):
-    Dexterity:
-    Willpower:
-    Devotion:
-    Attack speed:
-    
-    
+    Strenght: 8
+    Health: 6
+    Defence(Armor): 4
+    Dexterity: 5
+    Willpower: 7-9
+    Attack speed: 6
     
 Ability:
   1.  
@@ -111,15 +102,12 @@ Weapon: 2x Axe/Mace
 
   Stats:
 
-    Strenght:
-    Health:
-    Defence(Armor):
-    Dexterity:
-    Willpower:
-    Devotion:
-    Attack speed:
-    
-    
+    Strenght: 5 (scales - full rage double.5)
+    Health: 8
+    Defence(Armor): 3 (scales - full rage double.5)
+    Dexterity: 4
+    Willpower: 1-10 
+    Attack speed: 7
     
 Ability:
   1.  
@@ -137,14 +125,12 @@ Weapon: Sword, Shield
 
   Stats:
 
-    Strenght:
-    Health:
-    Defence(Armor):
-    Dexterity:
-    Willpower:
-    Devotion:
-    Attack speed:
-    
+    Strenght: 4
+    Health: 7
+    Defence(Armor): 8
+    Dexterity: 3
+    Willpower: 5-8
+    Attack speed: 5
     
     
 Ability:
@@ -163,14 +149,12 @@ Weapon: Staff
 
   Stats:
 
-    Strenght:
-    Health:
-    Defence(Armor):
-    Dexterity:
-    Willpower:
-    Devotion:
-    Attack speed:
-    
+    Strenght: 4 - higher religion buffs
+    Health: 3
+    Defence(Armor): 1
+    Dexterity: 3
+    Willpower: 1-10
+    Attack speed: 2
     
     
 Ability:
@@ -188,15 +172,12 @@ Religion: Atheist
 Weapon: Dagger
 
   Stats:
-    Strenght:
-    Health:
-    Defence(Armor):
-    Dexterity:
-    Willpower:
-    Devotion:
-    Attack speed:
-    
-    
+    Strenght: 6
+    Health: 3
+    Defence(Armor): 1 
+    Dexterity: 10
+    Willpower: 1-5
+    Attack speed: 10
     
 Ability:
   1.  
@@ -213,14 +194,12 @@ Religion: ALL
 Weapon: Bow/Sword
 
   Stats:
-    Strenght:
-    Health:
-    Defence(Armor):
-    Dexterity:
-    Willpower:
-    Devotion:
-    
-    
+    Strenght: 7
+    Health: 5
+    Defence(Armor): 4 
+    Dexterity: 5
+    Willpower: 3-7
+    Attack speed: 7
     
 Ability:
   1.  
