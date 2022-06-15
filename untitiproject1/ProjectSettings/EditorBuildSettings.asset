@@ -6,6 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+    path: Assets/Scenes/MenuScene.unity
+    guid: a80f2f036a6fd364aa13f8f8a3571722
+  - enabled: 1
+    path: Assets/Scenes/MenuDedina.unity
+    guid: b7be8a2922197054da3e9268bb367253
+  - enabled: 1
+    path: Assets/Scenes/Lvl1.unity
+    guid: 8556cea879617d84397022037ac97599
+  m_configObjects:
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 5b4868a4a7212834691f364d7d3e55ea, type: 2}
+    enabled: {fileID: 0}
+    guid: {fileID: 0}
+    path: {fileID: 0}
