@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CharacterGenerator : MonoBehaviour
 {
+    //*********************************************************************************************************************************************************************
     const string Hunter = "Hunter";
     const string Knight = "Knight";
     const string Thief = "Thief";
@@ -13,7 +14,10 @@ public class CharacterGenerator : MonoBehaviour
     const string Berserker = "Berserker";
     const string Priest = "Priest";
     const string BeastMaster = "BeastMaster";
-    const string Maiden = "Maiden";
+    const string Maiden = "Maiden";                                                                                     // Konstanty pre nazvy class jednotlive
+    //*********************************************************************************************************************************************************************
+
+    //*********************************************************************************************************************************************************************
 
     public struct Stats
     {
@@ -26,7 +30,11 @@ public class CharacterGenerator : MonoBehaviour
         public int morale;
         public int minDmg;
         public int maxDmg;
-    }
+    }                                                                                                                   // Struktura vsetkych statov od ktorych zavisi kombat
+    //*********************************************************************************************************************************************************************
+
+    //*********************************************************************************************************************************************************************
+
     public Stats[] HunterStats = new Stats[2];
     public Stats[] WarriorStats = new Stats[2];
     public Stats[] PriestStats = new Stats[2];
@@ -36,25 +44,46 @@ public class CharacterGenerator : MonoBehaviour
     public Stats[] MarksmanStats = new Stats[2];
     public Stats[] BMStats = new Stats[2];
     public Stats[] PaladinStats = new Stats[2];
-    //treba enum
-    static string[] Classes = { "Hunter", "Knight", "Priest", "Maiden", "Marksman", "BeastMaster", "Berserker", "Paladin", "Thief" };
-    public Sprite[] CharImg;
-    public GameObject[] Chars;
+    //treba enum                                                                                                          // pooli statov pre jednotlive classy
+    //*********************************************************************************************************************************************************************
 
-    public void GenerateChar()
+
+    public static readonly string[] Classes = { "Hunter", "Knight", "Priest", "Maiden", "Marksman", "BeastMaster", "Berserker", "Paladin", "Thief" };                       // Konstatny nazvy class v poli
+    public Sprite[] CharImg;                                                                                                                                 // Pole ikoniek postav ( musi byt rovnake poradie ako su classy )
+    public GameObject[] Chars;                                                                                                                                              // Pole characterov ktore ma generovat
+
+    public void GenerateChar()                                                                                                                                              // funckia ktora vygeneruje novy character
     {
-        setUp();
-        int Rnd = Random.Range(0, (Classes.Length));
+        setUp();                                                                                                //  Nastav pool statov                                                                                                             
 
+    //*********************************************************************************************************************************************************************
         for (int i = 0; i < Chars.Length; i++)
         {
-            Chars[i].GetComponent<Character>().Class = Classes[Rnd];
-            Chars[i].GetComponent<Character>().CharImg = CharImg[Rnd];
-            Chars[i].GetComponent<Character>().SetName();
-            Chars[i].GetComponent<Image>().sprite = Chars[i].GetComponent<Character>().CharImg;
+            int Rnd = Random.Range(0, (Classes.Length));                                                        // Nahodne cislo od 0 po 8 ( dlzka pola classes ) - Je to index
+
+            Chars[i].GetComponent<Character>().Class = Classes[Rnd];                                            // Podla nahodneho cisla mu prirad classu z poolu classes
+            Chars[i].GetComponent<Character>().CharImg = CharImg[Rnd];                                          // Prirad mu prislusny Obrazok ( obrazky musia byt v rovnakom poradi ako je pool classov )
+            Chars[i].GetComponent<Character>().SetName();                                                       // Vygeneruje mu nahodne meno podla classi
+            Chars[i].GetComponent<Character>().SetReligion();                                                   // Vygeneruje mu nahodny religion podla classy 
+            Chars[i].GetComponent<Image>().sprite = Chars[i].GetComponent<Character>().CharImg;                 // Ten isty obrazok da ikonke
+
+            for (int y = 0; y < 9; y++)
+            {
+                Chars[i].GetComponent<Character>().UnlockedSpells[y] = false;                                   // odstranit - toto je pre testovacie ucely :-)
+            }
+            for (int x = 0; x < 5; x++)                                                                         // For loop na odomknutie 5 nahodnych spellov
+            {
+                do
+                {
+                    Rnd = Random.Range(0, 9);
+                }
+                while (Chars[i].GetComponent<Character>().UnlockedSpells[Rnd]);                                 // Generuj nahodne cislo dokym nenajde nejake ktore uz nieje odomknute
+                Chars[i].GetComponent<Character>().UnlockSpell(Rnd);                                            // Odomkni spell na danom indexe
 
 
-            switch (Chars[i].GetComponent<Character>().Class)
+            }
+
+            switch (Chars[i].GetComponent<Character>().Class)                                                   // Podla classy prirad nahodne staty z daneho poolu                                            
             {
                 case Knight:
                     Rnd = Random.Range(0, WarriorStats.Length);
@@ -97,15 +126,16 @@ public class CharacterGenerator : MonoBehaviour
                     break;
             }
         }
+                                                                                                                                        // Koniec for loopu pre vygenerovanie vsetkych novych postav
+        //*********************************************************************************************************************************************************************
     }
-        
 
-       
 
-    public void setStats(Stats a, int who) 
+
+
+    public void setStats(Stats a, int who)                                                                                      // Nastavi staty podla struktury, ktoru posleme do parametru characteru z pola Chars
     {
-        if (who == 1)
-        {
+       
             Chars[who].GetComponent<Character>().str = a.str;
             Chars[who].GetComponent<Character>().dex = a.dex;
             Chars[who].GetComponent<Character>().health = a.health;
@@ -115,22 +145,73 @@ public class CharacterGenerator : MonoBehaviour
             Chars[who].GetComponent<Character>().morale = a.morale;
             Chars[who].GetComponent<Character>().minDmg = a.minDmg;
             Chars[who].GetComponent<Character>().maxDmg = a.maxDmg;
-        }
-        else if (who == 2) 
-        {
-            Chars[who].GetComponent<Character>().str = a.str;
-            Chars[who].GetComponent<Character>().dex = a.dex;
-            Chars[who].GetComponent<Character>().health = a.health;
-            Chars[who].GetComponent<Character>().def = a.def;
-            Chars[who].GetComponent<Character>().attackS = a.attackS;
-            Chars[who].GetComponent<Character>().willP = a.willP;
-            Chars[who].GetComponent<Character>().morale = a.morale;
-            Chars[who].GetComponent<Character>().minDmg = a.minDmg;
-            Chars[who].GetComponent<Character>().maxDmg = a.maxDmg;
-        }
+      
     }
 
-    private void setUp()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private void setUp()                                                                                // Setup poolu statov pre vsetky postavy
     {
         HunterStats[0].str = 1;
         HunterStats[0].dex = 1;

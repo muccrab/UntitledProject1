@@ -5,17 +5,25 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
+    //*********************************************************************************************************************************************************************
+    public readonly string[] BMNames = { "Bobo", "Nidungus", "Giraldus", "Dimarus", "Sarilo" };
+    public readonly string[] KnightNames = { "Raulf", "Wultgar", "Sewal", "Maneld", "Alienor" };
+    public readonly string[] MarksmanNames = { "Ebrulf", "Grimold", "Kaenas", "Noemon", "Quintin" };
+    public readonly string[] ThiefNames = { "Rayner", "Selle", "Theon", "Vane", "Zeno" };
+    public readonly string[] PaladinNames = { "Cleisthenes", "Damasithymos", "Fraomanius", "Palladius", "Julius" };
+    public readonly string[] PriestNames = { "Helena", "Nyrie", "Nysa", "Gracia", "Aldith" };
+    public readonly string[] BerserkerNames = { "Ragnar", "Olaf", "Bjorn", "Ulf", "Torsten" };
+    public readonly string[] HunterNames = { "Nihe", "Odger", "Uwen", "Gahiji", "Phorbas" };
+    public readonly string[] MaidenNames = { "Mathilda", "Hylde", "Pylia", "Silke", "Frida" };                                                                              // konstanty pre mena jednotlivych postav
+    //*********************************************************************************************************************************************************************
 
-    public readonly string[] BMNames = { "German", "Spanish", "Corrects", "Wrongs", "Nicadasd" };
-    public readonly string[] KnightNames = { "German", "Spanish", "Corrects", "Wrongs", "Nicadasd" };
-    public readonly string[] MarksmanNames = { "German", "Spanish", "Corrects", "Wrongs", "Nicadasd" };
-    public readonly string[] ThiefNames = { "German", "Spanish", "Corrects", "Wrongs", "Nicadasd" };
-    public readonly string[] PaladinNames = { "German", "Spanish", "Corrects", "Wrongs", "Nicadasd" };
-    public readonly string[] PriestNames = { "German", "Spanish", "Corrects", "Wrongs", "Nicadasd" };
-    public readonly string[] BerserkerNames = { "German", "Spanish", "Corrects", "Wrongs", "Nicadasd" };
-    public readonly string[] HunterNames = { "German", "Spanish", "Corrects", "Wrongs", "Nicadasd" };
-    public readonly string[] MaidenNames = { "German", "Spanish", "Corrects", "Wrongs", "Nicadasd" };
 
+    public readonly string[] Religions = { "Harmony", "Dark", "Holy", "War", "None" };                                                  // konstanty pre viery
+
+    public bool[] UnlockedSpells = {false, false, false, false, false, false, false, false, false};                                     // Pole odomknutych spellov - ak index je true tak spell na tom poradi je odomknuty
+
+
+    //*********************************************************************************************************************************************************************
     const string Hunter = "Hunter";
     const string Knight = "Knight";
     const string Thief = "Thief";
@@ -24,8 +32,10 @@ public class Character : MonoBehaviour
     const string Berserker = "Berserker";
     const string Priest = "Priest";
     const string BeastMaster = "BeastMaster";
-    const string Maiden = "Maiden";
+    const string Maiden = "Maiden";                                                                                                     // konstanty nazvy class
+    //*********************************************************************************************************************************************************************
 
+    //*********************************************************************************************************************************************************************
     public int str;
     public int dex;
     public int health;
@@ -34,15 +44,82 @@ public class Character : MonoBehaviour
     public int willP;
     public int morale;
     public int minDmg;
-    public int maxDmg;
+    public int maxDmg;                                                                                                                  // Staty a zakladne logicke parametre
+    //*********************************************************************************************************************************************************************
 
+
+
+    //*********************************************************************************************************************************************************************
     public string name;
     public string Class;
     public string religion;
-    public Sprite CharImg;
+    public Sprite CharImg;                                                                                                              // Meno, Trieda. Vierovyznanie a Obrazok postavy
+    //*********************************************************************************************************************************************************************
+
+    public void UnlockSpell(int i)                                                                                                          // Unlocne spell na pozicie parametre ( je to pole takze prve je 0 )
+    {
+        UnlockedSpells[i] = true;
+    }
 
 
-    public void SetName()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void SetName()                                                                                   // Nahodne meno z poolu mien pre kazdy postavu zvlast
     {
         int Rnd = Random.Range(0, 5);
         switch (Class)
@@ -78,8 +155,53 @@ public class Character : MonoBehaviour
         }
         
     }
-        
 
-  
+    public void SetReligion()                                                                                       // Nastavi nahodnu vieru pre kazdu postavu podla ich moznych vierovyznani
+    {
+        int Rnd;
+        switch (Class)
+        {
+            case Knight:
+                Rnd = Random.Range(0, 5);                                                                           // All religions
+                religion = Religions[Rnd];
+                break;
+            case Hunter:
+                Rnd = Random.Range(0, 5);
+                religion = Religions[Rnd];
+                break;
+            case Priest:
+                Rnd = Random.Range(0, 4);                                                                           // All - Atheist
+                religion = Religions[Rnd];
+                break;
+            case Maiden:
+                Rnd = Random.Range(0, 5);
+                religion = Religions[Rnd];
+                break;
+            case Berserker:
+                Rnd = Random.Range(1, 5);                                                                           // All - Harmony
+                religion = Religions[Rnd];
+                break;
+            case Paladin:
+                Rnd = Random.Range(0, 4);
+                religion = Religions[Rnd];
+                break;
+            case Marksman:
+                Rnd = Random.Range(0, 5);
+                religion = Religions[Rnd];
+                break;
+            case BeastMaster:
+                Rnd = Random.Range(0, 5);
+                religion = Religions[Rnd];
+                break;
+            case Thief:
+                religion = "None";                                                                                  // None
+                break;
+
+        }
+
+    }
+
+
+
 
 }
