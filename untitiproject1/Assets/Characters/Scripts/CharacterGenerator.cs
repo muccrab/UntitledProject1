@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class CharacterGenerator : MonoBehaviour
 {
+    const string Hunter = "Hunter";
+    const string Knight = "Knight";
+    const string Thief = "Thief";
+    const string Marksman = "Marksman";
+    const string Paladin = "Paladin";
+    const string Berserker = "Berserker";
+    const string Priest = "Priest";
+    const string BeastMaster = "BeastMaster";
+    const string Maiden = "Maiden";
+
     public struct Stats
     {
         public int str;
@@ -21,98 +31,102 @@ public class CharacterGenerator : MonoBehaviour
     public Stats[] WarriorStats = new Stats[2];
     public Stats[] PriestStats = new Stats[2];
     public Stats[] MaidenStats = new Stats[2];
+    public Stats[] BerserkerStats = new Stats[2];
+    public Stats[] ThiefStats = new Stats[2];
+    public Stats[] MarksmanStats = new Stats[2];
+    public Stats[] BMStats = new Stats[2];
+    public Stats[] PaladinStats = new Stats[2];
     //treba enum
-    static string[] Classes = { "Hunter", "Warrior", "Priest", "Maiden" };
+    static string[] Classes = { "Hunter", "Knight", "Priest", "Maiden", "Marksman", "BeastMaster", "Berserker", "Paladin", "Thief" };
     public Sprite[] CharImg;
-    public GameObject Char1;
-    public GameObject Char2;
+    public GameObject[] Chars;
+
     public void GenerateChar()
     {
         setUp();
         int Rnd = Random.Range(0, (Classes.Length));
-       
-        Char1.GetComponent<Character>().Class = Classes[Rnd];
-        Char1.GetComponent<Character>().CharImg = CharImg[Rnd];
-        Char1.GetComponent<Image>().sprite = Char1.GetComponent<Character>().CharImg;
 
-        Rnd = Random.Range(0, (Classes.Length));
-        
-        Char2.GetComponent<Character>().Class = Classes[Rnd];
-        Char2.GetComponent<Character>().CharImg = CharImg[Rnd];
-        Char2.GetComponent<Image>().sprite = Char2.GetComponent<Character>().CharImg;
-
-        switch (Char1.GetComponent<Character>().Class) 
+        for (int i = 0; i < Chars.Length; i++)
         {
-            case "Warrior" :
-                Rnd = Random.Range(0, WarriorStats.Length);
-                setStats(WarriorStats[Rnd], 1);
-                break;
+            Chars[i].GetComponent<Character>().Class = Classes[Rnd];
+            Chars[i].GetComponent<Character>().CharImg = CharImg[Rnd];
+            Chars[i].GetComponent<Character>().SetName();
+            Chars[i].GetComponent<Image>().sprite = Chars[i].GetComponent<Character>().CharImg;
 
-            case "Hunter":
-                Rnd = Random.Range(0, HunterStats.Length);
-                setStats(HunterStats[Rnd], 1);
-                break;
 
-            case "Priest":
-                Rnd = Random.Range(0, PriestStats.Length);
-                setStats(PriestStats[Rnd], 1);
-                break;
+            switch (Chars[i].GetComponent<Character>().Class)
+            {
+                case Knight:
+                    Rnd = Random.Range(0, WarriorStats.Length);
+                    setStats(WarriorStats[Rnd], i);
+                    break;
 
-            case "Maiden":
-                Rnd = Random.Range(0, MaidenStats.Length);
-                setStats(MaidenStats[Rnd], 1);
-                break;
-        }
+                case Hunter:
+                    Rnd = Random.Range(0, HunterStats.Length);
+                    setStats(HunterStats[Rnd], i);
+                    break;
 
-        switch (Char2.GetComponent<Character>().Class)
-        {
-            case "Warrior":
-                Rnd = Random.Range(0, WarriorStats.Length);
-                setStats(WarriorStats[Rnd], 2);
-                break;
+                case Priest:
+                    Rnd = Random.Range(0, PriestStats.Length);
+                    setStats(PriestStats[Rnd], i);
+                    break;
 
-            case "Hunter":
-                Rnd = Random.Range(0, HunterStats.Length);
-                setStats(HunterStats[Rnd], 2);
-                break;
-
-            case "Priest":
-                Rnd = Random.Range(0, PriestStats.Length);
-                setStats(PriestStats[Rnd], 2);
-                break;
-
-            case "Maiden":
-                Rnd = Random.Range(0, MaidenStats.Length);
-                setStats(MaidenStats[Rnd], 2);
-                break;
+                case Maiden:
+                    Rnd = Random.Range(0, MaidenStats.Length);
+                    setStats(MaidenStats[Rnd], i);
+                    break;
+                case Berserker:
+                    Rnd = Random.Range(0, BerserkerStats.Length);
+                    setStats(BerserkerStats[Rnd], i);
+                    break;
+                case Paladin:
+                    Rnd = Random.Range(0, PaladinStats.Length);
+                    setStats(PaladinStats[Rnd], i);
+                    break;
+                case Marksman:
+                    Rnd = Random.Range(0, MarksmanStats.Length);
+                    setStats(MarksmanStats[Rnd], i);
+                    break;
+                case BeastMaster:
+                    Rnd = Random.Range(0, BMStats.Length);
+                    setStats(BMStats[Rnd], i);
+                    break;
+                case Thief:
+                    Rnd = Random.Range(0, ThiefStats.Length);
+                    setStats(ThiefStats[Rnd], i);
+                    break;
+            }
         }
     }
+        
+
+       
 
     public void setStats(Stats a, int who) 
     {
         if (who == 1)
         {
-            Char1.GetComponent<Character>().str = a.str;
-            Char1.GetComponent<Character>().dex = a.dex;
-            Char1.GetComponent<Character>().health = a.health;
-            Char1.GetComponent<Character>().def = a.def;
-            Char1.GetComponent<Character>().attackS = a.attackS;
-            Char1.GetComponent<Character>().willP = a.willP;
-            Char1.GetComponent<Character>().morale = a.morale;
-            Char1.GetComponent<Character>().minDmg = a.minDmg;
-            Char1.GetComponent<Character>().maxDmg = a.maxDmg;
+            Chars[who].GetComponent<Character>().str = a.str;
+            Chars[who].GetComponent<Character>().dex = a.dex;
+            Chars[who].GetComponent<Character>().health = a.health;
+            Chars[who].GetComponent<Character>().def = a.def;
+            Chars[who].GetComponent<Character>().attackS = a.attackS;
+            Chars[who].GetComponent<Character>().willP = a.willP;
+            Chars[who].GetComponent<Character>().morale = a.morale;
+            Chars[who].GetComponent<Character>().minDmg = a.minDmg;
+            Chars[who].GetComponent<Character>().maxDmg = a.maxDmg;
         }
         else if (who == 2) 
         {
-            Char2.GetComponent<Character>().str = a.str;
-            Char2.GetComponent<Character>().dex = a.dex;
-            Char2.GetComponent<Character>().health = a.health;
-            Char2.GetComponent<Character>().def = a.def;
-            Char2.GetComponent<Character>().attackS = a.attackS;
-            Char2.GetComponent<Character>().willP = a.willP;
-            Char2.GetComponent<Character>().morale = a.morale;
-            Char2.GetComponent<Character>().minDmg = a.minDmg;
-            Char2.GetComponent<Character>().maxDmg = a.maxDmg;
+            Chars[who].GetComponent<Character>().str = a.str;
+            Chars[who].GetComponent<Character>().dex = a.dex;
+            Chars[who].GetComponent<Character>().health = a.health;
+            Chars[who].GetComponent<Character>().def = a.def;
+            Chars[who].GetComponent<Character>().attackS = a.attackS;
+            Chars[who].GetComponent<Character>().willP = a.willP;
+            Chars[who].GetComponent<Character>().morale = a.morale;
+            Chars[who].GetComponent<Character>().minDmg = a.minDmg;
+            Chars[who].GetComponent<Character>().maxDmg = a.maxDmg;
         }
     }
 
@@ -197,5 +211,107 @@ public class CharacterGenerator : MonoBehaviour
         PriestStats[1].morale = 8;
         PriestStats[1].minDmg = 8;
         PriestStats[1].maxDmg = 8;
+
+        PaladinStats[0].str = 7;
+        PaladinStats[0].dex = 7;
+        PaladinStats[0].health = 7;
+        PaladinStats[0].def = 7;
+        PaladinStats[0].attackS = 7;
+        PaladinStats[0].willP = 7;
+        PaladinStats[0].morale = 7;
+        PaladinStats[0].minDmg = 7;
+        PaladinStats[0].maxDmg = 7;
+
+        PaladinStats[1].str = 8;
+        PaladinStats[1].dex = 8;
+        PaladinStats[1].health = 8;
+        PaladinStats[1].def = 8;
+        PaladinStats[1].attackS = 8;
+        PaladinStats[1].willP = 8;
+        PaladinStats[1].morale = 8;
+        PaladinStats[1].minDmg = 8;
+        PaladinStats[1].maxDmg = 8;
+
+        BMStats[0].str = 7;
+        BMStats[0].dex = 7;
+        BMStats[0].health = 7;
+        BMStats[0].def = 7;
+        BMStats[0].attackS = 7;
+        BMStats[0].willP = 7;
+        BMStats[0].morale = 7;
+        BMStats[0].minDmg = 7;
+        BMStats[0].maxDmg = 7;
+
+        BMStats[1].str = 8;
+        BMStats[1].dex = 8;
+        BMStats[1].health = 8;
+        BMStats[1].def = 8;
+        BMStats[1].attackS = 8;
+        BMStats[1].willP = 8;
+        BMStats[1].morale = 8;
+        BMStats[1].minDmg = 8;
+        BMStats[1].maxDmg = 8;
+
+        ThiefStats[0].str = 7;
+        ThiefStats[0].dex = 7;
+        ThiefStats[0].health = 7;
+        ThiefStats[0].def = 7;
+        ThiefStats[0].attackS = 7;
+        ThiefStats[0].willP = 7;
+        ThiefStats[0].morale = 7;
+        ThiefStats[0].minDmg = 7;
+        ThiefStats[0].maxDmg = 7;
+
+        ThiefStats[1].str = 8;
+        ThiefStats[1].dex = 8;
+        ThiefStats[1].health = 8;
+        ThiefStats[1].def = 8;
+        ThiefStats[1].attackS = 8;
+        ThiefStats[1].willP = 8;
+        ThiefStats[1].morale = 8;
+        ThiefStats[1].minDmg = 8;
+        ThiefStats[1].maxDmg = 8;
+
+        MarksmanStats[0].str = 7;
+        MarksmanStats[0].dex = 7;
+        MarksmanStats[0].health = 7;
+        MarksmanStats[0].def = 7;
+        MarksmanStats[0].attackS = 7;
+        MarksmanStats[0].willP = 7;
+        MarksmanStats[0].morale = 7;
+        MarksmanStats[0].minDmg = 7;
+        MarksmanStats[0].maxDmg = 7;
+
+        MarksmanStats[1].str = 8;
+        MarksmanStats[1].dex = 8;
+        MarksmanStats[1].health = 8;
+        MarksmanStats[1].def = 8;
+        MarksmanStats[1].attackS = 8;
+        MarksmanStats[1].willP = 8;
+        MarksmanStats[1].morale = 8;
+        MarksmanStats[1].minDmg = 8;
+        MarksmanStats[1].maxDmg = 8;
+
+        BerserkerStats[0].str = 7;
+        BerserkerStats[0].dex = 7;
+        BerserkerStats[0].health = 7;
+        BerserkerStats[0].def = 7;
+        BerserkerStats[0].attackS = 7;
+        BerserkerStats[0].willP = 7;
+        BerserkerStats[0].morale = 7;
+        BerserkerStats[0].minDmg = 7;
+        BerserkerStats[0].maxDmg = 7;
+
+        BerserkerStats[1].str = 8;
+        BerserkerStats[1].dex = 8;
+        BerserkerStats[1].health = 8;
+        BerserkerStats[1].def = 8;
+        BerserkerStats[1].attackS = 8;
+        BerserkerStats[1].willP = 8;
+        BerserkerStats[1].morale = 8;
+        BerserkerStats[1].minDmg = 8;
+        BerserkerStats[1].maxDmg = 8;
+
+
     }
 }
