@@ -10,40 +10,64 @@ public class KnightSpells : MonoBehaviour
     public Sprite[] spellIcons;
     public GameObject[] positions;
 
+
+    private int CurrentSpell = 0;
+
+    private bool enemyFound = false;
+
     private void Update()
     {
-        
-       if(positions[0].GetComponentInChildren<BoxCollider2D>().bounds.Contains(Input.mousePosition))
+        if (CurrentSpell == 1)
         {
-            Debug.Log("negro v kleci");
+            int pos;
+            pos = GetEnemy();
+            if (enemyFound)
+            {
+                spell1use(pos);
+                enemyFound = false;
+                CurrentSpell = 0;
+            }
+            
+
+
         }
+        
+        
     }
 
 
     public void spell1()
     {
-         GetEnemy();
+        CurrentSpell = 1;
+    }
+
+    private void spell1use(int pos)
+    {
+        positions[pos].GetComponentInChildren<Enemy>().health -= 20;
     }
 
 
 
 
 
-    public void GetEnemy()
+    public int GetEnemy()
     {
-        WaitforClick();
-    }
-    IEnumerator WaitforClick()
-    {
-
-        while (true)
+        int pos = 0;
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            for (int i = 0; i < positions.Length; i++)
             {
-                yield break;
+                if (positions[0].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                {
+                    pos = i;
+                    enemyFound = true;
+                }
             }
-            yield return null;
         }
+        return pos;
     }
+
 }
 
