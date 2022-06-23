@@ -39,6 +39,7 @@ public class Character : MonoBehaviour
     public int str;
     public int dex;
     public int health;
+    public int maxHealth;
     public int def;
     public int attackS;
     public int willP;
@@ -47,7 +48,8 @@ public class Character : MonoBehaviour
     public int maxDmg;                                                                                                                  // Staty a zakladne logicke parametre
     //*********************************************************************************************************************************************************************
 
-
+    public Button spellButtonPrefab;
+    public RectTransform button1pos;
 
     //*********************************************************************************************************************************************************************
     public string name;
@@ -66,6 +68,13 @@ public class Character : MonoBehaviour
 
 
 
+    private void Start()
+    {
+        Button spellbutton1 = Instantiate(spellButtonPrefab);
+        spellbutton1.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        spellbutton1.transform.position = button1pos.position;
+        spellbutton1.onClick = spellButtonPrefab.onClick;
+    }
 
 
 

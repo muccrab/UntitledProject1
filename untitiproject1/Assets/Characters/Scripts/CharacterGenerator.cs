@@ -24,6 +24,7 @@ public class CharacterGenerator : MonoBehaviour
         public int str;
         public int dex;
         public int health;
+        public int maxHealth;
         public int def;
         public int attackS;
         public int willP;
@@ -52,6 +53,11 @@ public class CharacterGenerator : MonoBehaviour
     public Sprite[] CharImg;                                                                                                                                 // Pole ikoniek postav ( musi byt rovnake poradie ako su classy )
     public GameObject[] Chars;                                                                                                                                              // Pole characterov ktore ma generovat
 
+    private void Start()
+    {
+        GenerateChar();
+    }
+
     public void GenerateChar()                                                                                                                                              // funckia ktora vygeneruje novy character
     {
         setUp();                                                                                                //  Nastav pool statov                                                                                                             
@@ -62,10 +68,10 @@ public class CharacterGenerator : MonoBehaviour
             int Rnd = Random.Range(0, (Classes.Length));                                                        // Nahodne cislo od 0 po 8 ( dlzka pola classes ) - Je to index
 
             Chars[i].GetComponent<Character>().Class = Classes[Rnd];                                            // Podla nahodneho cisla mu prirad classu z poolu classes
-            Chars[i].GetComponent<Character>().CharImg = CharImg[Rnd];                                          // Prirad mu prislusny Obrazok ( obrazky musia byt v rovnakom poradi ako je pool classov )
+    //      Chars[i].GetComponent<Character>().CharImg = CharImg[Rnd];                          testing                // Prirad mu prislusny Obrazok ( obrazky musia byt v rovnakom poradi ako je pool classov )
             Chars[i].GetComponent<Character>().SetName();                                                       // Vygeneruje mu nahodne meno podla classi
             Chars[i].GetComponent<Character>().SetReligion();                                                   // Vygeneruje mu nahodny religion podla classy 
-            Chars[i].GetComponent<Image>().sprite = Chars[i].GetComponent<Character>().CharImg;                 // Ten isty obrazok da ikonke
+    //      Chars[i].GetComponent<Image>().sprite = Chars[i].GetComponent<Character>().CharImg; testing                // Ten isty obrazok da ikonke
 
             for (int y = 0; y < 9; y++)
             {
@@ -145,7 +151,8 @@ public class CharacterGenerator : MonoBehaviour
             Chars[who].GetComponent<Character>().morale = a.morale;
             Chars[who].GetComponent<Character>().minDmg = a.minDmg;
             Chars[who].GetComponent<Character>().maxDmg = a.maxDmg;
-      
+            Chars[who].GetComponent<Character>().maxHealth = a.maxHealth;
+
     }
 
 
@@ -213,9 +220,9 @@ public class CharacterGenerator : MonoBehaviour
 
     private void setUp()                                                                                // Setup poolu statov pre vsetky postavy
     {
-        HunterStats[0].str = 1;
+        HunterStats[0].str = 1;                                                                         // stat maxmaxHealth treba preme
         HunterStats[0].dex = 1;
-        HunterStats[0].health = 1;
+        HunterStats[0].maxHealth = 1;
         HunterStats[0].def = 1;
         HunterStats[0].attackS = 1;
         HunterStats[0].willP = 1;
@@ -225,7 +232,7 @@ public class CharacterGenerator : MonoBehaviour
         
         HunterStats[1].str = 2;
         HunterStats[1].dex = 2;
-        HunterStats[1].health = 2;
+        HunterStats[1].maxHealth = 2;
         HunterStats[1].def = 2;
         HunterStats[1].attackS = 2;
         HunterStats[1].willP = 2;
@@ -235,7 +242,7 @@ public class CharacterGenerator : MonoBehaviour
 
         WarriorStats[0].str = 3;
         WarriorStats[0].dex = 3;
-        WarriorStats[0].health = 3;
+        WarriorStats[0].maxHealth = 3;
         WarriorStats[0].def = 3;
         WarriorStats[0].attackS = 3;
         WarriorStats[0].willP = 3;
@@ -245,7 +252,7 @@ public class CharacterGenerator : MonoBehaviour
 
         WarriorStats[1].str = 4;
         WarriorStats[1].dex = 4;
-        WarriorStats[1].health = 4;
+        WarriorStats[1].maxHealth = 4;
         WarriorStats[1].def = 4;
         WarriorStats[1].attackS = 4;
         WarriorStats[1].willP = 4;
@@ -255,7 +262,7 @@ public class CharacterGenerator : MonoBehaviour
 
         MaidenStats[0].str = 5;
         MaidenStats[0].dex = 5;
-        MaidenStats[0].health = 5;
+        MaidenStats[0].maxHealth = 5;
         MaidenStats[0].def = 5;
         MaidenStats[0].attackS = 5;
         MaidenStats[0].willP = 5;
@@ -265,7 +272,7 @@ public class CharacterGenerator : MonoBehaviour
 
         MaidenStats[1].str = 6;
         MaidenStats[1].dex = 6;
-        MaidenStats[1].health = 6;
+        MaidenStats[1].maxHealth = 6;
         MaidenStats[1].def = 6;
         MaidenStats[1].attackS = 6;
         MaidenStats[1].willP = 6;
@@ -275,7 +282,7 @@ public class CharacterGenerator : MonoBehaviour
 
         PriestStats[0].str = 7;
         PriestStats[0].dex = 7;
-        PriestStats[0].health = 7;
+        PriestStats[0].maxHealth = 7;
         PriestStats[0].def = 7;
         PriestStats[0].attackS = 7;
         PriestStats[0].willP = 7;
@@ -285,7 +292,7 @@ public class CharacterGenerator : MonoBehaviour
 
         PriestStats[1].str = 8;
         PriestStats[1].dex = 8;
-        PriestStats[1].health = 8;
+        PriestStats[1].maxHealth = 8;
         PriestStats[1].def = 8;
         PriestStats[1].attackS = 8;
         PriestStats[1].willP = 8;
@@ -295,7 +302,7 @@ public class CharacterGenerator : MonoBehaviour
 
         PaladinStats[0].str = 7;
         PaladinStats[0].dex = 7;
-        PaladinStats[0].health = 7;
+        PaladinStats[0].maxHealth = 7;
         PaladinStats[0].def = 7;
         PaladinStats[0].attackS = 7;
         PaladinStats[0].willP = 7;
@@ -305,7 +312,7 @@ public class CharacterGenerator : MonoBehaviour
 
         PaladinStats[1].str = 8;
         PaladinStats[1].dex = 8;
-        PaladinStats[1].health = 8;
+        PaladinStats[1].maxHealth = 8;
         PaladinStats[1].def = 8;
         PaladinStats[1].attackS = 8;
         PaladinStats[1].willP = 8;
@@ -315,7 +322,7 @@ public class CharacterGenerator : MonoBehaviour
 
         BMStats[0].str = 7;
         BMStats[0].dex = 7;
-        BMStats[0].health = 7;
+        BMStats[0].maxHealth = 7;
         BMStats[0].def = 7;
         BMStats[0].attackS = 7;
         BMStats[0].willP = 7;
@@ -325,7 +332,7 @@ public class CharacterGenerator : MonoBehaviour
 
         BMStats[1].str = 8;
         BMStats[1].dex = 8;
-        BMStats[1].health = 8;
+        BMStats[1].maxHealth = 8;
         BMStats[1].def = 8;
         BMStats[1].attackS = 8;
         BMStats[1].willP = 8;
@@ -335,7 +342,7 @@ public class CharacterGenerator : MonoBehaviour
 
         ThiefStats[0].str = 7;
         ThiefStats[0].dex = 7;
-        ThiefStats[0].health = 7;
+        ThiefStats[0].maxHealth = 7;
         ThiefStats[0].def = 7;
         ThiefStats[0].attackS = 7;
         ThiefStats[0].willP = 7;
@@ -345,7 +352,7 @@ public class CharacterGenerator : MonoBehaviour
 
         ThiefStats[1].str = 8;
         ThiefStats[1].dex = 8;
-        ThiefStats[1].health = 8;
+        ThiefStats[1].maxHealth = 8;
         ThiefStats[1].def = 8;
         ThiefStats[1].attackS = 8;
         ThiefStats[1].willP = 8;
@@ -355,7 +362,7 @@ public class CharacterGenerator : MonoBehaviour
 
         MarksmanStats[0].str = 7;
         MarksmanStats[0].dex = 7;
-        MarksmanStats[0].health = 7;
+        MarksmanStats[0].maxHealth = 7;
         MarksmanStats[0].def = 7;
         MarksmanStats[0].attackS = 7;
         MarksmanStats[0].willP = 7;
@@ -365,7 +372,7 @@ public class CharacterGenerator : MonoBehaviour
 
         MarksmanStats[1].str = 8;
         MarksmanStats[1].dex = 8;
-        MarksmanStats[1].health = 8;
+        MarksmanStats[1].maxHealth = 8;
         MarksmanStats[1].def = 8;
         MarksmanStats[1].attackS = 8;
         MarksmanStats[1].willP = 8;
@@ -375,7 +382,7 @@ public class CharacterGenerator : MonoBehaviour
 
         BerserkerStats[0].str = 7;
         BerserkerStats[0].dex = 7;
-        BerserkerStats[0].health = 7;
+        BerserkerStats[0].maxHealth = 7;
         BerserkerStats[0].def = 7;
         BerserkerStats[0].attackS = 7;
         BerserkerStats[0].willP = 7;
@@ -385,7 +392,7 @@ public class CharacterGenerator : MonoBehaviour
 
         BerserkerStats[1].str = 8;
         BerserkerStats[1].dex = 8;
-        BerserkerStats[1].health = 8;
+        BerserkerStats[1].maxHealth = 8;
         BerserkerStats[1].def = 8;
         BerserkerStats[1].attackS = 8;
         BerserkerStats[1].willP = 8;
