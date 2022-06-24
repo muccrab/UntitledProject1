@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - SaveBTN
-  - SpawnPoint
+  - RoomSpawnPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
