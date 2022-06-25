@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6967834482894169050}
   - component: {fileID: 6967834482894169051}
+  - component: {fileID: 8605592062588273182}
   m_Layer: 0
   m_Name: TB
   m_TagString: Untagged
@@ -86,6 +87,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8605592062588273182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967834482894169052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a2bfafcb0150d04a8b1a2120cfa94d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6967834483729529762
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,9 +108,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6967834483729529761}
-  - component: {fileID: 557962383}
   - component: {fileID: 557962385}
   - component: {fileID: 557962384}
+  - component: {fileID: 8470176696118519352}
   m_Layer: 0
   m_Name: SP-U
   m_TagString: RoomSpawnPoint
@@ -120,19 +133,6 @@ Transform:
   m_Father: {fileID: 6967834482894169050}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &557962383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6967834483729529762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1df5a9a60582c544a616ccdd986c75a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openingDirection: 2
 --- !u!50 &557962385
 Rigidbody2D:
   serializedVersion: 4
@@ -180,6 +180,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01}
   m_EdgeRadius: 0
+--- !u!114 &8470176696118519352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967834483729529762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a014a33d06aaad438fdc63ae3fbb57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDirection: 2
+  spawned: 0
+  waitTime: 4
 --- !u!1 &6967834484397745599
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,9 +204,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6967834484397745598}
-  - component: {fileID: 2031422098}
   - component: {fileID: 2031422100}
   - component: {fileID: 2031422099}
+  - component: {fileID: 7870803968151667616}
   m_Layer: 0
   m_Name: SP-D
   m_TagString: RoomSpawnPoint
@@ -214,19 +229,6 @@ Transform:
   m_Father: {fileID: 6967834482894169050}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2031422098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6967834484397745599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1df5a9a60582c544a616ccdd986c75a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openingDirection: 1
 --- !u!50 &2031422100
 Rigidbody2D:
   serializedVersion: 4
@@ -274,3 +276,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01}
   m_EdgeRadius: 0
+--- !u!114 &7870803968151667616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967834484397745599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a014a33d06aaad438fdc63ae3fbb57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDirection: 1
+  spawned: 0
+  waitTime: 4

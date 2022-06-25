@@ -1414,6 +1414,7 @@ MonoBehaviour:
   - {fileID: 5780009801899492241, guid: d7b7ece919d022c4b9035d8128c13e25, type: 3}
   - {fileID: 6967834482894169052, guid: 8336695af9668284aa86e17c76c39e4c, type: 3}
   - {fileID: 1954129096608273397, guid: b41f114f685e49c40b635d9848b44daa, type: 3}
+  - {fileID: 3485003152161310831, guid: 8f57498fb46164a449862fa2a42cc02d, type: 3}
   topRooms:
   - {fileID: 3871129358580412681, guid: edbfee8559fc946429fda29a4ce5a83a, type: 3}
   - {fileID: 5640146313667495258, guid: 426723c14f23a8c4699a1eebde64ef42, type: 3}
@@ -1423,12 +1424,16 @@ MonoBehaviour:
   - {fileID: 384426211798523446, guid: e4b439176c583be458c99e63399bdc0a, type: 3}
   - {fileID: 5640146313667495258, guid: 426723c14f23a8c4699a1eebde64ef42, type: 3}
   - {fileID: 4840115505825984107, guid: 89596389213360447ac508a133232b4e, type: 3}
+  - {fileID: 3485003152161310831, guid: 8f57498fb46164a449862fa2a42cc02d, type: 3}
   rightRooms:
   - {fileID: 8912948613775586160, guid: 5acca1927df54db40b7ba0a5a7bbb8c7, type: 3}
   - {fileID: 4840115505825984107, guid: 89596389213360447ac508a133232b4e, type: 3}
   - {fileID: 1954129096608273397, guid: b41f114f685e49c40b635d9848b44daa, type: 3}
   - {fileID: 4649588192202021933, guid: e50856bd228e80c40b73bc8bdd057890, type: 3}
-  closedRoom: {fileID: 1435766699}
+  closedRoom: {fileID: 6302616723319638485, guid: 2441d5e8b35053a4f96a9e06ab67f292, type: 3}
+  rooms: []
+  waitTime: 4
+  boss: {fileID: 5977943536608400672, guid: 466037325c8a24143b8665e8a120ab28, type: 3}
 --- !u!1 &1011371425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,90 +2201,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390610050}
   m_CullTransparentMesh: 1
---- !u!1 &1435766699
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1435766701}
-  - component: {fileID: 1435766700}
-  m_Layer: 0
-  m_Name: Closed
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1435766700
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435766699}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 80d55b0e3db5af345bdee5dbbd1c7f49, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.1, y: 0.1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1435766701
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435766699}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.907, y: -1.097, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1518703243
 GameObject:
   m_ObjectHideFlags: 0
