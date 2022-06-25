@@ -6,10 +6,8 @@ using UnityEngine.UI;
 
 public class KnightSpells : MonoBehaviour
 {
-    public Button[] spellButtons;
     public Sprite[] spellIcons;
     public GameObject[] positions;
-
 
     private int CurrentSpell = 0;
 
@@ -17,23 +15,10 @@ public class KnightSpells : MonoBehaviour
 
     private void Update()
     {
-        if (CurrentSpell == 1)
-        {
-            int pos;
-            pos = GetEnemy();
-            if (enemyFound)
-            {
-                spell1use(pos);
-                enemyFound = false;
-                CurrentSpell = 0;
-            }
-            
-
-
-        }
-        
-        
+        spell1use();
     }
+
+    
 
 
     public void spell1()
@@ -41,9 +26,23 @@ public class KnightSpells : MonoBehaviour
         CurrentSpell = 1;
     }
 
-    private void spell1use(int pos)
+    private void spell1use()
     {
-        positions[pos].GetComponentInChildren<Enemy>().health -= 20;
+        if (CurrentSpell == 1)
+        {
+            int pos = GetEnemy();
+            if (enemyFound)
+            {
+                CurrentSpell = 0;
+                enemyFound = false;
+                positions[pos].GetComponentInChildren<Enemy>().health -= 20;
+                
+            }
+
+
+
+        }
+        
     }
 
 
@@ -57,9 +56,9 @@ public class KnightSpells : MonoBehaviour
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-            for (int i = 0; i < positions.Length; i++)
+            for (int i = 0; i < 4; i++)
             {
-                if (positions[0].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                if (positions[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
                 {
                     pos = i;
                     enemyFound = true;
