@@ -51,7 +51,7 @@ public class LoadMenu : MonoBehaviour
     {
         LoadController.loadSave = true;
         LoadController.path = path;
-        SceneManager.LoadScene("Lvl1");
+        SceneManager.LoadScene("Loader");
     }
 
 

@@ -10,4 +10,10 @@ public static class LoadController
     public static string scene = "";
     public static bool loadSave = false;
     public static string path = "";
+    private static List<SaveChatacterObj> characters = new List<SaveChatacterObj>();
+
+    public static SaveChatacterObj[] getCharacters(){
+        return characters.ToArray();
+    }
+    
 }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public GameObject[] games;
     public GameObject PauseMenuUI;
     private bool gameStopped;
 
@@ -29,6 +30,7 @@ public class PauseMenu : MonoBehaviour
                 Time.timeScale = 0f;
                 gameStopped = true;
             }
+            stopresume();
     }
 
     public void ExitButton()
@@ -42,5 +44,16 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+    }
+
+    private void stopresume()
+    {
+        if (games != null)
+        {
+            foreach (GameObject game in games)
+            {
+                game.SetActive(!gameStopped);
+            }
+        }
     }
 }//mono

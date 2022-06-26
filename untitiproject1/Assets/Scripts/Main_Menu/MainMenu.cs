@@ -31,7 +31,7 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         
-        SceneManager.LoadScene("Lvl1"); //zatial to da do Pause menu, ale tu sa to este pomeni aj zo save-ami
+        SceneManager.LoadScene("Loader"); //zatial to da do Pause menu, ale tu sa to este pomeni aj zo save-ami
     }
 
     public void ExitButton()
