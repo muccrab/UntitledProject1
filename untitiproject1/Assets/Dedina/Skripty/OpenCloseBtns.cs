@@ -15,6 +15,7 @@ public class OpenCloseBtns : MonoBehaviour
 
             Window.SetActive(true);
             windowIsOpen = true;
+
         }
     }
 
