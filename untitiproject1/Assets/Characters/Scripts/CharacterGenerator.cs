@@ -55,7 +55,14 @@ public class CharacterGenerator : MonoBehaviour
 
     private void Start()
     {
-        GenerateChar();
+        ///*********Buch of Loading Crap I'll delete
+        Chars[0].GetComponent<Character>().inherit(CharGenLoad.loadCharacter(Chars[0].GetComponent<Character>(),0));
+        Chars[1].GetComponent<Character>().inherit(CharGenLoad.loadCharacter(Chars[1].GetComponent<Character>(),1));
+        //*********
+        if (Chars[0].GetComponent<Character>().name == "") 
+        {
+            GenerateChar();
+        }
     }
 
     public void GenerateChar()                                                                                                                                              // funckia ktora vygeneruje novy character
@@ -134,6 +141,7 @@ public class CharacterGenerator : MonoBehaviour
         }
                                                                                                                                         // Koniec for loopu pre vygenerovanie vsetkych novych postav
         //*********************************************************************************************************************************************************************
+    CharGenLoad.SaveCharacters(); //Saving Crap I'll delete later
     }
 
 

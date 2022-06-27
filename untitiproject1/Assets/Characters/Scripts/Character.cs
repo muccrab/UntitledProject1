@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
+
     //*********************************************************************************************************************************************************************
     public readonly string[] BMNames = { "Bobo", "Nidungus", "Giraldus", "Dimarus", "Sarilo" };
     public readonly string[] KnightNames = { "Raulf", "Wultgar", "Sewal", "Maneld", "Alienor" };
@@ -74,7 +75,9 @@ public class Character : MonoBehaviour
         spellbutton1.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         spellbutton1.transform.position = button1pos.position;
         spellbutton1.onClick = spellButtonPrefab.onClick;
+       
     }
+    
 
 
 
@@ -211,6 +214,36 @@ public class Character : MonoBehaviour
     }
 
 
+
+
     
+
+
+
+
+//****************Inheritors******************// Something like Constructors if they fucking worked in Unity Component System
+
+public void inherit(Character ch){
+        if (ch is not null)
+        {
+            this.name = ch.name;
+            this.Class = ch.name;
+            this.religion = ch.religion;
+            this.CharImg = ch.CharImg;
+
+            this.str = ch.str;
+            this.dex = ch.dex;
+            this.health = ch.health;
+            this.maxHealth = ch.maxHealth;
+            this.def = ch.def;
+            this.attackS = ch.attackS;
+            this.willP = ch.willP;
+            this.morale = ch.morale;
+            this.minDmg = ch.minDmg;
+            this.maxDmg = ch.maxDmg;
+            this.UnlockedSpells = ch.UnlockedSpells;
+        }
+    }
+
 
 }

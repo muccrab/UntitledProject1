@@ -5,11 +5,12 @@ using UnityEngine;
 [System.Serializable] //IDK wtf it means, but Brackeys said that it makes it able to save in a File
 public class SaveDataObj //Object that I'm saving into the file
 {
-   public string path, name, date;
-   public SaveDataObj(string path, string name){
+   public string path, name, date, scene;
+   public SaveDataObj(string path, string name, string scene){
       this.path = path;
       this.name = name;
       this.date = System.DateTime.Now.ToString("yyyy/MM/dd hh:mm");
+      this.scene = scene;
    }
 }
 
@@ -39,6 +40,27 @@ public class SaveChatacterObj //Character I'll be saving in files
 
       this.UnlockedSpells = character.UnlockedSpells;
    }
+   public Character GetCharacter(){
+      Character character = new Character();
+      character.str = this.str;
+      character.dex = this.dex;
+      character.health = this.health;
+      character.maxHealth = this.maxHealth;
+      character.def = this.def;
+      character.attackS = this.attackS;
+      character.willP = this.willP;
+      character.morale = this.morale;
+      character.minDmg = this.minDmg;
+      character.maxDmg = this.maxDmg;
+
+      character.name = this.name;
+      character.Class = this.Class;
+      character.religion = this.religion;
+      
+      character.UnlockedSpells = this.UnlockedSpells;
+
+      return character;
+   }
 
 
 }
@@ -50,4 +72,7 @@ public class SaveChatactersObj //All Characters I'll be saving in files
    public SaveChatactersObj(SaveChatacterObj[] loadCharacters){
         this.characters = loadCharacters;
      }
+   public SaveChatacterObj[] getCharacters(){
+         return characters;
+   }
 }

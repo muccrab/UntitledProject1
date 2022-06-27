@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject  Menu;
     private void Start()
     {
+        LoadController.resetController();
         ButtonSound = GetComponent<AudioSource>();
     }
     private void Update()

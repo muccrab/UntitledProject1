@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro; //TextMeshPro....Text element but better
-
+using UnityEngine.SceneManagement;
 
 
 public class SaveMenu : MonoBehaviour
@@ -58,9 +58,8 @@ public class SaveMenu : MonoBehaviour
     void SaveGame(string path, string name) //After you hit the Save button.
     {
         SaveBTN.onClick.RemoveAllListeners();
-        SaveLoad.saveSimple(path,name);
+        SaveLoad.saveAll(path,name,SceneManager.GetActiveScene().name);
         ResetMenu();
-
     }
     public void CloseMenu() //After you hit the Cancel button
     {

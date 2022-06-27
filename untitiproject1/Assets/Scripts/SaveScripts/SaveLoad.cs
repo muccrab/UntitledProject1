@@ -11,12 +11,12 @@ using System.Text;
 public static class SaveLoad 
 {
     //Simple save of one instance....obviously it will get makeover once we'll have shit to save, but for now its just simple name save
-    public static void saveSimple (string path,string name)
+    public static void saveSimple (string path,string name,string scene)
     {
             BinaryFormatter formatter = new BinaryFormatter();
             path = Application.persistentDataPath + path; 
             FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            SaveDataObj data = new SaveDataObj(path.Substring(Application.persistentDataPath.Length),name);
+            SaveDataObj data = new SaveDataObj(path.Substring(Application.persistentDataPath.Length),name,scene);
             formatter.Serialize(stream, data);
             stream.Close();
     }
@@ -60,18 +60,17 @@ public static class SaveLoad
     }
 
     //saves All the data..gonna use this one in the end product, but I still want to keep saveSimple
-    public static void saveAll (string path,string name)
+    public static void saveAll (string path,string name, string scene)
     {
             BinaryFormatter formatter = new BinaryFormatter();
             //SaveSimple
             string newpath = Application.persistentDataPath + path; 
             FileStream stream = new FileStream(newpath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            SaveDataObj data = new SaveDataObj(newpath.Substring(Application.persistentDataPath.Length),name);
+            SaveDataObj data = new SaveDataObj(newpath.Substring(Application.persistentDataPath.Length),name,scene);
             formatter.Serialize(stream, data);
             stream.Close();
             //SaveGame
-            using (SHA256 sha256Hash = SHA256.Create())
-                newpath = Application.persistentDataPath + sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(path))+".baka";
+            newpath = Application.persistentDataPath + path.Substring(0,path.Length-4)+".baka";
             stream = new FileStream(newpath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             SaveChatacterObj[] characters = LoadController.getCharacters();
             SaveChatactersObj datas = new SaveChatactersObj(characters);
@@ -83,10 +82,9 @@ public static class SaveLoad
     public static SaveChatactersObj loadGame(string path)
     {
         string newpath;
-        using (SHA256 sha256Hash = SHA256.Create())
-                newpath = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(path))+".baka";
+        newpath = path.Substring(0,path.Length-4)+".baka";
         
-        if (!File.Exists(newpath)) //It wont fuck with it when you fucked up your input
+        if (!fileExists(newpath)) //It wont fuck with it when you fucked up your input
         {
             Debug.LogError("Save File not found in " + newpath);
             return null;

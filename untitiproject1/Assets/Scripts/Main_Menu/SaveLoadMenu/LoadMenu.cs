@@ -15,7 +15,7 @@ public class LoadMenu : MonoBehaviour
         ResetMenu();
     }
 
-    public void CreateButton(Vector3 position, Vector2 size, string path, string text)
+    public void CreateButton(Vector3 position, Vector2 size, string path, string text, string scene)
     {
         //
         //Button Creation
@@ -29,7 +29,7 @@ public class LoadMenu : MonoBehaviour
         button.AddComponent<Button>(); //Adds Button Functionality
         button.AddComponent<Image>(); //Image Functionality so that I can actaly see the fucker
         button.GetComponent<RectTransform>().sizeDelta = size; //Changes the size of the Button
-        button.GetComponent<Button>().onClick.AddListener(delegate { LoadGame(path); }); //Fucking Event Listener
+        button.GetComponent<Button>().onClick.AddListener(delegate { LoadGame(path,scene); }); //Fucking Event Listener
 
 
         //
@@ -47,8 +47,9 @@ public class LoadMenu : MonoBehaviour
         txt.GetComponent<TMP_Text>().fontSize = 24;
 
     }
-    void LoadGame(string path) 
+    void LoadGame(string path, string scene) 
     {
+        LoadController.scene = scene;
         LoadController.loadSave = true;
         LoadController.path = path;
         SceneManager.LoadScene("Loader");
@@ -67,7 +68,7 @@ public class LoadMenu : MonoBehaviour
         SaveDataObj[] data = SaveLoad.loadSimpleAll("");
         for (int i = 1; i <= data.Length; i++)
         {
-            CreateButton(new Vector3(0, 137 - 60 * i, 0), new Vector2(837, 50), data[i - 1].path, data[i - 1].name + " - " + data[i - 1].date);
+            CreateButton(new Vector3(0, 137 - 60 * i, 0), new Vector2(837, 50), data[i - 1].path, data[i - 1].name + " - " + data[i - 1].date, data[i - 1].scene);
         }
     }
 
