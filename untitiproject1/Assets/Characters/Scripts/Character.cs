@@ -48,8 +48,11 @@ public class Character : MonoBehaviour
     public int maxDmg;                                                                                                                  // Staty a zakladne logicke parametre
     //*********************************************************************************************************************************************************************
 
-    public Button spellButtonPrefab;
+    public Button spell1ButtonPrefab;
     public RectTransform button1pos;
+
+    public Button spell2ButtonPrefab;
+    public RectTransform button2pos;
 
     //*********************************************************************************************************************************************************************
     public string name;
@@ -70,10 +73,16 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-        Button spellbutton1 = Instantiate(spellButtonPrefab);
+        Button spellbutton1 = Instantiate(spell1ButtonPrefab);
         spellbutton1.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         spellbutton1.transform.position = button1pos.position;
-        spellbutton1.onClick = spellButtonPrefab.onClick;
+        spellbutton1.onClick = spell1ButtonPrefab.onClick;
+/*
+        Button spellbutton2 = Instantiate(spell2ButtonPrefab);
+        spellbutton2.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        spellbutton2.transform.position = button2pos.position;
+        spellbutton2.onClick = spell2ButtonPrefab.onClick;
+           polebybolofajn        */
     }
 
 

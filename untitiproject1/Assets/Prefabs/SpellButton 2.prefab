@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7675575419834742204}
   - component: {fileID: 7675575419834742207}
   - component: {fileID: 7675575419834742206}
+  - component: {fileID: 8429879353964464962}
   m_Layer: 5
   m_Name: SpellButton 2
   m_TagString: Untagged
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1423171384, guid: a7deb3aa0ddf6004ab3173626dd642d8, type: 3}
+  m_Sprite: {fileID: -234272695, guid: a7deb3aa0ddf6004ab3173626dd642d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -120,4 +121,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7675575419834742207}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8429879353964464962}
+        m_TargetAssemblyTypeName: KnightSpells, Assembly-CSharp
+        m_MethodName: spell1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8429879353964464962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7675575419834742200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f0842241ff05459e5e28df80a92f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellIcons: []
+  positions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  target: 00000000
+  targetable: 00000000

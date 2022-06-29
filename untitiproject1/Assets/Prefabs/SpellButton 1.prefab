@@ -146,10 +146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f0842241ff05459e5e28df80a92f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellButtons: []
   spellIcons: []
   positions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  target: 00000000
+  targetable: 00000000
