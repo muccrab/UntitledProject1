@@ -927,8 +927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef65fd2e5b701234eb7aaa061f5dcc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RoomTile: {fileID: 4488494996414755892, guid: 67567767afb95e349b1e459354930231, type: 3}
   Tile: {fileID: 8970071517237922939, guid: 0a1674fe989ea624b8d2980fe3b7a690, type: 3}
-  mainRange: {x: 50, y: 50}
+  mainRange: {x: 4, y: 6}
   Radius: 6
 --- !u!1 &511131438
 GameObject:
