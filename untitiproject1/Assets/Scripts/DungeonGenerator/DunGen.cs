@@ -8,6 +8,7 @@ public class DunGen : MonoBehaviour
     public GameObject RoomTile; //Tile For 
     public GameObject Tile;
     public Vector2Int mainRange;
+    public Vector2Int brenchRange;
     public int Radius;
     int mainHops=0;
     int tileLength = 10;
@@ -43,6 +44,7 @@ public class DunGen : MonoBehaviour
             GameObject tile = Instantiate(RoomTile);
             tile.name = "Room "+j;
             tile.transform.position = new Vector2(tp.position.x,tp.position.y);
+            tp.HallCode = tile.GetComponent<HallScript>();
 
             if (j!=mainHops-1)
             {
@@ -96,6 +98,38 @@ public class DunGen : MonoBehaviour
         }
         #endregion
         #region Brech Generator
+        
+        foreach(TurnPoint point in mainPoints)
+        {
+            if (point.branchable)
+            {
+                int BrechLength = Random.Range(brenchRange.x,brenchRange.y+1);
+                TurnPoint[] BrenchPoints = new TurnPoint[BrechLength];
+                Vector2Int newTile = point.HallCode.getNewTile(point.position,tileLength);
+                for(int i = 0; i < BrechLength; i++)
+                {
+                    for (int j = 0;j < Random.Range(Radius,2*Mathf.Sqrt(Radius*Radius/2));j++)
+                    {                        
+                        GameObject summon = Instantiate(Tile);
+                        summon.transform.position = (Vector2)newTile;
+                        summon.name = "BrenchHall"+i+"-"+j;
+                        newTile = summon.GetComponent<HallScript>().getNewTile(newTile,tileLength);
+                    }
+                    BrenchPoints[i] = new TurnPoint(newTile,0,0.5f,Radius,tileLength,false);
+                    GameObject Room = Instantiate(RoomTile);
+                    Room.transform.position = (Vector2)newTile;
+                    Room.name = "RoomHall"+i;
+                    newTile = Room.GetComponent<HallScript>().getNewTile(newTile,tileLength);
+                    BrenchPoints[i].HallCode = Room.GetComponent<HallScript>();
+                }
+
+                /*
+                Vector2Int newTile = point.HallCode.getNewTile(point.position,tileLength);
+                GameObject summon = Instantiate(Tile);
+                summon.transform.position = (Vector2)newTile;
+                */
+            }
+        }
         #endregion
 
 
@@ -128,19 +162,22 @@ class TurnPoint{
 
     public Vector2Int position;
     public Vector2Int nextHop;
-    public int hopCount;
+    public int hopCount; //hopcount for main branch
     public bool branchable = false;
     int Radius;
     int tileLength;
+    public Vector2Int InOut;
+    public HallScript HallCode;
 
-    public TurnPoint(Vector2Int position,int hopCount, float brachChance, int Radius, int tileLength, bool isMain){
+    public TurnPoint(Vector2Int position,int hopCount, float brachChance, int Radius, int tileLength, bool isMain, int In = 1, int Out = 3){
         this.position.x = position.x;
         this.position.y = position.y;
         this.hopCount = hopCount;
         this.Radius = Radius;
         this.tileLength = tileLength;
-        
-        branchable = Random.value < brachChance;
+        this.branchable = Random.value < brachChance;
+        this.InOut.x = In;
+        this.InOut.y = Out;
         if (isMain)
         {
             if(hopCount>0)

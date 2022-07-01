@@ -7,6 +7,12 @@ TagManager:
   - RoomSpawnPoint
   - Rooms
   - SaveBTN
+  - HallTag
+  - HallTagRight
+  - HallTagLeft
+  - HallTagUp
+  - HallTagDown
+  - HallColiderTag
   layers:
   - Default
   - TransparentFX
