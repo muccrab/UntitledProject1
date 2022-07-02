@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class KnightSpells : MonoBehaviour
 {
-    public Sprite[] spellIcons;
     public GameObject[] positions;
     public bool[] target = { false, false, false, false };
     public bool[] targetable = { false, false, false, false };
@@ -148,7 +147,7 @@ public class KnightSpells : MonoBehaviour
         
     }
 
-    GameObject FindChildWithTag(GameObject parent, string tag)
+    public static GameObject FindChildWithTag(GameObject parent, string tag)
     {
         GameObject child = null;
 

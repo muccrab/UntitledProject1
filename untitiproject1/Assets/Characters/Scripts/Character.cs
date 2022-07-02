@@ -36,6 +36,9 @@ public class Character : MonoBehaviour
     //*********************************************************************************************************************************************************************
 
     //*********************************************************************************************************************************************************************
+    public bool isAlive = true;
+
+
     public int str;
     public int dex;
     public int health;
@@ -67,7 +70,10 @@ public class Character : MonoBehaviour
     }
 
 
-
+   private void Update()
+    {
+        checkDeath();
+    }
 
 
 
@@ -86,7 +92,37 @@ public class Character : MonoBehaviour
     }
 
 
+    private void checkDeath()
+    {
+        if (health <= 0)
+        {
+            if (!isAlive)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                health = 0;
+                int deathChance = Random.Range(1, 3);
+                if (deathChance == 1)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    Sprite grave = Resources.Load<Sprite>("graveStone");
+                    isAlive = false;
+                    gameObject.GetComponent<SpriteRenderer>().sprite = grave;
+                    gameObject.transform.localScale = new Vector2(6, 6);
+                    gameObject.transform.localPosition = new Vector2(0, gameObject.GetComponent<SpriteRenderer>().bounds.size.y / 2);
+                    health = 20;
+                }
+            }
 
+        }
+
+
+    }
 
 
 
