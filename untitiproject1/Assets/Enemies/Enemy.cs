@@ -62,8 +62,4 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void DestroyGO()
-    {
-        Destroy(gameObject);
-    }
 }

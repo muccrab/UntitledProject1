@@ -38,7 +38,6 @@ public class Character : MonoBehaviour
     //*********************************************************************************************************************************************************************
     public bool isAlive = true;
 
-
     public int str;
     public int dex;
     public int health;

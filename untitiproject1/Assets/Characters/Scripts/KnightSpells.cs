@@ -28,7 +28,6 @@ public class KnightSpells : MonoBehaviour
         mousePos2D = new Vector2(mousePos.x, mousePos.y);
         spell1use();
         EnemyPointedAt();
-        moveForv();
     }
 
 
@@ -65,7 +64,7 @@ public class KnightSpells : MonoBehaviour
         {
             for (int i = 0; i < 4; i++)
             {
-                if (FindChildWithTag(positions[i], "Enemies") != null && targetable[i])
+                if (GameController.FindChildWithTag(positions[i], "Enemies") != null && targetable[i])
                 {
                     if (positions[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
                     {
@@ -82,7 +81,7 @@ public class KnightSpells : MonoBehaviour
     {
         for (int i = min; i < max; i++)
         {
-            if(FindChildWithTag(positions[i], "Enemies") != null)
+            if(GameController.FindChildWithTag(positions[i], "Enemies") != null)
             {
                 targetable[i] = true;
                 positions[i].transform.Find("TargetablePointer").gameObject.SetActive(true);
@@ -92,12 +91,9 @@ public class KnightSpells : MonoBehaviour
 
     private void EnemyPointedAt()
     {
-
-        //  Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //  Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
         for (int i = 0; i < 4; i++)
         {
-            if (FindChildWithTag(positions[i], "Enemies") != null) 
+            if (GameController.FindChildWithTag(positions[i], "Enemies") != null) 
             {
                 if (positions[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
                 {
@@ -126,41 +122,8 @@ public class KnightSpells : MonoBehaviour
         }
     }
 
-    public void moveForv()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            if (FindChildWithTag(positions[i], "Enemies") == null)
-            {
-                for (int x = i + 1; x < 4; x++)
-                {
-                    if (FindChildWithTag(positions[x], "Enemies") != null)
-                    {
-                        GameObject clone = FindChildWithTag(positions[x], "Enemies");
-                        clone.transform.SetParent(positions[i].transform);
-                        clone.transform.localPosition = new Vector2(0, clone.transform.localPosition.y);
-                        break;
-                    }
-                }
-            }
-        }
-        
-    }
+    
 
-    public static GameObject FindChildWithTag(GameObject parent, string tag)
-    {
-        GameObject child = null;
-
-        foreach (Transform transform in parent.transform)
-        {
-            if (transform.CompareTag(tag))
-            {
-                child = transform.gameObject;
-                break;
-            }
-        }
-
-        return child;
-    }
+    
 }
 
