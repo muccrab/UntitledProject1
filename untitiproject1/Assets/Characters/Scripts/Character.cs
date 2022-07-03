@@ -37,6 +37,7 @@ public class Character : MonoBehaviour
 
     //*********************************************************************************************************************************************************************
     public bool isAlive = true;
+    public bool myTurn = false;
 
     public int str;
     public int dex;
@@ -63,6 +64,10 @@ public class Character : MonoBehaviour
     public Sprite CharImg;                                                                                                              // Meno, Trieda. Vierovyznanie a Obrazok postavy
     //*********************************************************************************************************************************************************************
 
+    public bool isGenerated = false;
+
+
+
     public void UnlockSpell(int i)                                                                                                          // Unlocne spell na pozicie parametre ( je to pole takze prve je 0 )
     {
         UnlockedSpells[i] = true;
@@ -72,17 +77,22 @@ public class Character : MonoBehaviour
    private void Update()
     {
         checkDeath();
+        if(myTurn && !isGenerated)
+        {
+            isGenerated = true;
+            Button spellbutton1 = Instantiate(spell1ButtonPrefab);
+            spellbutton1.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            spellbutton1.transform.position = button1pos.position;
+            spellbutton1.gameObject.SetActive(true);
+            spellbutton1.onClick = spell1ButtonPrefab.onClick;
+        }
     }
 
 
 
     private void Start()
     {
-        Button spellbutton1 = Instantiate(spell1ButtonPrefab);
-        spellbutton1.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-        spellbutton1.transform.position = button1pos.position;
-        spellbutton1.onClick = spell1ButtonPrefab.onClick;
-/*
+        /*
         Button spellbutton2 = Instantiate(spell2ButtonPrefab);
         spellbutton2.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         spellbutton2.transform.position = button2pos.position;
@@ -102,8 +112,8 @@ public class Character : MonoBehaviour
             else
             {
                 health = 0;
-                int deathChance = Random.Range(1, 3);
-                if (deathChance == 1)
+                int deathChance = Random.Range(1, 6);
+                if (deathChance != 1)
                 {
                     Destroy(gameObject);
                 }

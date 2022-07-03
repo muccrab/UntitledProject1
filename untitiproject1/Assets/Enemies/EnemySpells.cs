@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class EnemySpells : MonoBehaviour
 {
-    public GameObject[] positions;
-
-    public bool[] targetable = { false, false, false, false };
 
 
     // Start is called before the first frame update
     void Start()
     {
-        spell1use();
+
     }
 
     // Update is called once per frame
@@ -22,75 +19,58 @@ public class EnemySpells : MonoBehaviour
 
     }
 
-    private void spell1use()
+    public void spell1use()
     {
-        int IndexOfTarget = FindTarget(0, 2);
-        if(IndexOfTarget != 20)
+        GameController.EnemyFound enemyFound = FindTarget(0, 2);
+        if (enemyFound.found)
         {
-            positions[IndexOfTarget].GetComponentInChildren<Character>().health -= 20;
+            DealDMG(enemyFound.pos, 20);
+            GoNextChar();
+            Debug.Log("Enemy dealing dmg to:");
+            Debug.Log(enemyFound.pos);
         }
-        
-        
-        //ResetTargets();
     }
 
 
 
-    private int FindTarget(int min, int max)
+    private GameController.EnemyFound FindTarget(int min, int max)
     {
-        int target;
-        bool possible = false;
+        GameController.EnemyFound enemy;
+        enemy.pos = 0;
+        enemy.found = false;
 
-        for (int i = min; i < max; i++)
+        for (int i = min; i <= max; i++)
         {
             
-            if(GameController.FindChildWithTag(positions[i], "Character") != null)
+            if(GameController.FindChildWithTag(transform.parent.parent.GetComponent<GameController>().Characters[i], "Character") != null)
             {
-                possible = true;
+                enemy.found = true;
                 break;
             }
         }
 
-        if (possible)
+        if (enemy.found)
         {
             do
             {
-                target = Random.Range(min, max + 1);
+                enemy.pos = Random.Range(min, max + 1);
             }
-            while (GameController.FindChildWithTag(positions[target], "Character") == null);
-        }
-        else
-        {
-            target = 20;
+            while (GameController.FindChildWithTag(transform.parent.parent.GetComponent<GameController>().Characters[enemy.pos], "Character") == null);
         }
 
-        return target;
+        return enemy;
 
     }
 
 
-
-
-    /*
-    public void ResetTargets()
+    private void DealDMG(int who, int dmg)
     {
-        for (int i = 0; i < 4; i++)
-        {
-            targetable[i] = false;
-        }
+        transform.parent.parent.GetComponent<GameController>().Characters[who].GetComponentInChildren<Character>().health -= dmg;
     }
 
 
-    public void SetTargetable(int min, int max)
+    private void GoNextChar()
     {
-        for (int i = min; i < max; i++)
-        {
-            if (KnightSpells.FindChildWithTag(positions[i], "Character") != null)
-            {
-                targetable[i] = true;
-            }
-        }
-    }*/
-
-
+        transform.parent.parent.GetComponent<GameController>().nextTurn = true;
+    }
 }

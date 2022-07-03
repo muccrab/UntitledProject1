@@ -216,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnlockedSpells: 000000000000000000
   isAlive: 1
+  myTurn: 0
   str: 0
   dex: 0
   health: 10000
@@ -234,6 +235,7 @@ MonoBehaviour:
   Class: 
   religion: 
   CharImg: {fileID: 0}
+  isGenerated: 0
 --- !u!212 &77479493
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -474,6 +476,7 @@ MonoBehaviour:
   maxDmg: 0
   maxHealth: 0
   isAlive: 1
+  myTurn: 0
   name: Skelly
   type: Undead
 --- !u!61 &273344243
@@ -566,13 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33f0444c65dd2f4191b7e569e1a7a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 156696615}
-  - {fileID: 713291640}
-  - {fileID: 33546413}
-  - {fileID: 1871841532}
-  - {fileID: 1574946074}
-  targetable: 00000000
 --- !u!1 &344063509
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,7 +718,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &456481879
 GameObject:
@@ -932,6 +928,7 @@ MonoBehaviour:
   maxDmg: 0
   maxHealth: 0
   isAlive: 1
+  myTurn: 0
   name: Skelly
   type: Undead
 --- !u!61 &565304585
@@ -972,13 +969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33f0444c65dd2f4191b7e569e1a7a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 156696615}
-  - {fileID: 713291640}
-  - {fileID: 33546413}
-  - {fileID: 1871841532}
-  - {fileID: 1574946074}
-  targetable: 00000000
 --- !u!1 &710310209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,8 +1090,9 @@ Transform:
   - {fileID: 33546415}
   - {fileID: 1871841534}
   - {fileID: 1574946076}
+  - {fileID: 1650252698}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &715205119
 MonoBehaviour:
@@ -1115,6 +1106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9620f3823982840b096414ee2eed5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextTurn: 1
   Enemies:
   - {fileID: 933041556}
   - {fileID: 1856698180}
@@ -1127,6 +1119,8 @@ MonoBehaviour:
   - {fileID: 33546413}
   - {fileID: 1871841532}
   - {fileID: 1574946074}
+  target: 00000000
+  targetable: 00000000
 --- !u!1 &906838493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,7 +1499,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1650252698}
     m_Modifications:
     - target: {fileID: 7675575419834742200, guid: 23156105c0a2593409a486105765d7eb, type: 3}
       propertyPath: m_Name
@@ -1525,7 +1519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 23156105c0a2593409a486105765d7eb, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 23156105c0a2593409a486105765d7eb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1569,23 +1563,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 23156105c0a2593409a486105765d7eb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 23156105c0a2593409a486105765d7eb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 23156105c0a2593409a486105765d7eb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 23156105c0a2593409a486105765d7eb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -106
+      value: -547.4
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 23156105c0a2593409a486105765d7eb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -206.99997
+      value: -399.59998
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 23156105c0a2593409a486105765d7eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1684,6 +1678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnlockedSpells: 000000000000000000
   isAlive: 1
+  myTurn: 0
   str: 0
   dex: 0
   health: 20
@@ -1702,6 +1697,7 @@ MonoBehaviour:
   Class: 
   religion: 
   CharImg: {fileID: 0}
+  isGenerated: 0
 --- !u!212 &1384375165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1801,6 +1797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnlockedSpells: 000000000000000000
   isAlive: 1
+  myTurn: 0
   str: 0
   dex: 0
   health: 10000
@@ -1819,6 +1816,7 @@ MonoBehaviour:
   Class: 
   religion: 
   CharImg: {fileID: 0}
+  isGenerated: 0
 --- !u!212 &1562289077
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2072,6 +2070,7 @@ MonoBehaviour:
   maxDmg: 0
   maxHealth: 0
   isAlive: 1
+  myTurn: 0
   name: Skelly
   type: Undead
 --- !u!61 &1601675422
@@ -2164,13 +2163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33f0444c65dd2f4191b7e569e1a7a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 156696615}
-  - {fileID: 713291640}
-  - {fileID: 33546413}
-  - {fileID: 1871841532}
-  - {fileID: 1574946074}
-  targetable: 00000000
+--- !u!224 &1618536818 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7675575419834742201, guid: 23156105c0a2593409a486105765d7eb, type: 3}
+  m_PrefabInstance: {fileID: 1358075505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1650252697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2204,8 +2201,10 @@ RectTransform:
   m_Children:
   - {fileID: 710310210}
   - {fileID: 1374252787}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  - {fileID: 6291124770407133833}
+  - {fileID: 1618536818}
+  m_Father: {fileID: 715205118}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2339,6 +2338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnlockedSpells: 000000000000000000
   isAlive: 1
+  myTurn: 0
   str: 0
   dex: 0
   health: 20
@@ -2357,6 +2357,7 @@ MonoBehaviour:
   Class: 
   religion: 
   CharImg: {fileID: 0}
+  isGenerated: 0
 --- !u!212 &1737883042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2758,6 +2759,7 @@ MonoBehaviour:
   maxDmg: 0
   maxHealth: 0
   isAlive: 1
+  myTurn: 0
   name: Skelly
   type: Undead
 --- !u!61 &1874424458
@@ -2850,13 +2852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33f0444c65dd2f4191b7e569e1a7a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 156696615}
-  - {fileID: 713291640}
-  - {fileID: 33546413}
-  - {fileID: 1871841532}
-  - {fileID: 1574946074}
-  targetable: 00000000
 --- !u!1 &1927622783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2994,11 +2989,15 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1650252698}
     m_Modifications:
     - target: {fileID: 7675575419834742200, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
       propertyPath: m_Name
       value: SpellButton 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675575419834742200, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
       propertyPath: m_Pivot.x
@@ -3010,7 +3009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3054,23 +3053,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -106
+      value: -547.4
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -206.99997
+      value: -399.59998
       objectReference: {fileID: 0}
     - target: {fileID: 7675575419834742201, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3084,26 +3083,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8429879353964464962, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8429879353964464962, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
-      propertyPath: positions.Array.data[0]
-      value: 
-      objectReference: {fileID: 933041556}
-    - target: {fileID: 8429879353964464962, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
-      propertyPath: positions.Array.data[1]
-      value: 
-      objectReference: {fileID: 1856698180}
-    - target: {fileID: 8429879353964464962, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
-      propertyPath: positions.Array.data[2]
-      value: 
-      objectReference: {fileID: 1973001406}
-    - target: {fileID: 8429879353964464962, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
-      propertyPath: positions.Array.data[3]
-      value: 
-      objectReference: {fileID: 1713112678}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
 --- !u!114 &6291124770407133829 stripped
@@ -3117,3 +3096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &6291124770407133833 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7675575419834742201, guid: 0b5e2c056056ccb49af63b4b33340832, type: 3}
+  m_PrefabInstance: {fileID: 6291124770407133828}
+  m_PrefabAsset: {fileID: 0}

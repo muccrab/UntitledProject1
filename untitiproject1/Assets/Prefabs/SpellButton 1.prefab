@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7675575419834742204}
   - component: {fileID: 7675575419834742207}
   - component: {fileID: 7675575419834742206}
-  - component: {fileID: 8429879353964464962}
+  - component: {fileID: 3407062242580924914}
   m_Layer: 5
   m_Name: SpellButton 1
   m_TagString: Untagged
@@ -122,8 +122,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8429879353964464962}
-        m_TargetAssemblyTypeName: KnightSpells, Assembly-CSharp
+      - m_Target: {fileID: 3407062242580924914}
+        m_TargetAssemblyTypeName: CharSpells, Assembly-CSharp
         m_MethodName: spell1
         m_Mode: 1
         m_Arguments:
@@ -134,7 +134,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8429879353964464962
+--- !u!114 &3407062242580924914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,11 +146,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f0842241ff05459e5e28df80a92f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellIcons: []
-  positions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  target: 00000000
-  targetable: 00000000

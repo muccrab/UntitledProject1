@@ -10,14 +10,29 @@ public class GameController : MonoBehaviour
         public GameObject character;
         public int Speed;
     }
+
+    public struct EnemyFound
+    {
+        public int pos;
+        public bool found;
+    }
     
     private bool endC;
     private bool endD;
+
+    public bool nextTurn = true;
 
     const int speedKoef = 10;
 
     public GameObject[] Enemies;
     public GameObject[] Characters;
+
+
+    public bool[] target = { false, false, false, false };
+    public bool[] targetable = { false, false, false, false };
+
+    Vector3 mousePos;
+    Vector2 mousePos2D;
 
     List<CharAndSpeed> TurnOrderList = new List<CharAndSpeed>();
 
@@ -25,21 +40,24 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int i = 0;
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+
         TurnOrder();
-        foreach(CharAndSpeed character in TurnOrderList)
-        {
-            i++;
-            Debug.Log(character.Speed);
-            Debug.Log(character.character.name);
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        SetMouse();
+        SetNextActiveChar();
+        EnemyPointedAt();
         moveForv();
         CombatEnd();
+
+
         if (endD)
         {
             Debug.Log("DungeonEnd");
@@ -47,6 +65,13 @@ public class GameController : MonoBehaviour
         if(endC)
         {
             Debug.Log("CombatEnd");
+        }
+
+
+
+        if(TurnOrderList.Count <= 0)
+        {
+            TurnOrder();
         }
     }
 
@@ -168,5 +193,137 @@ public class GameController : MonoBehaviour
         }
 
         return child;
+    }
+
+
+
+    public void SetTargetable(int min, int max)
+    {
+        for (int i = min; i <= max; i++)
+        {
+            if (GameController.FindChildWithTag(Enemies[i], "Enemies") != null)
+            {
+                targetable[i] = true;
+                Enemies[i].transform.Find("TargetablePointer").gameObject.SetActive(true);
+            }
+        }
+    }
+
+    private void EnemyPointedAt()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (GameController.FindChildWithTag(Enemies[i], "Enemies") != null)
+            {
+                if (Enemies[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                {
+                    if (targetable[i] == true)
+                    {
+                        Enemies[i].transform.Find("TargetPointer").gameObject.SetActive(true);
+                    }
+                }
+                else
+                {
+                    Enemies[i].transform.Find("TargetPointer").gameObject.SetActive(false);
+                }
+
+            }
+        }
+    }
+
+
+    public void ResetTargets()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            targetable[i] = false;
+            target[i] = false;
+            Enemies[i].transform.Find("TargetablePointer").gameObject.SetActive(false);
+            Enemies[i].transform.Find("TargetPointer").gameObject.SetActive(false);
+        }
+    }
+
+
+    public EnemyFound GetEnemy()
+    {
+        EnemyFound enemy;
+        enemy.found = false;
+        enemy.pos = 0;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (GameController.FindChildWithTag(Enemies[i], "Enemies") != null && targetable[i])
+                {
+                    if (Enemies[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                    {
+                        enemy.pos = i;
+                        enemy.found = true;
+                    }
+                }
+            }
+        }
+        return enemy;
+    }
+
+    private void SetNextActiveChar()
+    {
+        if (nextTurn)
+        {
+            nextTurn = false;
+
+            if (TurnOrderList[0].character.tag == "Character")
+            {
+                if (TurnOrderList[0].character.GetComponent<Character>().myTurn)
+                {
+                    TurnOrderList[0].character.GetComponent<Character>().myTurn = false;
+                    TurnOrderList.RemoveAt(0);
+                }
+
+                EnemyOrAlly();
+
+            }
+            else if (TurnOrderList[0].character.tag == "Enemies")
+            {
+                if(TurnOrderList[0].character.GetComponent<Enemy>().myTurn)
+                {
+                    TurnOrderList[0].character.GetComponent<Enemy>().myTurn = false;
+                    TurnOrderList.RemoveAt(0);
+                }
+
+                EnemyOrAlly();
+
+            }
+            /*
+            Debug.Log("*********************************************************************************************");
+            foreach (CharAndSpeed character in TurnOrderList)
+            {
+                Debug.Log(character.Speed);
+                Debug.Log(character.character.name);
+            }*/
+        }
+        
+    }
+
+
+    private void EnemyOrAlly()
+    {
+        if (TurnOrderList[0].character.tag == "Character")
+        {
+            TurnOrderList[0].character.GetComponent<Character>().isGenerated = false;
+            TurnOrderList[0].character.GetComponent<Character>().myTurn = true;
+        }
+        else if (TurnOrderList[0].character.tag == "Enemies")
+        {
+            TurnOrderList[0].character.GetComponent<Enemy>().myTurn = true;
+        }
+    }
+
+
+    private void SetMouse()
+    {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos2D = new Vector2(mousePos.x, mousePos.y);
     }
 }

@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     public int maxDmg;
     public int maxHealth;
     public bool isAlive = true;
+    public bool myTurn = false;
     // Staty a zakladne logicke parametre
     //*********************************************************************************************************************************************************************
 
@@ -26,6 +27,10 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if(myTurn)
+        {
+            gameObject.GetComponent<EnemySpells>().spell1use();
+        }
         checkDeath();
     }
 
