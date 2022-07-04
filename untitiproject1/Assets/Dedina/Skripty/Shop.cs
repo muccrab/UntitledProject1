@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,13 +19,13 @@ public class Shop : MonoBehaviour
 	}
 
 	#endregion
-    
+
     [System.Serializable] class ShopItem
     {
         public Sprite Image;
         public int Price;
     }
-    
+
     public List<ShopItem> ShopItemsList;
     [SerializeField] TMP_Text CoinsText;
 
@@ -46,13 +46,13 @@ public class Shop : MonoBehaviour
             //g.transform.GetChild (1).GetChild (0).GetComponent <Text> ().text = ShopItemsList [i].Price.ToString();
             buyBtn = g.transform.GetChild (2).GetComponent <Button>();
             buyBtn.AddEventListener (i,OnShopItemBtnClicked);
-			
+
         }
         Destroy (ItemTemplate);
         SetCoinsUI();
 
     void OnShopItemBtnClicked(int itemIndex){
-        
+
         if(Game.Instance.HasEnoughCoins(ShopItemsList[itemIndex].Price)){
             Game.Instance.UseCoins(ShopItemsList[itemIndex].Price);
 
@@ -61,8 +61,8 @@ public class Shop : MonoBehaviour
         }else{
             Debug.Log("no moners");
         }
-        
-        
+
+
     }
 
 
@@ -73,3 +73,4 @@ public class Shop : MonoBehaviour
     }
 
 }
+*/

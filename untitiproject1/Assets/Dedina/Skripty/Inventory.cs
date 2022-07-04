@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,13 +17,13 @@ public class Inventory : MonoBehaviour
 	}
 
 	#endregion
-    
+
     public class Item{
         public Sprite Image;
     }
 
     public List<Item> ItemsList;
-	
+
     [SerializeField] GameObject ItemUITemplate;
 	[SerializeField] Transform ItemsScrollView;
 
@@ -36,9 +36,10 @@ public class Inventory : MonoBehaviour
         {
             if (Shop.Instance.ShopItemsList[i].buyBtn.AddEventListener (i,OnShopItemBtnClicked))
             {
-                
+
             }
         }
     }
 
 }
+*/

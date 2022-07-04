@@ -25,14 +25,14 @@ public class Game : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     public void UseCoins(int amount)
     {
         Coins -= amount;
     }
-    
+
     public bool HasEnoughCoins(int amount)
     {
         return (Coins >= amount);
