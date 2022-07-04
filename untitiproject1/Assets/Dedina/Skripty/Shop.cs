@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +26,7 @@ public class Shop : MonoBehaviour
         public int Price;
     }
 
-    public List<ShopItem> ShopItemsList;
+    [SerializeField] List<ShopItem> ShopItemsList;
     [SerializeField] TMP_Text CoinsText;
 
     GameObject ItemTemplate;
@@ -73,4 +73,3 @@ public class Shop : MonoBehaviour
     }
 
 }
-*/
