@@ -12,6 +12,7 @@ public class DunGen : MonoBehaviour
     public int Radius;
     int mainHops=0;
     int tileLength = 10;
+    HashSet<Vector2> tilePositions = new HashSet<Vector2>();
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +46,7 @@ public class DunGen : MonoBehaviour
             tile.name = "Room "+j;
             tile.transform.position = new Vector2(tp.position.x,tp.position.y);
             tp.HallCode = tile.GetComponent<HallScript>();
-
+            tilePositions.Add(tile.transform.position);
             if (j!=mainHops-1)
             {
                 TurnPoint ntp = mainPoints[j+1];
@@ -92,6 +93,8 @@ public class DunGen : MonoBehaviour
                         GameObject tilebetween = Instantiate(Tile);
                         tilebetween.name = "Hall "+j;
                         tilebetween.transform.position = new Vector2(tilesBetween[i].x,tilesBetween[i].y);
+                        tilePositions.Add(tilebetween.transform.position);
+
                     }
                 }
             }
@@ -105,7 +108,7 @@ public class DunGen : MonoBehaviour
             {
                 int BrechLength = Random.Range(brenchRange.x,brenchRange.y+1);
                 TurnPoint[] BrenchPoints = new TurnPoint[BrechLength];
-                Vector2Int newTile = point.HallCode.getNewTile(point.position,tileLength);
+                Vector2Int newTile = point.HallCode.getNewTile(point.position,tileLength,tilePositions);
                 for(int i = 0; i < BrechLength; i++)
                 {
                     for (int j = 0;j < Random.Range(Radius,2*Mathf.Sqrt(Radius*Radius/2));j++)
@@ -113,13 +116,15 @@ public class DunGen : MonoBehaviour
                         GameObject summon = Instantiate(Tile);
                         summon.transform.position = (Vector2)newTile;
                         summon.name = "BrenchHall"+i+"-"+j;
-                        newTile = summon.GetComponent<HallScript>().getNewTile(newTile,tileLength);
+                        tilePositions.Add(summon.transform.position);
+                        newTile = summon.GetComponent<HallScript>().getNewTile(newTile,tileLength,tilePositions);
                     }
                     BrenchPoints[i] = new TurnPoint(newTile,0,0.5f,Radius,tileLength,false);
                     GameObject Room = Instantiate(RoomTile);
                     Room.transform.position = (Vector2)newTile;
                     Room.name = "RoomHall"+i;
-                    newTile = Room.GetComponent<HallScript>().getNewTile(newTile,tileLength);
+                    tilePositions.Add(Room.transform.position);
+                    newTile = Room.GetComponent<HallScript>().getNewTile(newTile,tileLength,tilePositions);
                     BrenchPoints[i].HallCode = Room.GetComponent<HallScript>();
                 }
 
@@ -199,3 +204,4 @@ class TurnPoint{
         return nextHopP;
     }
 }
+
