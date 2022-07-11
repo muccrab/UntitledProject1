@@ -29,7 +29,7 @@ public class HallScript : MonoBehaviour
                     newTile.y = position.y-tileLength;
                     break;
             }
-        Debug.Log(name + " = "+debugArray(newDirection));
+       // Debug.Log(name + " = "+debugArray(newDirection));
         //Debug.Log(name + " = " + left + " - " + up + " - " + right + " - " + down + " - - " + newTile);
         return newTile;
         
