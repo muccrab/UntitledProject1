@@ -11,6 +11,7 @@ public static class LoadController
     public static bool loadSave = false;
     public static string path = "";
     private static List<SaveChatacterObj> characters = new List<SaveChatacterObj>();
+    public static Dictionary<string,Tile> Dungeon = new Dictionary<string, Tile>();
 
     public static SaveChatacterObj[] getCharacters(){
         return characters.ToArray();

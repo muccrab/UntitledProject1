@@ -159,7 +159,9 @@ public class DunGen : MonoBehaviour
             Tiles[tilename].setRight(directions[2]);
             Tiles[tilename].setDown(directions[3]);
         }
+        LoadController.Dungeon = Tiles;
 
+        //DEBUG ONLY
         foreach(var t in Tiles.Values){
             if (t.type)
             Debug.Log(t.getName() +" = "+ t.getLeft() +" / " + t.getUp() +" / " + t.getRight() + " / " + t.getDown());
@@ -191,22 +193,22 @@ public class DunGen : MonoBehaviour
             Vector2Int location = new Vector2Int(Tiles[room].posx,Tiles[room].posy);
             if (tilePositions.Contains(location+new Vector2Int(-tileLength,0)))
             {
-                directions[0] = getTileonLocation(location+new Vector2Int(-tileLength,0),roomnum,mainHops-1);
+                directions[0] = getTileonLocation(location+new Vector2Int(-tileLength,0),roomnum,mainHops);
             }
             location = new Vector2Int(Tiles[room].posx,Tiles[room].posy);
             if (tilePositions.Contains(location+new Vector2Int(0,tileLength)))
             {
-                directions[1] = getTileonLocation(location+new Vector2Int(0,tileLength),roomnum,mainHops-1);
+                directions[1] = getTileonLocation(location+new Vector2Int(0,tileLength),roomnum,mainHops);
             }
             location = new Vector2Int(Tiles[room].posx,Tiles[room].posy);
             if (tilePositions.Contains(location+new Vector2Int(tileLength,0)))
             {
-                directions[2] = getTileonLocation(location+new Vector2Int(tileLength,0),roomnum,mainHops-1);
+                directions[2] = getTileonLocation(location+new Vector2Int(tileLength,0),roomnum,mainHops);
             }
             location = new Vector2Int(Tiles[room].posx,Tiles[room].posy);
             if (tilePositions.Contains(location+new Vector2Int(0,-tileLength)))
             {
-                directions[3] = getTileonLocation(location+new Vector2Int(0,-tileLength),roomnum,mainHops-1);
+                directions[3] = getTileonLocation(location+new Vector2Int(0,-tileLength),roomnum,mainHops);
             }
         }
         return directions;
@@ -288,45 +290,5 @@ class TurnPoint{
         return nextHopP;
     }
 }
-[System.Serializable]
-class Tile{
-    string name;
-    public int posx,posy; //position on screen (probably useless so I will delete it later....GET OFF MY BACK ABOUT IT Alright!!!!)
-    int posinhall; //Hall specific - position in one hall
-    public bool type; //F for Hall, T for Room
-    string special; //Special condition in room
-    string left, up, right, down; //Room specific - just direction where you can go 
-    string from, to; //Hall specific - directions
-    public Tile(string name, int posx,int posy,string special,int posinhall){
-        this.name = name;
-        this.posx = posx;
-        this.posy = posy;
-        this.posinhall = posinhall;
-        this.type = false;
-        this.special = special;
-    }
-    public Tile(string name, int posx,int posy, string special){
-        this.name = name;
-        this.posx = posx;
-        this.posy = posy;
-        this.type = true;
-        this.special = special;
-    }
-    
-    public void setLeft(string left) {this.left=left;}
-    public void setUp(string up) {this.up=up;}
-    public void setRight(string right) {this.right=right;}
-    public void setDown(string down) {this.down=down;}
-    public void setFrom(string from) {this.from=from;}
-    public void setTo(string to) {this.to=to;}
-    public string getLeft(){return this.left;}
-    public string getUp(){return this.up;}
-    public string getRight(){return this.right;}
-    public string getDown(){return this.down;}
-    public string getFrom(){return this.from;}
-    public string getTo(){return this.to;}
-    public string getName(){return this.name;}
-    
 
-}
 

@@ -8,11 +8,7 @@ TagManager:
   - Rooms
   - SaveBTN
   - HallTag
-  - HallTagRight
-  - HallTagLeft
-  - HallTagUp
-  - HallTagDown
-  - HallColiderTag
+  - MapCamera
   layers:
   - Default
   - TransparentFX
