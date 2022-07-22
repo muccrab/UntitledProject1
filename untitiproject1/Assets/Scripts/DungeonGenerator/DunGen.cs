@@ -24,6 +24,7 @@ public class DunGen : MonoBehaviour
         #region Main Road Generator
         //Array of main Road stops
         TurnPoint[] mainPoints = new TurnPoint[mainHops];
+        //Generates turnpoints (Rooms) on the main path
         for(int i = mainHops-1; i >= 0; i--)
         {
             if (i != mainHops-1)
@@ -36,9 +37,10 @@ public class DunGen : MonoBehaviour
             }
         }
 
-
+        //Generates Halls between rooms
         for (int j = 0; j < mainHops; j++)
         {
+            //changes turnpoints into room tiles on the map
             TurnPoint tp = mainPoints[j];
             GameObject tile = Instantiate(RoomTile);
             tile.name = "r"+j;
@@ -47,15 +49,16 @@ public class DunGen : MonoBehaviour
             tp.HallCode = tile.GetComponent<HallScript>();
             tilePositions.Add(tile.transform.position);
             Tiles.Add(tile.name,new Tile(tile.name, (int)tile.transform.position.x,(int)tile.transform.position.y,""));
+            //generates hallpoints between the rooms
             if (j!=mainHops-1)
             {
-                TurnPoint ntp = mainPoints[j+1];
-                int tilesBetweenLength = (int)Mathf.Abs((ntp.position.x-tp.position.x)/tileLength)+(int)Mathf.Abs((ntp.position.y-tp.position.y)/tileLength);
-                Vector2[] tilesBetween = new Vector2[100];
-                tilesBetween[0].y = tp.position.y;
+                TurnPoint ntp = mainPoints[j+1]; //next turnpoint
+                int tilesBetweenLength = (int)Mathf.Abs((ntp.position.x-tp.position.x)/tileLength)+(int)Mathf.Abs((ntp.position.y-tp.position.y)/tileLength); //number of tiles between rooms
+                Vector2[] tilesBetween = new Vector2[tilesBetweenLength]; //data structure to store positions of halls
+                tilesBetween[0].y = tp.position.y; 
                 int tIndex = 0;
                 
-
+                //x line
                 int NToffset = (int)Mathf.Sign(ntp.position.x-tp.position.x)*tileLength;
                 for(int i = tp.position.x+NToffset; nextPointCheck(i,tp.position.x,ntp.position.x,null); i+=NToffset)
                 {
@@ -65,7 +68,7 @@ public class DunGen : MonoBehaviour
                     tIndex++;
                 }
 
-                
+                //y line
                 NToffset = (int)Mathf.Sign(ntp.position.y-tp.position.y)*tileLength;
                 for(int i = tp.position.y+NToffset; nextPointCheck(i,tp.position.y,ntp.position.y-NToffset,NToffset); i+=NToffset)
                 {
@@ -76,7 +79,7 @@ public class DunGen : MonoBehaviour
                 }
 
 
-
+                //creates Tiles for Halls
                 for(int i = 0; i < tilesBetweenLength; i++)
                 {
                     if (tilesBetween[i].x != 0 || tilesBetween[i].y != 0)
@@ -98,6 +101,7 @@ public class DunGen : MonoBehaviour
         #endregion
         #region Brech Generator
         int counter = mainHops;
+        //for each main point checks if it is branchable and creates brench
         for(int k = 0; k < mainPoints.Length;k++)
         {
             TurnPoint point = mainPoints[k];
@@ -151,6 +155,7 @@ public class DunGen : MonoBehaviour
             }
         }
         #endregion
+        //gets directions for rooms
         for (int i = 0;Tiles.ContainsKey("r"+i);i++){
             string tilename = "r"+i;
             string[] directions = getAvailibleDirections(tilename);
@@ -184,7 +189,7 @@ public class DunGen : MonoBehaviour
         if (pos >= nextpos) return true;
             return false;
     }
-
+    //returns array with hallnames next to room
     string[] getAvailibleDirections(string room){
         string[] directions = new string[4];
         int roomnum = int.Parse(room.Substring(1));
