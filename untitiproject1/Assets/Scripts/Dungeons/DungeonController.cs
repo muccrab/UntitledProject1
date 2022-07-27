@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DungeonController : MonoBehaviour
 {
     public GameObject[] startHall, middleHall, endHall, Rooms;
-    public GameObject lButton,uButton,rButton,dButton,fromButton,toButton;
+    public GameObject lButton,uButton,rButton,dButton,fromButton,toButton,lastButton,nextButton;
     public GameObject Heroes;
     public string Selected = "r0";
     public int hallsize = 1, hallstanding = 0;
@@ -14,7 +14,8 @@ public class DungeonController : MonoBehaviour
     public string left,up,right,down;
     public bool type = true;
     public bool holdBackward = false, holdForward = false;
-    public bool generate = false; 
+    public bool goLast = false, goNext = false; //for hall movement controll, when you enter a gate
+    public bool generate = true; 
     Tile SelectedTile=null;
     
     
@@ -30,7 +31,20 @@ public class DungeonController : MonoBehaviour
             from = SelectedTile.getFrom();
             to = SelectedTile.getTo();
             type = SelectedTile.type;
-            if (generate) spawnRooms();
+            if (generate) 
+            {
+                spawnRooms();
+                /*if (Selected[0]=='h')
+                Heroes.transform.position = new Vector3(22.5f*(hallstanding), Heroes.transform.position.y, Heroes.transform.position.z);
+                */
+                if (Selected[0]=='h')
+                    if (Selected[3]!='0')
+                    {
+                        Heroes.transform.position = new Vector3(22.5f*(hallsize-1), Heroes.transform.position.y, Heroes.transform.position.z);
+                    }
+                
+                
+            }
             generate = false;
         }
         if (!type)
@@ -39,14 +53,9 @@ public class DungeonController : MonoBehaviour
             uButton.SetActive(false);
             rButton.SetActive(false);
             dButton.SetActive(false);
-            if (from is null)   fromButton.SetActive(false);
-                else    fromButton.SetActive(true);
-            if (to is null)   toButton.SetActive(false);
-                else    toButton.SetActive(true);
+            
         }
         else{
-            fromButton.SetActive(false);
-            toButton.SetActive(false);
             if (left is null)   lButton.SetActive(false);
                 else    lButton.SetActive(true);
             if (up is null)   uButton.SetActive(false);
@@ -56,7 +65,10 @@ public class DungeonController : MonoBehaviour
             if (down is null)   dButton.SetActive(false);
                 else    dButton.SetActive(true);
         }
-        
+
+        lastButton.SetActive(goLast);
+        nextButton.SetActive(goNext);
+
         if (holdForward) Heroes.GetComponent<HeroesController>().move_forward();
         if (holdBackward) Heroes.GetComponent<HeroesController>().move_backward();
         if (Selected[0]=='h') Selected = Selected.Substring(0,3) + hallstanding;
@@ -67,6 +79,7 @@ public class DungeonController : MonoBehaviour
         hallsize = 1;
         if (Selected[0] == 'r')
         {
+            Heroes.transform.position = new Vector3(0,Heroes.transform.position.y,Heroes.transform.position.z);
             NonUnityMethods.DestroyAll(GameObject.FindGameObjectsWithTag("Rooms"));
             Instantiate(
                 Rooms[Random.Range(0,Rooms.Length)],
@@ -107,8 +120,8 @@ public class DungeonController : MonoBehaviour
     public void pushUp(){ Selected = up; generate = true;}
     public void pushRight(){ Selected = right; generate = true;}
     public void pushDown(){ Selected = down; generate = true;}
-    public void pushFrom(){ Selected = from; generate = true;}
-    public void pushTo(){ Selected = to; generate = true;}
+    public void pushLast(){ Selected = from; generate = true;}
+    public void pushNext(){ Selected = to; generate = true;}
     public void pushBackward() { holdBackward = true;}
     public void pushForward() { holdForward = true;}
     public void stopBackward() { holdBackward = false;}

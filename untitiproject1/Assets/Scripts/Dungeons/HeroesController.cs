@@ -10,7 +10,6 @@ public class HeroesController : MonoBehaviour
     float speed = 0.0015f;
     bool up = true;
     int hallstanding;
-    bool fromGateOpen = false, toGateOpen = false;
     Rigidbody2D rigidBody;
     DungeonController dungeon;
     void Start(){
@@ -24,40 +23,29 @@ public class HeroesController : MonoBehaviour
         dungeon.hallstanding = hallstanding;
         myCamera.transform.position = new Vector3(transform.position.x,myCamera.transform.position.y,myCamera.transform.position.z);
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision Detected");
-        /*
-        if (collision.gameObject.name == "Gate")
+        if (collision.tag == "GateFrom")
         {
-            if (collision.gameObject.tag == "GateFrom"){
-                fromGateOpen = true;
-                Debug.Log("From Gate Openned");
-            }
-            if (collision.gameObject.tag == "GateTo"){
-                toGateOpen = true;
-                Debug.Log("To Gate Openned");
-            }
-        }*/
-
+            dungeon.goLast = true;
+        }
+        if (collision.tag == "GateTo")
+        {
+            dungeon.goNext = true;
+        }
     }
-    void OnCollisionExit2D(Collision2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Collision Avoided");
-        /*
-        if (collision.gameObject.name == "Gate")
+        if (collision.tag == "GateFrom")
         {
-            if (collision.gameObject.tag == "GateFrom"){
-                fromGateOpen = false;
-                Debug.Log("From Gate Clossed");
-            }
-            if (collision.gameObject.tag == "GateTo"){
-                toGateOpen = false;
-                Debug.Log("To Gate Clossed");
-            }
-        }*/
+            dungeon.goLast = false;
+        }
+        if (collision.tag == "GateTo")
+        {
+            dungeon.goNext = false;
+        }
     }
-
 
 
 
@@ -91,6 +79,7 @@ public class HeroesController : MonoBehaviour
     public void move_backward(){
        transform.position += new Vector3(-movespeed,0,0);
     }
+    
 
   
 }

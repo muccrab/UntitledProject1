@@ -9,6 +9,8 @@ TagManager:
   - SaveBTN
   - HallTag
   - MapCamera
+  - GateFrom
+  - GateTo
   layers:
   - Default
   - TransparentFX
