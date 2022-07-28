@@ -57,6 +57,9 @@ public class Character : MonoBehaviour
     public Button spell2ButtonPrefab;
     public RectTransform button2pos;
 
+    private Button spellbutton1;
+    private Button spellbutton2;
+
     //*********************************************************************************************************************************************************************
     public string name;
     public string Class;
@@ -74,18 +77,41 @@ public class Character : MonoBehaviour
     }
 
 
-   private void Update()
+    private void Update()
     {
         checkDeath();
-        if(myTurn && !isGenerated)
+        if (!isGenerated)
         {
             isGenerated = true;
-            Button spellbutton1 = Instantiate(spell1ButtonPrefab);
+            spellbutton1 = Instantiate(spell1ButtonPrefab);
             spellbutton1.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
             spellbutton1.transform.position = button1pos.position;
             spellbutton1.gameObject.SetActive(true);
             spellbutton1.onClick = spell1ButtonPrefab.onClick;
+
+
+            spellbutton2 = Instantiate(spell2ButtonPrefab);
+            spellbutton2.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            spellbutton2.transform.position = button2pos.position;
+            spellbutton2.gameObject.SetActive(true);
+            spellbutton2.onClick = spell2ButtonPrefab.onClick;
+
+            spellbutton1.gameObject.SetActive(false);
+            spellbutton2.gameObject.SetActive(false);
         }
+
+        if (myTurn)
+        {
+            spellbutton1.gameObject.SetActive(true);
+            spellbutton2.gameObject.SetActive(true);
+        }
+
+        else
+        {
+            spellbutton1.gameObject.SetActive(false);
+            spellbutton2.gameObject.SetActive(false);
+        }
+
     }
 
 

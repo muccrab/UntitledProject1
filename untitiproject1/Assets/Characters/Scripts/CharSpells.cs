@@ -21,6 +21,7 @@ public class CharSpells : MonoBehaviour
     {
         
         spell1use();
+        spell2use();
     }
 
 
@@ -28,6 +29,7 @@ public class CharSpells : MonoBehaviour
 
     public void spell1()
     {
+        Debug.Log(transform.parent.name);
         CurrentSpell = 1;
         SetTargets(0, 2);
     }
@@ -44,11 +46,37 @@ public class CharSpells : MonoBehaviour
                 DealDMG(enemyFound.pos, 20);
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
-                Destroy(gameObject);
             }
         }
 
     }
+
+
+
+    public void spell2()
+    {
+        CurrentSpell = 2;
+        Debug.Log(this.name);
+
+        SetTargets(0, 2);
+    }
+
+    private void spell2use()
+    {
+        if (CurrentSpell == 2)
+        {
+            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            if (enemyFound.found)
+            {
+                CurrentSpell = 0;
+                DealDMG(enemyFound.pos, 20);
+                GoNextChar();
+                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+            }
+        }
+
+    }
+
 
 
     private void DealDMG(int who, int dmg)
