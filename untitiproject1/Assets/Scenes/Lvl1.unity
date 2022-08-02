@@ -1050,9 +1050,9 @@ MonoBehaviour:
   parent: {fileID: 465614900}
   RoomTile: {fileID: 4488494996414755892, guid: 67567767afb95e349b1e459354930231, type: 3}
   Tile: {fileID: 8970071517237922939, guid: 0a1674fe989ea624b8d2980fe3b7a690, type: 3}
-  mainRange: {x: 4, y: 6}
-  brenchRange: {x: 1, y: 2}
-  Radius: 4
+  mainRange: {x: 2, y: 5}
+  brenchRange: {x: 2, y: 4}
+  Radius: 5
   mainHops: 0
   tileLength: 10
 --- !u!1001 &493891698

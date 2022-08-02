@@ -17,6 +17,11 @@ public class DunGen : MonoBehaviour
 
     void Start()
     {
+        if (LoadController.Dungeon.Count<=0) Generate();
+        else Replicate();
+    }
+
+    void Generate(){
         tileLength = (int)Tile.GetComponent<SpriteRenderer>().bounds.size.x; //Obtains the Length of Tile
         mainHops = Random.Range(mainRange.x+0,mainRange.y+1); //Gets Hops of Main Road
         
@@ -173,6 +178,19 @@ public class DunGen : MonoBehaviour
             //else
             //Debug.Log(t.getName() +" - "+ t.getFrom() +" - " + t.getTo());
             //Debug.Log(t.getName() + " = " +t.posx+" - "+t.posy);
+        }
+    }
+
+    void Replicate(){
+        Tiles = LoadController.Dungeon;
+        foreach(Tile tile in Tiles.Values)
+        {
+            GameObject GO;
+            if (tile.type) GO = Instantiate(RoomTile);
+            else GO = Instantiate(Tile);
+            GO.name = tile.getName();
+            GO.transform.position = new Vector3(tile.posx,tile.posy,0f);
+            GO.transform.parent = parent.transform;
         }
     }
 

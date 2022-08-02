@@ -14,6 +14,21 @@ public class SaveDataObj //Object that I'm saving into the file
    }
 }
 
+[System.Serializable]
+public class SaveAllObj
+{
+   public SaveChatactersObj Characters{get;}
+   public SaveDungeonsObj Dungeons{get;}
+
+   public SaveAllObj(SaveChatactersObj characters, SaveDungeonsObj dungeons){
+      this.Characters = characters;
+      this.Dungeons = dungeons;
+   }
+   
+}
+
+
+
 
 //Idiot cant spell in 5,4,3,2,1...
 [System.Serializable]
@@ -76,6 +91,47 @@ public class SaveChatactersObj //All Characters I'll be saving in files
          return characters;
    }
 }
+
+[System.Serializable]
+public class SaveDungeonObj //Dungeon I'll be saving to files
+{
+   Dictionary<string,Tile> dungeon;
+   string playerRoom = "";
+   bool finnished = false;
+   public SaveDungeonObj(Dictionary<string,Tile> dungeon, string playerRoom){
+      this.dungeon = dungeon;
+      this.playerRoom = playerRoom;
+   }
+   public Dictionary<string,Tile> getDungeon(){
+      return dungeon;
+   }
+}
+[System.Serializable]
+public class SaveDungeonsObj
+{
+   public bool isInDungeon = false;
+   public string curDungeon = "";
+   Dictionary<string, SaveDungeonObj> dunCollecrtion;
+   public SaveDungeonsObj(Dictionary<string, SaveDungeonObj> dunCollecrtion){
+      this.dunCollecrtion = dunCollecrtion; 
+   }
+   public SaveDungeonsObj(){
+      this.dunCollecrtion = new Dictionary<string, SaveDungeonObj>();
+   }
+   public void addDungeon(string name, SaveDungeonObj dungeon){
+      this.dunCollecrtion.Add(name,dungeon);
+   }
+   public void removeDungeon(string name){
+      if (this.dunCollecrtion.ContainsKey(name)) this.dunCollecrtion.Remove(name);
+   }
+   public SaveDungeonObj getDungeon(string name){
+      if (this.dunCollecrtion.ContainsKey(name)) return this.dunCollecrtion[name];
+      return null;
+   }
+
+}
+
+
 
 [System.Serializable]
 public class Tile{

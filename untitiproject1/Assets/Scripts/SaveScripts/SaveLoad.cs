@@ -62,24 +62,33 @@ public static class SaveLoad
     //saves All the data..gonna use this one in the end product, but I still want to keep saveSimple
     public static void saveAll (string path,string name, string scene)
     {
-            BinaryFormatter formatter = new BinaryFormatter();
-            //SaveSimple
+        BinaryFormatter formatter = new BinaryFormatter();
+
+        //SaveSimple
             string newpath = Application.persistentDataPath + path; 
             FileStream stream = new FileStream(newpath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             SaveDataObj data = new SaveDataObj(newpath.Substring(Application.persistentDataPath.Length),name,scene);
             formatter.Serialize(stream, data);
             stream.Close();
-            //SaveGame
+            
+            
+        //SaveGame
+            //Init
             newpath = Application.persistentDataPath + path.Substring(0,path.Length-4)+".baka";
             stream = new FileStream(newpath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            //Character Saving
             SaveChatacterObj[] characters = LoadController.getCharacters();
-            SaveChatactersObj datas = new SaveChatactersObj(characters);
+            SaveChatactersObj characterObj = new SaveChatactersObj(characters);
+            //Dungeon Saving
+            SaveDungeonsObj dungeonObj = LoadController.getDungeons();
+            //Dump All into file
+            SaveAllObj datas = new SaveAllObj(characterObj,dungeonObj);
             formatter.Serialize(stream, datas);
             stream.Close();
     }
 
     //Loads Game (Fucking Everything other than name of the save,date saved and path to the complete save, becauseI already have those)
-    public static SaveChatactersObj loadGame(string path)
+    public static SaveAllObj loadGame(string path)
     {
         string newpath;
         newpath = path.Substring(0,path.Length-4)+".baka";
@@ -93,7 +102,7 @@ public static class SaveLoad
         newpath = Application.persistentDataPath + newpath; 
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(newpath, FileMode.Open);
-        SaveChatactersObj data = formatter.Deserialize(stream) as SaveChatactersObj;
+        SaveAllObj data = formatter.Deserialize(stream) as SaveAllObj;
         stream.Close();
         return data;
 

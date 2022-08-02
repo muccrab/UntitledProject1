@@ -10,10 +10,17 @@ public class Loader : MonoBehaviour
     {
         if(LoadController.loadSave)
         {
-            SaveChatactersObj data = SaveLoad.loadGame(LoadController.path);
-            LoadController.setCharacters(data.getCharacters());
+            SaveAllObj data = SaveLoad.loadGame(LoadController.path);
+            LoadController.setCharacters(data.Characters.getCharacters());
+            LoadController.dungeons = data.Dungeons;
+            if (data.Dungeons.isInDungeon)
+            {
+                LoadController.nameofDungeon = data.Dungeons.curDungeon;
+                LoadController.isInDungeon = data.Dungeons.isInDungeon;
+                LoadController.Dungeon = data.Dungeons.getDungeon(data.Dungeons.curDungeon).getDungeon();
+            }
         }
-         LoadController.loadSave = false;
+        LoadController.loadSave = false;
         //Had to find antoher way around to check if scene is in built settings....
         int sceneIndex = SceneUtility.GetBuildIndexByScenePath("Scenes/"+LoadController.scene);
         if(sceneIndex>=0)

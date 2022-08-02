@@ -18,7 +18,9 @@ public class DungeonController : MonoBehaviour
     public bool generate = true; 
     Tile SelectedTile=null;
     
-    
+    void Start(){
+        if(LoadController.location is not null) Selected = LoadController.location;
+    }
     void Update(){
         if (SelectedTile is null || SelectedTile.getName()!=Selected)
         if (LoadController.Dungeon.ContainsKey(Selected))
@@ -72,6 +74,9 @@ public class DungeonController : MonoBehaviour
         if (holdForward) Heroes.GetComponent<HeroesController>().move_forward();
         if (holdBackward) Heroes.GetComponent<HeroesController>().move_backward();
         if (Selected[0]=='h') Selected = Selected.Substring(0,3) + hallstanding;
+
+        LoadController.location = Selected;
+        LoadController.isInDungeon = true;
     }
 
     private void spawnRooms()
