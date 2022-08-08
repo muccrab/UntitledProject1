@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
+            
             if (!isAlive)
             {
                 Destroy(gameObject);

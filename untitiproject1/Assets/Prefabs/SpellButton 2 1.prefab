@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -234272695, guid: a7deb3aa0ddf6004ab3173626dd642d8, type: 3}
+  m_Sprite: {fileID: 1177336156, guid: a7deb3aa0ddf6004ab3173626dd642d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2981290016321230818}
         m_TargetAssemblyTypeName: CharSpells, Assembly-CSharp
-        m_MethodName: spell2
+        m_MethodName: spell3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

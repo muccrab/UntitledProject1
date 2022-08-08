@@ -19,9 +19,14 @@ public class CharSpells : MonoBehaviour
 
     private void Update()
     {
-        
         spell1use();
         spell2use();
+        spell3use();
+        spell4use();
+        spell5use();
+        spell6use();
+        spell7use();
+        spell8use();
     }
 
 
@@ -64,6 +69,150 @@ public class CharSpells : MonoBehaviour
     private void spell2use()
     {
         if (CurrentSpell == 2)
+        {
+            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            if (enemyFound.found)
+            {
+                CurrentSpell = 0;
+                DealDMG(enemyFound.pos, 20);
+                GoNextChar();
+                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+            }
+        }
+
+    }
+
+    public void spell3()
+    {
+        CurrentSpell = 3;
+        Debug.Log(this.name);
+
+        SetTargets(0, 2);
+    }
+
+    private void spell3use()
+    {
+        if (CurrentSpell == 3)
+        {
+            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            if (enemyFound.found)
+            {
+                CurrentSpell = 0;
+                DealDMG(enemyFound.pos, 20);
+                GoNextChar();
+                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+            }
+        }
+
+    }
+
+    public void spell4()
+    {
+        CurrentSpell = 4;
+        Debug.Log(this.name);
+
+        SetTargets(0, 2);
+    }
+
+    private void spell4use()
+    {
+        if (CurrentSpell == 4)
+        {
+            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            if (enemyFound.found)
+            {
+                CurrentSpell = 0;
+                DealDMG(enemyFound.pos, 20);
+                GoNextChar();
+                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+            }
+        }
+
+    }
+
+    public void spell5()
+    {
+        CurrentSpell = 5;
+        Debug.Log(this.name);
+
+        SetTargets(0, 2);
+    }
+
+    private void spell5use()
+    {
+        if (CurrentSpell == 5)
+        {
+            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            if (enemyFound.found)
+            {
+                CurrentSpell = 0;
+                DealDMG(enemyFound.pos, 20);
+                GoNextChar();
+                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+            }
+        }
+
+    }
+
+    public void spell6()
+    {
+        CurrentSpell = 6;
+        Debug.Log(this.name);
+
+        SetTargets(0, 2);
+    }
+
+    private void spell6use()
+    {
+        if (CurrentSpell == 6)
+        {
+            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            if (enemyFound.found)
+            {
+                CurrentSpell = 0;
+                DealDMG(enemyFound.pos, 20);
+                GoNextChar();
+                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+            }
+        }
+
+    }
+
+    public void spell7()
+    {
+        CurrentSpell = 7;
+        Debug.Log(this.name);
+
+        SetTargets(0, 2);
+    }
+
+    private void spell7use()
+    {
+        if (CurrentSpell == 7)
+        {
+            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            if (enemyFound.found)
+            {
+                CurrentSpell = 0;
+                DealDMG(enemyFound.pos, 20);
+                GoNextChar();
+                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+            }
+        }
+
+    }
+
+    public void spell8()
+    {
+        CurrentSpell = 8;
+        Debug.Log(this.name);
+
+        SetTargets(0, 2);
+    }
+
+    private void spell8use()
+    {
+        if (CurrentSpell == 8)
         {
             GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
             if (enemyFound.found)

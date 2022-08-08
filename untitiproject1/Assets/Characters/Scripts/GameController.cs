@@ -269,6 +269,7 @@ public class GameController : MonoBehaviour
 
         if (nextTurn)
         {
+
             nextTurn = false;
 
             if (TurnOrderList[0].character.tag == "Character")
@@ -308,6 +309,7 @@ public class GameController : MonoBehaviour
                 Debug.Log(character.Speed);
                 Debug.Log(character.character.name);
             }*/
+            Debug.Log("na rade je " + TurnOrderList[0].character);
         }
         
     }
