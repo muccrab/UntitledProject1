@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 77479491}
   - component: {fileID: 77479493}
   - component: {fileID: 77479492}
+  - component: {fileID: 77479494}
   m_Layer: 0
   m_Name: Char3
   m_TagString: Character
@@ -214,7 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd2ecaea5efc644595893db2c39dba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnlockedSpells: 000000000000000000
   isAlive: 1
   myTurn: 0
   str: 0
@@ -227,27 +227,6 @@ MonoBehaviour:
   morale: 0
   minDmg: 0
   maxDmg: 0
-  spell1ButtonPrefab: {fileID: 6291124770407133829}
-  button1pos: {fileID: 710310210}
-  spell2ButtonPrefab: {fileID: 7675575419300792090}
-  button2pos: {fileID: 1374252787}
-  spell3ButtonPrefab: {fileID: 1496699603}
-  button3pos: {fileID: 1996023492}
-  spell4ButtonPrefab: {fileID: 7823567680585449751}
-  button4pos: {fileID: 1457524403}
-  spell5ButtonPrefab: {fileID: 7823567679826372516}
-  button5pos: {fileID: 319565479}
-  spell6ButtonPrefab: {fileID: 637000032533017948}
-  button6pos: {fileID: 285948434}
-  spell7ButtonPrefab: {fileID: 637000033477119520}
-  button7pos: {fileID: 791210559}
-  spell8ButtonPrefab: {fileID: 637000032442044143}
-  button8pos: {fileID: 518871881}
-  name: 
-  Class: 
-  religion: 
-  CharImg: {fileID: 0}
-  isGenerated: 0
 --- !u!212 &77479493
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -300,6 +279,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &77479494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77479490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24922bc5fd07c349a2c404f8336042e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnlockedSpells: 000000000000000000
+  spell1ButtonPrefab: {fileID: 6291124770407133829}
+  button1pos: {fileID: 710310210}
+  spell2ButtonPrefab: {fileID: 7675575419300792090}
+  button2pos: {fileID: 1374252787}
+  spell3ButtonPrefab: {fileID: 1496699603}
+  button3pos: {fileID: 1996023492}
+  spell4ButtonPrefab: {fileID: 7823567680585449751}
+  button4pos: {fileID: 1457524403}
+  spell5ButtonPrefab: {fileID: 7823567679826372516}
+  button5pos: {fileID: 319565479}
+  spell6ButtonPrefab: {fileID: 637000032533017948}
+  button6pos: {fileID: 285948434}
+  spell7ButtonPrefab: {fileID: 637000033477119520}
+  button7pos: {fileID: 791210559}
+  spell8ButtonPrefab: {fileID: 637000032442044143}
+  button8pos: {fileID: 518871881}
+  name: 
+  Class: 
+  religion: 
+  CharImg: {fileID: 0}
+  isGenerated: 0
 --- !u!1 &155572819
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +456,7 @@ GameObject:
   - component: {fileID: 273344243}
   - component: {fileID: 273344242}
   - component: {fileID: 273344245}
+  - component: {fileID: 273344246}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Enemies
@@ -477,18 +491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b2bf21648ca674580da8750f61ec83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  str: 0
-  dex: 0
-  health: 20
-  def: 0
-  attackS: 0
-  willP: 0
-  morale: 0
-  minDmg: 0
-  maxDmg: 0
-  maxHealth: 0
-  isAlive: 1
-  myTurn: 0
   name: Skelly
   type: Undead
 --- !u!61 &273344243
@@ -581,6 +583,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33f0444c65dd2f4191b7e569e1a7a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &273344246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273344240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd2ecaea5efc644595893db2c39dba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 1
+  myTurn: 0
+  str: 0
+  dex: 0
+  health: 20
+  maxHealth: 0
+  def: 0
+  attackS: 0
+  willP: 0
+  morale: 0
+  minDmg: 0
+  maxDmg: 0
 --- !u!1 &285948433
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +977,7 @@ GameObject:
   - component: {fileID: 565304585}
   - component: {fileID: 565304584}
   - component: {fileID: 565304586}
+  - component: {fileID: 565304587}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemies
@@ -1037,18 +1064,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b2bf21648ca674580da8750f61ec83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  str: 0
-  dex: 0
-  health: 20
-  def: 0
-  attackS: 0
-  willP: 0
-  morale: 0
-  minDmg: 0
-  maxDmg: 0
-  maxHealth: 0
-  isAlive: 1
-  myTurn: 0
   name: Skelly
   type: Undead
 --- !u!61 &565304585
@@ -1089,6 +1104,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33f0444c65dd2f4191b7e569e1a7a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &565304587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565304581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd2ecaea5efc644595893db2c39dba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 1
+  myTurn: 0
+  str: 0
+  dex: 0
+  health: 20
+  maxHealth: 0
+  def: 0
+  attackS: 0
+  willP: 0
+  morale: 0
+  minDmg: 0
+  maxDmg: 0
 --- !u!1 &710310209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,7 +1265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9620f3823982840b096414ee2eed5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextTurn: 1
   Enemies:
   - {fileID: 933041556}
   - {fileID: 1856698180}
@@ -1697,6 +1735,7 @@ GameObject:
   - component: {fileID: 1384375163}
   - component: {fileID: 1384375165}
   - component: {fileID: 1384375164}
+  - component: {fileID: 1384375166}
   m_Layer: 0
   m_Name: Char2
   m_TagString: Character
@@ -1731,7 +1770,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd2ecaea5efc644595893db2c39dba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnlockedSpells: 000000000000000000
   isAlive: 1
   myTurn: 0
   str: 0
@@ -1744,27 +1782,6 @@ MonoBehaviour:
   morale: 0
   minDmg: 0
   maxDmg: 0
-  spell1ButtonPrefab: {fileID: 6291124770407133829}
-  button1pos: {fileID: 710310210}
-  spell2ButtonPrefab: {fileID: 7675575419300792090}
-  button2pos: {fileID: 1374252787}
-  spell3ButtonPrefab: {fileID: 1496699603}
-  button3pos: {fileID: 1996023492}
-  spell4ButtonPrefab: {fileID: 7823567680585449751}
-  button4pos: {fileID: 1457524403}
-  spell5ButtonPrefab: {fileID: 7823567679826372516}
-  button5pos: {fileID: 319565479}
-  spell6ButtonPrefab: {fileID: 637000032533017948}
-  button6pos: {fileID: 285948434}
-  spell7ButtonPrefab: {fileID: 637000033477119520}
-  button7pos: {fileID: 791210559}
-  spell8ButtonPrefab: {fileID: 637000032442044143}
-  button8pos: {fileID: 518871881}
-  name: 
-  Class: 
-  religion: 
-  CharImg: {fileID: 0}
-  isGenerated: 0
 --- !u!212 &1384375165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1817,6 +1834,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1384375166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384375162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24922bc5fd07c349a2c404f8336042e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnlockedSpells: 000000000000000000
+  spell1ButtonPrefab: {fileID: 6291124770407133829}
+  button1pos: {fileID: 710310210}
+  spell2ButtonPrefab: {fileID: 7675575419300792090}
+  button2pos: {fileID: 1374252787}
+  spell3ButtonPrefab: {fileID: 1496699603}
+  button3pos: {fileID: 1996023492}
+  spell4ButtonPrefab: {fileID: 7823567680585449751}
+  button4pos: {fileID: 1457524403}
+  spell5ButtonPrefab: {fileID: 7823567679826372516}
+  button5pos: {fileID: 319565479}
+  spell6ButtonPrefab: {fileID: 637000032533017948}
+  button6pos: {fileID: 285948434}
+  spell7ButtonPrefab: {fileID: 637000033477119520}
+  button7pos: {fileID: 791210559}
+  spell8ButtonPrefab: {fileID: 637000032442044143}
+  button8pos: {fileID: 518871881}
+  name: 
+  Class: 
+  religion: 
+  CharImg: {fileID: 0}
+  isGenerated: 0
 --- !u!1 &1457524402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,6 +2028,7 @@ GameObject:
   - component: {fileID: 1562289075}
   - component: {fileID: 1562289077}
   - component: {fileID: 1562289076}
+  - component: {fileID: 1562289078}
   m_Layer: 0
   m_Name: Char4
   m_TagString: Character
@@ -2011,7 +2063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd2ecaea5efc644595893db2c39dba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnlockedSpells: 000000000000000000
   isAlive: 1
   myTurn: 0
   str: 0
@@ -2024,27 +2075,6 @@ MonoBehaviour:
   morale: 0
   minDmg: 0
   maxDmg: 0
-  spell1ButtonPrefab: {fileID: 6291124770407133829}
-  button1pos: {fileID: 710310210}
-  spell2ButtonPrefab: {fileID: 7675575419300792090}
-  button2pos: {fileID: 1374252787}
-  spell3ButtonPrefab: {fileID: 1496699603}
-  button3pos: {fileID: 1996023492}
-  spell4ButtonPrefab: {fileID: 7823567680585449751}
-  button4pos: {fileID: 1457524403}
-  spell5ButtonPrefab: {fileID: 7823567679826372516}
-  button5pos: {fileID: 319565479}
-  spell6ButtonPrefab: {fileID: 637000032533017948}
-  button6pos: {fileID: 285948434}
-  spell7ButtonPrefab: {fileID: 637000033477119520}
-  button7pos: {fileID: 791210559}
-  spell8ButtonPrefab: {fileID: 637000032442044143}
-  button8pos: {fileID: 518871881}
-  name: 
-  Class: 
-  religion: 
-  CharImg: {fileID: 0}
-  isGenerated: 0
 --- !u!212 &1562289077
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2097,6 +2127,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1562289078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562289074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24922bc5fd07c349a2c404f8336042e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnlockedSpells: 000000000000000000
+  spell1ButtonPrefab: {fileID: 6291124770407133829}
+  button1pos: {fileID: 710310210}
+  spell2ButtonPrefab: {fileID: 7675575419300792090}
+  button2pos: {fileID: 1374252787}
+  spell3ButtonPrefab: {fileID: 1496699603}
+  button3pos: {fileID: 1996023492}
+  spell4ButtonPrefab: {fileID: 7823567680585449751}
+  button4pos: {fileID: 1457524403}
+  spell5ButtonPrefab: {fileID: 7823567679826372516}
+  button5pos: {fileID: 319565479}
+  spell6ButtonPrefab: {fileID: 637000032533017948}
+  button6pos: {fileID: 285948434}
+  spell7ButtonPrefab: {fileID: 637000033477119520}
+  button7pos: {fileID: 791210559}
+  spell8ButtonPrefab: {fileID: 637000032442044143}
+  button8pos: {fileID: 518871881}
+  name: 
+  Class: 
+  religion: 
+  CharImg: {fileID: 0}
+  isGenerated: 0
 --- !u!1 &1571489145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,6 +2317,7 @@ GameObject:
   - component: {fileID: 1601675422}
   - component: {fileID: 1601675421}
   - component: {fileID: 1601675424}
+  - component: {fileID: 1601675425}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Enemies
@@ -2287,18 +2352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b2bf21648ca674580da8750f61ec83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  str: 0
-  dex: 0
-  health: 20
-  def: 0
-  attackS: 0
-  willP: 0
-  morale: 0
-  minDmg: 0
-  maxDmg: 0
-  maxHealth: 0
-  isAlive: 1
-  myTurn: 0
   name: Skelly
   type: Undead
 --- !u!61 &1601675422
@@ -2391,6 +2444,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33f0444c65dd2f4191b7e569e1a7a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1601675425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601675419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd2ecaea5efc644595893db2c39dba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 1
+  myTurn: 0
+  str: 0
+  dex: 0
+  health: 20
+  maxHealth: 0
+  def: 0
+  attackS: 0
+  willP: 0
+  morale: 0
+  minDmg: 0
+  maxDmg: 0
 --- !u!1 &1650252697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,6 +2629,7 @@ GameObject:
   - component: {fileID: 1737883043}
   - component: {fileID: 1737883042}
   - component: {fileID: 1737883041}
+  - component: {fileID: 1737883044}
   m_Layer: 0
   m_Name: Char1
   m_TagString: Character
@@ -2571,7 +2649,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd2ecaea5efc644595893db2c39dba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnlockedSpells: 000000000000000000
   isAlive: 1
   myTurn: 0
   str: 0
@@ -2584,27 +2661,6 @@ MonoBehaviour:
   morale: 0
   minDmg: 0
   maxDmg: 0
-  spell1ButtonPrefab: {fileID: 6291124770407133829}
-  button1pos: {fileID: 710310210}
-  spell2ButtonPrefab: {fileID: 7675575419300792090}
-  button2pos: {fileID: 1374252787}
-  spell3ButtonPrefab: {fileID: 1496699603}
-  button3pos: {fileID: 1996023492}
-  spell4ButtonPrefab: {fileID: 7823567680585449751}
-  button4pos: {fileID: 1457524403}
-  spell5ButtonPrefab: {fileID: 7823567679826372516}
-  button5pos: {fileID: 319565479}
-  spell6ButtonPrefab: {fileID: 637000032533017948}
-  button6pos: {fileID: 285948434}
-  spell7ButtonPrefab: {fileID: 637000033477119520}
-  button7pos: {fileID: 791210559}
-  spell8ButtonPrefab: {fileID: 637000032442044143}
-  button8pos: {fileID: 518871881}
-  name: 
-  Class: 
-  religion: 
-  CharImg: {fileID: 0}
-  isGenerated: 0
 --- !u!212 &1737883042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2672,6 +2728,40 @@ Transform:
   m_Father: {fileID: 156696617}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1737883044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737883039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24922bc5fd07c349a2c404f8336042e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnlockedSpells: 000000000000000000
+  spell1ButtonPrefab: {fileID: 6291124770407133829}
+  button1pos: {fileID: 710310210}
+  spell2ButtonPrefab: {fileID: 7675575419300792090}
+  button2pos: {fileID: 1374252787}
+  spell3ButtonPrefab: {fileID: 1496699603}
+  button3pos: {fileID: 1996023492}
+  spell4ButtonPrefab: {fileID: 7823567680585449751}
+  button4pos: {fileID: 1457524403}
+  spell5ButtonPrefab: {fileID: 7823567679826372516}
+  button5pos: {fileID: 319565479}
+  spell6ButtonPrefab: {fileID: 637000032533017948}
+  button6pos: {fileID: 285948434}
+  spell7ButtonPrefab: {fileID: 637000033477119520}
+  button7pos: {fileID: 791210559}
+  spell8ButtonPrefab: {fileID: 637000032442044143}
+  button8pos: {fileID: 518871881}
+  name: 
+  Class: 
+  religion: 
+  CharImg: {fileID: 0}
+  isGenerated: 0
 --- !u!1 &1804610459
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,6 +3051,7 @@ GameObject:
   - component: {fileID: 1874424458}
   - component: {fileID: 1874424457}
   - component: {fileID: 1874424460}
+  - component: {fileID: 1874424461}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemies
@@ -2995,18 +3086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b2bf21648ca674580da8750f61ec83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  str: 0
-  dex: 0
-  health: 20
-  def: 0
-  attackS: 0
-  willP: 0
-  morale: 0
-  minDmg: 0
-  maxDmg: 0
-  maxHealth: 0
-  isAlive: 1
-  myTurn: 0
   name: Skelly
   type: Undead
 --- !u!61 &1874424458
@@ -3099,6 +3178,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33f0444c65dd2f4191b7e569e1a7a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1874424461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874424455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd2ecaea5efc644595893db2c39dba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 1
+  myTurn: 0
+  str: 0
+  dex: 0
+  health: 20
+  maxHealth: 0
+  def: 0
+  attackS: 0
+  willP: 0
+  morale: 0
+  minDmg: 0
+  maxDmg: 0
 --- !u!1 &1927622783
 GameObject:
   m_ObjectHideFlags: 0

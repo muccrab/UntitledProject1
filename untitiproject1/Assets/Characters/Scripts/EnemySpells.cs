@@ -25,9 +25,9 @@ public class EnemySpells : MonoBehaviour
         if (enemyFound.found)
         {
             DealDMG(enemyFound.pos, 20);
+            transform.parent.parent.GetComponent<GameController>().Characters[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
             GoNextChar();
-            Debug.Log("Enemy dealing dmg to:");
-            Debug.Log(enemyFound.pos);
+            
         }
     }
 
@@ -71,6 +71,6 @@ public class EnemySpells : MonoBehaviour
 
     private void GoNextChar()
     {
-        transform.parent.parent.GetComponent<GameController>().nextTurn = true;
+        transform.parent.parent.GetComponent<GameController>().SetNextActiveChar();
     }
 }

@@ -16,11 +16,10 @@ public class GameController : MonoBehaviour
         public int pos;
         public bool found;
     }
-    
+
     private bool endC;
     private bool endD;
 
-    public bool nextTurn = true;
 
     const int speedKoef = 10;
 
@@ -34,7 +33,7 @@ public class GameController : MonoBehaviour
     Vector3 mousePos;
     Vector2 mousePos2D;
 
-    List<CharAndSpeed> TurnOrderList = new List<CharAndSpeed>();
+    public List<CharAndSpeed> TurnOrderList = new List<CharAndSpeed>();
 
 
     // Start is called before the first frame update
@@ -42,9 +41,10 @@ public class GameController : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
+        
 
         TurnOrder();
+        TurnOrderList[0].character.gameObject.GetComponent<Character>().myTurn = true;
 
     }
 
@@ -56,7 +56,6 @@ public class GameController : MonoBehaviour
             TurnOrder();
         }
         SetMouse();
-        SetNextActiveChar();
         EnemyPointedAt();
         moveForv();
         CombatEnd();
@@ -66,7 +65,7 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("DungeonEnd");
         }
-        if(endC)
+        if (endC)
         {
             Debug.Log("CombatEnd");
         }
@@ -81,7 +80,7 @@ public class GameController : MonoBehaviour
             CharAndSpeed OrderListComponent;
 
             character = FindChildWithTag(Characters[i], "Character");
-            if (character != null)
+            if (character != null && character.GetComponent<Character>().isAlive)
             {
                 OrderListComponent.Speed = character.GetComponent<Character>().attackS + (speedKoef * Random.Range(0, 11));
                 OrderListComponent.character = character;
@@ -90,9 +89,9 @@ public class GameController : MonoBehaviour
 
 
             character = FindChildWithTag(Enemies[i], "Enemies");
-            if (character != null)
+            if (character != null && character.GetComponent<Character>().isAlive)
             {
-                OrderListComponent.Speed = character.GetComponent<Enemy>().attackS + (speedKoef * Random.Range(0, 11));
+                OrderListComponent.Speed = character.GetComponent<Character>().attackS + (speedKoef * Random.Range(0, 11));
                 OrderListComponent.character = character;
                 TurnOrderList.Add(OrderListComponent);
             }
@@ -111,7 +110,7 @@ public class GameController : MonoBehaviour
             GameObject Enemy = FindChildWithTag(Enemies[i], "Enemies");
             if (Enemy != null)
             {
-                if(Enemy.GetComponent<Enemy>().isAlive)
+                if (Enemy.GetComponent<Character>().isAlive)
                 {
                     endC = false;                                                   // End combat bool
                     break;
@@ -264,60 +263,41 @@ public class GameController : MonoBehaviour
         return enemy;
     }
 
-    private void SetNextActiveChar()
+    public void SetNextActiveChar()
     {
 
-        if (nextTurn)
+
+        TurnOrderList[0].character.GetComponent<Character>().myTurn = false;
+        TurnOrderList.RemoveAt(0);
+        if (TurnOrderList.Count <= 0)
         {
-
-            nextTurn = false;
-
-            if (TurnOrderList[0].character.tag == "Character")
-            {
-                if (TurnOrderList[0].character.GetComponent<Character>().myTurn)
-                {
-                    TurnOrderList[0].character.GetComponent<Character>().myTurn = false;
-                    TurnOrderList.RemoveAt(0);
-                    if (TurnOrderList.Count <= 0)
-                    {
-                        TurnOrder();
-                    }
-                }
-
-                EnemyOrAlly();
-
-            }
-            else if (TurnOrderList[0].character.tag == "Enemies")
-            {
-                if(TurnOrderList[0].character.GetComponent<Enemy>().myTurn)
-                {
-                    TurnOrderList[0].character.GetComponent<Enemy>().myTurn = false;
-                    TurnOrderList.RemoveAt(0);
-                    if (TurnOrderList.Count <= 0)
-                    {
-                        TurnOrder();
-                    }
-                }
-
-                EnemyOrAlly();
-
-            }
-            /*
-            Debug.Log("*********************************************************************************************");
-            foreach (CharAndSpeed character in TurnOrderList)
-            {
-                Debug.Log(character.Speed);
-                Debug.Log(character.character.name);
-            }*/
-            Debug.Log("na rade je " + TurnOrderList[0].character);
+            TurnOrder();
         }
-        
+        //TurnOrderList[0].character.GetComponent<Character>().checkDeath();
+        if(TurnOrderList[0].character == null)
+        {
+            TurnOrderList[0].character.GetComponent<Character>().myTurn = true;
+        }
+        TurnOrderList[0].character.GetComponent<Character>().myTurn = true;
+        //CheckNextInTurn();
+
+
+        /*
+        Debug.Log("*********************************************************************************************");
+        foreach (CharAndSpeed character in TurnOrderList)
+        {
+            Debug.Log(character.Speed);
+            Debug.Log(character.character.name);
+        }*/
+        Debug.Log("na rade je " + TurnOrderList[0].character);
+
+
     }
 
 
-    private void EnemyOrAlly()
-    {
-        while (TurnOrderList[0].character == null)
+    private void CheckNextInTurn()
+    {/*
+        while (TurnOrderList[0].character.gameObject.GetComponent<Character>() == null || !TurnOrderList[0].character.gameObject.GetComponent<Character>().isAlive)
         {
             TurnOrderList.RemoveAt(0);
             Debug.Log("Gumujem kokotka");
@@ -326,17 +306,11 @@ public class GameController : MonoBehaviour
             {
                 TurnOrder();
             }
-        }
+        }*/
 
-            if (TurnOrderList[0].character.tag == "Character")
-            {
-                TurnOrderList[0].character.GetComponent<Character>().myTurn = true;
-            }
-            else if (TurnOrderList[0].character.tag == "Enemies")
-            {
-                TurnOrderList[0].character.GetComponent<Enemy>().myTurn = true;
-            }
-     
+        
+
+
     }
 
 

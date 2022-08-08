@@ -34,7 +34,6 @@ public class CharSpells : MonoBehaviour
 
     public void spell1()
     {
-        Debug.Log(transform.parent.name);
         CurrentSpell = 1;
         SetTargets(0, 2);
     }
@@ -49,6 +48,7 @@ public class CharSpells : MonoBehaviour
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
+                
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }
@@ -61,7 +61,6 @@ public class CharSpells : MonoBehaviour
     public void spell2()
     {
         CurrentSpell = 2;
-        Debug.Log(this.name);
 
         SetTargets(0, 2);
     }
@@ -75,6 +74,7 @@ public class CharSpells : MonoBehaviour
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
+                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }
@@ -85,7 +85,6 @@ public class CharSpells : MonoBehaviour
     public void spell3()
     {
         CurrentSpell = 3;
-        Debug.Log(this.name);
 
         SetTargets(0, 2);
     }
@@ -109,7 +108,6 @@ public class CharSpells : MonoBehaviour
     public void spell4()
     {
         CurrentSpell = 4;
-        Debug.Log(this.name);
 
         SetTargets(0, 2);
     }
@@ -133,7 +131,6 @@ public class CharSpells : MonoBehaviour
     public void spell5()
     {
         CurrentSpell = 5;
-        Debug.Log(this.name);
 
         SetTargets(0, 2);
     }
@@ -157,7 +154,6 @@ public class CharSpells : MonoBehaviour
     public void spell6()
     {
         CurrentSpell = 6;
-        Debug.Log(this.name);
 
         SetTargets(0, 2);
     }
@@ -181,7 +177,6 @@ public class CharSpells : MonoBehaviour
     public void spell7()
     {
         CurrentSpell = 7;
-        Debug.Log(this.name);
 
         SetTargets(0, 2);
     }
@@ -205,7 +200,6 @@ public class CharSpells : MonoBehaviour
     public void spell8()
     {
         CurrentSpell = 8;
-        Debug.Log(this.name);
 
         SetTargets(0, 2);
     }
@@ -219,6 +213,7 @@ public class CharSpells : MonoBehaviour
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
+                
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }
@@ -230,7 +225,7 @@ public class CharSpells : MonoBehaviour
 
     private void DealDMG(int who, int dmg)
     {
-        transform.parent.parent.GetComponent<GameController>().Enemies[who].GetComponentInChildren<Enemy>().health -= dmg;
+        transform.parent.parent.GetComponent<GameController>().Enemies[who].GetComponentInChildren<Character>().health -= dmg;
     }
 
     private void SetTargets(int min, int max)
@@ -241,7 +236,7 @@ public class CharSpells : MonoBehaviour
 
     private void GoNextChar()
     {
-        transform.parent.parent.GetComponent<GameController>().nextTurn = true;
+        transform.parent.parent.GetComponent<GameController>().SetNextActiveChar();
     }
 
 

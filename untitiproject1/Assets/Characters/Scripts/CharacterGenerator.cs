@@ -67,15 +67,15 @@ public class CharacterGenerator : MonoBehaviour
         {
             int Rnd = Random.Range(0, (Classes.Length));                                                        // Nahodne cislo od 0 po 8 ( dlzka pola classes ) - Je to index
 
-            Chars[i].GetComponent<Character>().Class = Classes[Rnd];                                            // Podla nahodneho cisla mu prirad classu z poolu classes
+            Chars[i].GetComponent<Ally>().Class = Classes[Rnd];                                            // Podla nahodneho cisla mu prirad classu z poolu classes
     //      Chars[i].GetComponent<Character>().CharImg = CharImg[Rnd];                          testing                // Prirad mu prislusny Obrazok ( obrazky musia byt v rovnakom poradi ako je pool classov )
-            Chars[i].GetComponent<Character>().SetName();                                                       // Vygeneruje mu nahodne meno podla classi
-            Chars[i].GetComponent<Character>().SetReligion();                                                   // Vygeneruje mu nahodny religion podla classy 
+            Chars[i].GetComponent<Ally>().SetName();                                                       // Vygeneruje mu nahodne meno podla classi
+            Chars[i].GetComponent<Ally>().SetReligion();                                                   // Vygeneruje mu nahodny religion podla classy 
     //      Chars[i].GetComponent<Image>().sprite = Chars[i].GetComponent<Character>().CharImg; testing                // Ten isty obrazok da ikonke
 
             for (int y = 0; y < 9; y++)
             {
-                Chars[i].GetComponent<Character>().UnlockedSpells[y] = false;                                   // odstranit - toto je pre testovacie ucely :-)
+                Chars[i].GetComponent<Ally>().UnlockedSpells[y] = false;                                   // odstranit - toto je pre testovacie ucely :-)
             }
             for (int x = 0; x < 5; x++)                                                                         // For loop na odomknutie 5 nahodnych spellov
             {
@@ -83,13 +83,13 @@ public class CharacterGenerator : MonoBehaviour
                 {
                     Rnd = Random.Range(0, 9);
                 }
-                while (Chars[i].GetComponent<Character>().UnlockedSpells[Rnd]);                                 // Generuj nahodne cislo dokym nenajde nejake ktore uz nieje odomknute
-                Chars[i].GetComponent<Character>().UnlockSpell(Rnd);                                            // Odomkni spell na danom indexe
+                while (Chars[i].GetComponent<Ally>().UnlockedSpells[Rnd]);                                 // Generuj nahodne cislo dokym nenajde nejake ktore uz nieje odomknute
+                Chars[i].GetComponent<Ally>().UnlockSpell(Rnd);                                            // Odomkni spell na danom indexe
 
 
             }
 
-            switch (Chars[i].GetComponent<Character>().Class)                                                   // Podla classy prirad nahodne staty z daneho poolu                                            
+            switch (Chars[i].GetComponent<Ally>().Class)                                                   // Podla classy prirad nahodne staty z daneho poolu                                            
             {
                 case Knight:
                     Rnd = Random.Range(0, WarriorStats.Length);
