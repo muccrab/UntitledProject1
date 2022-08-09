@@ -178,7 +178,7 @@ public class DunGen : MonoBehaviour
             //else
             //Debug.Log(t.getName() +" - "+ t.getFrom() +" - " + t.getTo());
             //Debug.Log(t.getName() + " = " +t.posx+" - "+t.posy);
-        }
+        } 
     }
 
     void Replicate(){

@@ -17,6 +17,7 @@ public class Loader : MonoBehaviour
             {
                 LoadController.nameofDungeon = data.Dungeons.curDungeon;
                 LoadController.isInDungeon = data.Dungeons.isInDungeon;
+                LoadController.location = data.Dungeons.getDungeon(data.Dungeons.curDungeon).playerRoom;
                 LoadController.Dungeon = data.Dungeons.getDungeon(data.Dungeons.curDungeon).getDungeon();
             }
         }

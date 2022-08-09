@@ -65,7 +65,10 @@ public static class LoadController
     #region Player data
     static int position_x = 0;
     static int position_y = 0;
-
+    public static SavePlayerObj getPlayer()
+    {
+        return new SavePlayerObj(position_x,position_y);
+    }
     #endregion
 
     //reset Load Controller Data //wont do dungeons, only current one

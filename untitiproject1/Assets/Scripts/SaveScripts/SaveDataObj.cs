@@ -19,10 +19,12 @@ public class SaveAllObj
 {
    public SaveChatactersObj Characters{get;}
    public SaveDungeonsObj Dungeons{get;}
+   public SavePlayerObj Player{get;}
 
-   public SaveAllObj(SaveChatactersObj characters, SaveDungeonsObj dungeons){
+   public SaveAllObj(SaveChatactersObj characters, SaveDungeonsObj dungeons, SavePlayerObj player){
       this.Characters = characters;
       this.Dungeons = dungeons;
+      this.Player = player;
    }
    
 }
@@ -96,8 +98,8 @@ public class SaveChatactersObj //All Characters I'll be saving in files
 public class SaveDungeonObj //Dungeon I'll be saving to files
 {
    Dictionary<string,Tile> dungeon;
-   string playerRoom = "";
-   bool finnished = false;
+   public string playerRoom = "";
+   public bool finnished = false;
    public SaveDungeonObj(Dictionary<string,Tile> dungeon, string playerRoom){
       this.dungeon = dungeon;
       this.playerRoom = playerRoom;
@@ -128,6 +130,19 @@ public class SaveDungeonsObj
       if (this.dunCollecrtion.ContainsKey(name)) return this.dunCollecrtion[name];
       return null;
    }
+
+}
+
+[System.Serializable]
+public class SavePlayerObj
+{
+   int x,y;
+   public SavePlayerObj(int x, int y)
+   {
+      this.x = x;
+      this.y = y;
+   }
+   public Vector3 getPosition(){return new Vector3(x,y,0);}
 
 }
 

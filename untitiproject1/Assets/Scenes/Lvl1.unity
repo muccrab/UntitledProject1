@@ -1050,7 +1050,7 @@ MonoBehaviour:
   parent: {fileID: 465614900}
   RoomTile: {fileID: 4488494996414755892, guid: 67567767afb95e349b1e459354930231, type: 3}
   Tile: {fileID: 8970071517237922939, guid: 0a1674fe989ea624b8d2980fe3b7a690, type: 3}
-  mainRange: {x: 2, y: 5}
+  mainRange: {x: 20, y: 40}
   brenchRange: {x: 2, y: 4}
   Radius: 5
   mainHops: 0
@@ -1624,7 +1624,7 @@ MonoBehaviour:
   holdForward: 0
   goLast: 0
   goNext: 0
-  generate: 0
+  generate: 1
 --- !u!1 &885164006
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,11 +17,15 @@ public class DungeonController : MonoBehaviour
     public bool goLast = false, goNext = false; //for hall movement controll, when you enter a gate
     public bool generate = true; 
     Tile SelectedTile=null;
+    NonUnityMethods.RoomNameDivided SelectedObj;
     
     void Start(){
         if(LoadController.location is not null) Selected = LoadController.location;
+        else {Debug.Log("Jesus Christ what now?");}
     }
     void Update(){
+        SelectedObj = new NonUnityMethods.RoomNameDivided(Selected);
+        Debug.Log ("Loaded Location -"+LoadController.location);
         if (SelectedTile is null || SelectedTile.getName()!=Selected)
         if (LoadController.Dungeon.ContainsKey(Selected))
         {
@@ -36,11 +40,8 @@ public class DungeonController : MonoBehaviour
             if (generate) 
             {
                 spawnRooms();
-                /*if (Selected[0]=='h')
-                Heroes.transform.position = new Vector3(22.5f*(hallstanding), Heroes.transform.position.y, Heroes.transform.position.z);
-                */
-                if (Selected[0]=='h')
-                    if (Selected[3]!='0')
+                if (SelectedObj.type=='h')
+                    if (SelectedObj.hallNumber!=0)
                     {
                         Heroes.transform.position = new Vector3(22.5f*(hallsize-1), Heroes.transform.position.y, Heroes.transform.position.z);
                     }
@@ -73,7 +74,7 @@ public class DungeonController : MonoBehaviour
 
         if (holdForward) Heroes.GetComponent<HeroesController>().move_forward();
         if (holdBackward) Heroes.GetComponent<HeroesController>().move_backward();
-        if (Selected[0]=='h') Selected = Selected.Substring(0,3) + hallstanding;
+        if (SelectedObj.type=='h') Selected = SelectedObj.type + SelectedObj.roomNumber.ToString()+ '-' + hallstanding;
 
         LoadController.location = Selected;
         LoadController.isInDungeon = true;
@@ -82,7 +83,7 @@ public class DungeonController : MonoBehaviour
     private void spawnRooms()
     {
         hallsize = 1;
-        if (Selected[0] == 'r')
+        if (SelectedObj.type=='r')
         {
             Heroes.transform.position = new Vector3(0,Heroes.transform.position.y,Heroes.transform.position.z);
             NonUnityMethods.DestroyAll(GameObject.FindGameObjectsWithTag("Rooms"));
@@ -93,9 +94,9 @@ public class DungeonController : MonoBehaviour
             hallsize = 1;
             return;
         }
-        if (Selected[0]=='h')
+        if (SelectedObj.type=='h')
         {
-            string hallID = Selected.Substring(0,3);
+            string hallID = SelectedObj.type+SelectedObj.roomNumber.ToString()+'-';
             NonUnityMethods.DestroyAll(GameObject.FindGameObjectsWithTag("Rooms"));
             Instantiate(
                 startHall[Random.Range(0,startHall.Length)],
