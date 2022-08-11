@@ -219,7 +219,7 @@ MonoBehaviour:
   myTurn: 0
   str: 0
   dex: 0
-  health: 200
+  health: 20
   maxHealth: 0
   def: 0
   attackS: 0
@@ -227,39 +227,6 @@ MonoBehaviour:
   morale: 0
   minDmg: 0
   maxDmg: 0
-<<<<<<< Updated upstream
-=======
-  spellButtonPrefabs:
-  - {fileID: 6291124770407133829}
-  - {fileID: 7675575419300792090}
-  - {fileID: 1496699603}
-  - {fileID: 7823567680585449751}
-  - {fileID: 7823567679826372516}
-  - {fileID: 637000032533017948}
-  - {fileID: 637000033477119520}
-  - {fileID: 637000032442044143}
-  - {fileID: 2549291861076119944}
-  buttonPoss:
-  - {fileID: 710310210}
-  - {fileID: 1374252787}
-  - {fileID: 1996023492}
-  - {fileID: 1457524403}
-  - {fileID: 319565479}
-  spellButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  name: 
-  Class: 
-  religion: 
-  CharImg: {fileID: 0}
-  isGenerated: 0
->>>>>>> Stashed changes
 --- !u!212 &77479493
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1807,7 +1774,7 @@ MonoBehaviour:
   myTurn: 0
   str: 0
   dex: 0
-  health: 200
+  health: 20
   maxHealth: 0
   def: 0
   attackS: 0
@@ -1815,39 +1782,6 @@ MonoBehaviour:
   morale: 0
   minDmg: 0
   maxDmg: 0
-<<<<<<< Updated upstream
-=======
-  spellButtonPrefabs:
-  - {fileID: 6291124770407133829}
-  - {fileID: 7675575419300792090}
-  - {fileID: 1496699603}
-  - {fileID: 7823567680585449751}
-  - {fileID: 7823567679826372516}
-  - {fileID: 637000032533017948}
-  - {fileID: 637000033477119520}
-  - {fileID: 637000032442044143}
-  - {fileID: 2549291861076119944}
-  buttonPoss:
-  - {fileID: 710310210}
-  - {fileID: 1374252787}
-  - {fileID: 1996023492}
-  - {fileID: 1457524403}
-  - {fileID: 319565479}
-  spellButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  name: 
-  Class: 
-  religion: 
-  CharImg: {fileID: 0}
-  isGenerated: 0
->>>>>>> Stashed changes
 --- !u!212 &1384375165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2133,7 +2067,7 @@ MonoBehaviour:
   myTurn: 0
   str: 0
   dex: 0
-  health: 200
+  health: 20
   maxHealth: 0
   def: 0
   attackS: 0
@@ -2141,39 +2075,6 @@ MonoBehaviour:
   morale: 0
   minDmg: 0
   maxDmg: 0
-<<<<<<< Updated upstream
-=======
-  spellButtonPrefabs:
-  - {fileID: 6291124770407133829}
-  - {fileID: 7675575419300792090}
-  - {fileID: 1496699603}
-  - {fileID: 7823567680585449751}
-  - {fileID: 7823567679826372516}
-  - {fileID: 637000032533017948}
-  - {fileID: 637000033477119520}
-  - {fileID: 637000032442044143}
-  - {fileID: 2549291861076119944}
-  buttonPoss:
-  - {fileID: 710310210}
-  - {fileID: 1374252787}
-  - {fileID: 1996023492}
-  - {fileID: 1457524403}
-  - {fileID: 319565479}
-  spellButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  name: 
-  Class: 
-  religion: 
-  CharImg: {fileID: 0}
-  isGenerated: 0
->>>>>>> Stashed changes
 --- !u!212 &1562289077
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2614,7 +2515,6 @@ RectTransform:
   - {fileID: 637000032533017947}
   - {fileID: 637000033477119527}
   - {fileID: 637000032442044136}
-  - {fileID: 2549291861076119951}
   m_Father: {fileID: 715205118}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2753,7 +2653,7 @@ MonoBehaviour:
   myTurn: 0
   str: 0
   dex: 0
-  health: 200
+  health: 20
   maxHealth: 0
   def: 0
   attackS: 0
@@ -2761,39 +2661,6 @@ MonoBehaviour:
   morale: 0
   minDmg: 0
   maxDmg: 0
-<<<<<<< Updated upstream
-=======
-  spellButtonPrefabs:
-  - {fileID: 6291124770407133829}
-  - {fileID: 7675575419300792090}
-  - {fileID: 1496699603}
-  - {fileID: 7823567680585449751}
-  - {fileID: 7823567679826372516}
-  - {fileID: 637000032533017948}
-  - {fileID: 637000033477119520}
-  - {fileID: 637000032442044143}
-  - {fileID: 2549291861076119944}
-  buttonPoss:
-  - {fileID: 710310210}
-  - {fileID: 1374252787}
-  - {fileID: 1996023492}
-  - {fileID: 1457524403}
-  - {fileID: 319565479}
-  spellButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  name: 
-  Class: 
-  religion: 
-  CharImg: {fileID: 0}
-  isGenerated: 0
->>>>>>> Stashed changes
 --- !u!212 &1737883042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3648,22 +3515,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6152808460445037407, guid: 0369f7e96477b634cb17867332f10cd3, type: 3}
   m_PrefabInstance: {fileID: 6752090554538458488}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2549291861076119944 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5983808304029172123, guid: c109a96f06fa272458d49253e0442506, type: 3}
-  m_PrefabInstance: {fileID: 8100329219794243603}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &2549291861076119951 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-  m_PrefabInstance: {fileID: 8100329219794243603}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3150254020256957018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4310,100 +4161,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &8100329219794243603
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1650252698}
-    m_Modifications:
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -547.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -399.59998
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172124, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5983808304029172125, guid: c109a96f06fa272458d49253e0442506, type: 3}
-      propertyPath: m_Name
-      value: SpellButton 9
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c109a96f06fa272458d49253e0442506, type: 3}
