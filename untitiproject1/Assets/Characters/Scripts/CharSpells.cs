@@ -27,6 +27,7 @@ public class CharSpells : MonoBehaviour
         spell6use();
         spell7use();
         spell8use();
+        spell9use();
     }
 
 
@@ -214,6 +215,30 @@ public class CharSpells : MonoBehaviour
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
                 
+                GoNextChar();
+                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+            }
+        }
+
+    }
+
+    public void spell9()
+    {
+        CurrentSpell = 9;
+        Debug.Log(this.name);
+
+        SetTargets(0, 2);
+    }
+
+    private void spell9use()
+    {
+        if (CurrentSpell == 9)
+        {
+            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            if (enemyFound.found)
+            {
+                CurrentSpell = 0;
+                DealDMG(enemyFound.pos, 20);
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,26 +23,68 @@ public class Character : MonoBehaviour
     public int maxDmg;                                                                                                                  // Staty a zakladne logicke parametre
     //*********************************************************************************************************************************************************************
 
+<<<<<<< Updated upstream
 
+=======
+  
+    public Button[] spellButtonPrefabs = new Button[9];
+    public RectTransform[] buttonPoss = new RectTransform[5];
+    public Button[] spellButtons = new Button[5]; 
 
+   
 
-    private void Update()
-    {
-     //   checkDeath();
-    }
+    //*********************************************************************************************************************************************************************
+    public string name;
+    public string Class;
+    public string religion;
+    public Sprite CharImg;                                                                                                              // Meno, Trieda. Vierovyznanie a Obrazok postavy
+    //*********************************************************************************************************************************************************************
 
-
-
+    public bool isGenerated = false;
 
     private void Start()
     {
-        /*
-        Button spellbutton2 = Instantiate(spell2ButtonPrefab);
-        spellbutton2.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-        spellbutton2.transform.position = button2pos.position;
-        spellbutton2.onClick = spell2ButtonPrefab.onClick;
-           polebybolofajn        */
+        int Rnd;                                                          // petko robi veci na zatial kym nie sme spojeny s charGene scriptom
+        for (int x = 0; x < 5; x++)                                       // For loop na odomknutie 5 nahodnych spellov
+        {
+            do
+            {
+               Rnd = Random.Range(0, 9);
+            }
+            while (UnlockedSpells[Rnd]);                                 // Generuj nahodne cislo dokym nenajde nejake ktore uz nieje odomknute
+            UnlockSpell(Rnd);                                            // Odomkni spell na danom indexe
+        }
     }
+
+    public void UnlockSpell(int i)                                                                                                          // Unlocne spell na pozicie parametre ( je to pole takze prve je 0 )
+    {
+        UnlockedSpells[i] = true;
+    }
+>>>>>>> Stashed changes
+
+    
+
+    private void Update()
+    {
+<<<<<<< Updated upstream
+     //   checkDeath();
+    }
+=======
+        checkDeath();
+        if (!isGenerated)
+        {
+            isGenerated = true;
+            GenerateAllSpells();
+
+
+            SetSpellsActiveFalse();
+        }
+>>>>>>> Stashed changes
+
+
+
+
+
 
 
     public void checkDeath()
@@ -90,6 +133,136 @@ public class Character : MonoBehaviour
 
         }
 
+<<<<<<< Updated upstream
+=======
+
+    }
+
+    public void SetSpellsActiveTrue()
+    {
+
+        spellButtons[0].gameObject.SetActive(true);
+        spellButtons[1].gameObject.SetActive(true);
+        spellButtons[2].gameObject.SetActive(true);
+        spellButtons[3].gameObject.SetActive(true);
+        spellButtons[4].gameObject.SetActive(true);
+     
+    }
+
+    public void SetSpellsActiveFalse()
+    {
+        spellButtons[0].gameObject.SetActive(false);
+        spellButtons[1].gameObject.SetActive(false);
+        spellButtons[2].gameObject.SetActive(false);
+        spellButtons[3].gameObject.SetActive(false);
+        spellButtons[4].gameObject.SetActive(false);
+
+    }
+
+    private void GenerateAllSpells()
+    {
+        int i = 0;
+
+        for (int x = 0; x < 5; x++)                                                                        
+        {
+            while (!UnlockedSpells[i])
+            {
+                i++;
+            }
+            spellButtons[x] = Instantiate(spellButtonPrefabs[i]);
+            spellButtons[x].transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            spellButtons[x].transform.position = buttonPoss[x].position;
+            spellButtons[x].gameObject.SetActive(true);
+            spellButtons[x].onClick = spellButtonPrefabs[i].onClick;
+            i++;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void SetName()                                                                                   // Nahodne meno z poolu mien pre kazdy postavu zvlast
+    {
+        int Rnd = Random.Range(0, 5);
+        switch (Class)
+        {
+            case Knight:
+                name = KnightNames[Rnd];
+                break;
+            case Hunter:
+                name = HunterNames[Rnd];
+                break;
+            case Priest:
+                name = PriestNames[Rnd];
+                break;
+            case Maiden:
+                name = MaidenNames[Rnd];
+                break;
+            case Berserker:
+                name = BerserkerNames[Rnd];
+                break;
+            case Paladin:
+                name = PaladinNames[Rnd];
+                break;
+            case Marksman:
+                name = MarksmanNames[Rnd];
+                break;
+            case BeastMaster:
+                name = BMNames[Rnd];
+                break;
+            case Thief:
+                name = ThiefNames[Rnd];
+                break;
+
+        }
+>>>>>>> Stashed changes
         
 
 
