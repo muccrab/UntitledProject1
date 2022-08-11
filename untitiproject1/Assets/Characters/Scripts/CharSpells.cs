@@ -221,6 +221,30 @@ public class CharSpells : MonoBehaviour
 
     }
 
+    public void spell9()
+    {
+        CurrentSpell = 9;
+
+        SetTargets(0, 2);
+    }
+
+    private void spell9use()
+    {
+        if (CurrentSpell == 9)
+        {
+            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            if (enemyFound.found)
+            {
+                CurrentSpell = 0;
+                DealDMG(enemyFound.pos, 20);
+
+                GoNextChar();
+                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+            }
+        }
+
+    }
+
 
 
     private void DealDMG(int who, int dmg)
