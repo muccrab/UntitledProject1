@@ -48,7 +48,7 @@ public class CharSpells : MonoBehaviour
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
-                
+                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }
@@ -98,6 +98,7 @@ public class CharSpells : MonoBehaviour
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
+                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }
@@ -121,6 +122,7 @@ public class CharSpells : MonoBehaviour
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
+                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }
@@ -144,6 +146,7 @@ public class CharSpells : MonoBehaviour
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
+                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }
@@ -167,6 +170,7 @@ public class CharSpells : MonoBehaviour
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
+                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }
@@ -190,6 +194,7 @@ public class CharSpells : MonoBehaviour
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
+                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }
@@ -213,7 +218,7 @@ public class CharSpells : MonoBehaviour
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
-                
+                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }
@@ -237,7 +242,7 @@ public class CharSpells : MonoBehaviour
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
-
+                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
                 transform.parent.parent.GetComponent<GameController>().ResetTargets();
             }

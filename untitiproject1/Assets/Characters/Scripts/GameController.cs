@@ -45,16 +45,17 @@ public class GameController : MonoBehaviour
 
         TurnOrder();
         TurnOrderList[0].character.gameObject.GetComponent<Character>().myTurn = true;
+        Debug.Log(TurnOrderList[0].character.name);
 
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if (TurnOrderList.Count <= 0)
         {
             TurnOrder();
-        }
+        }*/
         SetMouse();
         EnemyPointedAt();
         moveForv();
@@ -274,11 +275,10 @@ public class GameController : MonoBehaviour
             TurnOrder();
         }
         //TurnOrderList[0].character.GetComponent<Character>().checkDeath();
-        if(TurnOrderList[0].character == null)
+        if(TurnOrderList[0].character is not null)
         {
             TurnOrderList[0].character.GetComponent<Character>().myTurn = true;
         }
-        TurnOrderList[0].character.GetComponent<Character>().myTurn = true;
         //CheckNextInTurn();
 
 
