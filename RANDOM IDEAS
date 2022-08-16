@@ -1,37 +1,56 @@
+29.8.2022 20:00 MEETING
 
+DANKO - DOMINIK:
+Item class - 1 Parent class - ostatne dedia podla vyuzitia alebo kategorie ( toto je len navrh )
+Priebeh casu - iba button - 1 dungeon je jendotka casu
+SHOP-meno,ikonka,cena - common itemy tam stale ktore sa doplnuju (su tam stale) - ostatne generovanie po nejakom case ine itemy tak
+Ikonku - characters owned
+Char - stats - zbrane
+Inventar spolocny
+Nahradenie lepsej zbrane
+Vylepsovanie budov - za peniaze
+Financie - spolocne
+Dungeon select
 
-DO 27.6.2022 20:00:
-
-DOMINIK:
-  menu -> dedina
-  generovanie dungeonu - pozri si video XD - ak nebudes vediet mal si tu ybt XD slucka tutorial / www.amazon.com/rope
+MICHAL:
+Effecty
   
-DANKO:
-  saves
-  
-  
-MICHAL-TOMKO:
-  ikonku - characters owned
-    - char - stats - zbrane
-    - inventar spolocny
-    - dedina pridat veci
-    - nahradenie lepsej zbrane
-    - vylepsovanie budov - za peniaze - lvls 
-    - Financie - spolocne
     
 KUBKO-PETKO:
- character generator, spells, stats, pool 
- Combat
-  Spells
-  Mutation meter
-  Sanity
-  Enemy design
+Combat:
+  General combat methods - Done
+  Aoe general method
+  Healing
+  Items
+  Obmedzenie spellov na policka ( z kade )
+  Turn - Done
+  Death - Done
+  OrderList - Done
+  Spell Buttons - Done
+  Zobrazenie spellov iba ktorych ma - Done
+  Targetovanie - Done
+  
 
-FREEFORALL:
 
-SHOP-meno,ikonka,cena
-Dungeon select
+
+To Do:
+
+Merge
+Spells design zakomponovat do kodu
+Stats - zakomponovat do kodu
+Pool - design poolov
+Mutation meter
+Sanity
+Enemy design
+
+
+DONE:
+character generator
+saves
+menu -> dedina
+generovanie dungeonu
 Dungeon pohyb
+
 
 
 
