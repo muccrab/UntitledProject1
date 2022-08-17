@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static ItemClasses;
 
 /*Public Controller so that I can actualy pass the data between scenes.
  There will also be more methods for loading yet I cant bother with that shit this early in the Game Developement*/
@@ -11,6 +11,12 @@ public static class LoadController
     public static string scene = "Lvl1";
     public static bool loadSave = false;
     public static string path = "";
+
+    static void resetGlobal(){
+        scene = "Lvl1";
+        loadSave = false;
+        path = "";
+    }
     #endregion
 
     #region Character data
@@ -28,11 +34,11 @@ public static class LoadController
     public static void addCharacter(SaveChatacterObj character){
         characters.Add(character);
     }
-    public static void resetCharacters(){
-        characters = new List<SaveChatacterObj>();
-    }
     public static int sizeCharacters(){
         return characters.Count;
+    }
+    public static void resetCharacters(){
+        characters = new List<SaveChatacterObj>();
     }
     #endregion
 
@@ -60,6 +66,12 @@ public static class LoadController
         }
         return dungeons;
     }
+    static void resetDungeon(){
+        isInDungeon = false;
+        nameofDungeon = "kokot1";
+        location = null;
+        Dungeon = new Dictionary<string, Tile>();
+    }
     #endregion
 
     #region Player data
@@ -71,16 +83,20 @@ public static class LoadController
     }
     #endregion
 
+    #region Guild data
+        public static int money;
+        public static List<OwnedItem> GuildInventory = new List<OwnedItem>();
+        public static List<OwnedItem> PartyInventory = new List<OwnedItem>();
+        public static void temporaryFillParty(){
+            PartyInventory.Add(new OwnedItem(new BasicItem("Legendary Sword","","Sword"),1));
+            PartyInventory.Add(new OwnedItem(new BasicItem("Random Strawberry","","Strawberry"),5));
+        }
+    #endregion
     //reset Load Controller Data //wont do dungeons, only current one
     public static void resetController(){
-        scene = "Lvl1";
-        loadSave = false;
-        path = "";
-        characters = new List<SaveChatacterObj>();
-        isInDungeon = false;
-        nameofDungeon = "kokot1";
-        location = null;
-        Dungeon = new Dictionary<string, Tile>();
+       resetGlobal();
+       resetCharacters();
+       resetDungeon();  
     }
     
 }
