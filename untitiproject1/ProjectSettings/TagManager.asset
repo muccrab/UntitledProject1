@@ -11,6 +11,7 @@ TagManager:
   - MapCamera
   - GateFrom
   - GateTo
+  - InventoryCollider
   layers:
   - Default
   - TransparentFX

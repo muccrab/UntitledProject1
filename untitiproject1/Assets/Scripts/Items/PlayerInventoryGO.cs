@@ -9,7 +9,11 @@ public class PlayerInventoryGO : MonoBehaviour
     public GameObject ItemParent;
     List<OwnedItem> PartyInventory;
     public List<GameObject> PartyInventoryGOS;
+    public int? selectItem = null;
+    public bool selectChange = false;
     Vector3 startPosition;
+
+    #region Unity runtime
     void Start()
     {
         startPosition = ItemParent.transform.position;
@@ -17,7 +21,14 @@ public class PlayerInventoryGO : MonoBehaviour
         PartyInventory = LoadController.PartyInventory;
         resetItems();
     }
-
+    void Update()
+    {
+        if (selectChange){
+            
+            selectChange = false;
+        }
+    }
+    #endregion
     void createItem(int ID,string name, int amount, string sprite, Vector3 position){
         PartyInventoryGOS.Add(Instantiate(ItemRef,position,Quaternion.identity));
         GameObject itemframe = PartyInventoryGOS[PartyInventoryGOS.Count-1];
