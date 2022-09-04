@@ -35,6 +35,7 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
+        maxHealth = 100;
         /*
         Button spellbutton2 = Instantiate(spell2ButtonPrefab);
         spellbutton2.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
@@ -93,6 +94,16 @@ public class Character : MonoBehaviour
         
 
 
+    }
+
+
+    public void Heal(int value)
+    {
+        health += value;
+        if( health > maxHealth)
+        {
+            health = maxHealth;
+        }
     }
 
 

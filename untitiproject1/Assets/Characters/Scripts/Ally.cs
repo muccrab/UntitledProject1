@@ -51,12 +51,15 @@ public class Ally : MonoBehaviour
         int Rnd;                                                          // petko robi veci na zatial kym nie sme spojeny s charGene scriptom
         for (int x = 0; x < 5; x++)                                       // For loop na odomknutie 5 nahodnych spellov
         {
+            /*
             do
             {
                 Rnd = Random.Range(0, 9);
             }
             while (UnlockedSpells[Rnd]);                                 // Generuj nahodne cislo dokym nenajde nejake ktore uz nieje odomknute
             UnlockSpell(Rnd);                                            // Odomkni spell na danom indexe
+            */                             // Pre testovacie ucely potrebujem mat pevne spelly so fix by Jakub
+            UnlockSpell(x);
         }
     }
 

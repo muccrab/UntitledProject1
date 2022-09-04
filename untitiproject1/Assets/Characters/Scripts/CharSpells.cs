@@ -10,8 +10,8 @@ public class CharSpells : MonoBehaviour
 
     private int CurrentSpell = 0;
 
-    Vector3 mousePos;
-    Vector2 mousePos2D;
+
+
     private void Start()
     {
 
@@ -39,18 +39,18 @@ public class CharSpells : MonoBehaviour
     }
 
 
-    private void spell1use()
+    private void spell1use()                // treba urobit vlastnu classu pre vsetky use spelly kde bude to iste len to bude zamerane na jednotlive classy !!! nezabudni
     {
         if (CurrentSpell == 1)
         {
-            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
             if (enemyFound.found)
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
-                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
+                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
-                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+                GetGameController().ResetTargets();
             }
         }
 
@@ -62,21 +62,21 @@ public class CharSpells : MonoBehaviour
     {
         CurrentSpell = 2;
 
-        SetTargets(0, 2);
+        SetTargetsAlly(0, 3);
     }
 
     private void spell2use()
     {
         if (CurrentSpell == 2)
         {
-            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
-            if (enemyFound.found)
+            GameController.EnemyFound AllyFound = GetGameController().GetAlly();
+            if (AllyFound.found)
             {
                 CurrentSpell = 0;
-                DealDMG(enemyFound.pos, 20);
-                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
+                Heal(AllyFound.pos, 20);
+                Debug.Log("Healujem kokotka");
                 GoNextChar();
-                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+                GetGameController().ResetTargets();
             }
         }
 
@@ -93,14 +93,14 @@ public class CharSpells : MonoBehaviour
     {
         if (CurrentSpell == 3)
         {
-            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
             if (enemyFound.found)
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
-                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
+                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
-                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+                GetGameController().ResetTargets();
             }
         }
 
@@ -117,14 +117,14 @@ public class CharSpells : MonoBehaviour
     {
         if (CurrentSpell == 4)
         {
-            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
             if (enemyFound.found)
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
-                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
+                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
-                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+                GetGameController().ResetTargets();
             }
         }
 
@@ -141,14 +141,14 @@ public class CharSpells : MonoBehaviour
     {
         if (CurrentSpell == 5)
         {
-            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
             if (enemyFound.found)
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
-                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
+                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
-                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+                GetGameController().ResetTargets();
             }
         }
 
@@ -165,14 +165,14 @@ public class CharSpells : MonoBehaviour
     {
         if (CurrentSpell == 6)
         {
-            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
             if (enemyFound.found)
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
-                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
+                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
-                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+                GetGameController().ResetTargets();
             }
         }
 
@@ -189,14 +189,14 @@ public class CharSpells : MonoBehaviour
     {
         if (CurrentSpell == 7)
         {
-            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
             if (enemyFound.found)
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
-                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
+                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
-                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+                GetGameController().ResetTargets();
             }
         }
 
@@ -213,14 +213,14 @@ public class CharSpells : MonoBehaviour
     {
         if (CurrentSpell == 8)
         {
-            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
             if (enemyFound.found)
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
-                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
+                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
-                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+                GetGameController().ResetTargets();
             }
         }
 
@@ -237,14 +237,14 @@ public class CharSpells : MonoBehaviour
     {
         if (CurrentSpell == 9)
         {
-            GameController.EnemyFound enemyFound = transform.parent.parent.GetComponent<GameController>().GetEnemy();
+            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
             if (enemyFound.found)
             {
                 CurrentSpell = 0;
                 DealDMG(enemyFound.pos, 20);
-                transform.parent.parent.GetComponent<GameController>().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
+                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
-                transform.parent.parent.GetComponent<GameController>().ResetTargets();
+                GetGameController().ResetTargets();
             }
         }
 
@@ -254,18 +254,35 @@ public class CharSpells : MonoBehaviour
 
     private void DealDMG(int who, int dmg)
     {
-        transform.parent.parent.GetComponent<GameController>().Enemies[who].GetComponentInChildren<Character>().health -= dmg;
+        GetGameController().Enemies[who].GetComponentInChildren<Character>().health -= dmg;
     }
 
     private void SetTargets(int min, int max)
     {
-        transform.parent.parent.GetComponent<GameController>().ResetTargets();
-        transform.parent.parent.GetComponent<GameController>().SetTargetable(min, max);
+        GetGameController().ResetTargets();
+        GetGameController().SetTargetable(min, max);
     }
+
+    private void SetTargetsAlly(int min, int max)
+    {
+        GetGameController().ResetTargets();
+        GetGameController().SetTargetableAlly(min, max);
+    }
+
 
     private void GoNextChar()
     {
-        transform.parent.parent.GetComponent<GameController>().SetNextActiveChar();
+        GetGameController().SetNextActiveChar();
+    }
+
+    private void Heal(int who, int value)
+    {
+        GetGameController().Characters[who].GetComponentInChildren<Character>().Heal(value);
+    }
+
+    private GameController GetGameController()
+    {
+        return transform.parent.parent.GetComponent<GameController>();
     }
 
 

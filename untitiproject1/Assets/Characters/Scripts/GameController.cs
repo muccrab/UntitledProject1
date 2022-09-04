@@ -30,6 +30,9 @@ public class GameController : MonoBehaviour
     public bool[] target = { false, false, false, false };
     public bool[] targetable = { false, false, false, false };
 
+    public bool[] targetAlly = { false, false, false, false };
+    public bool[] targetableAlly = { false, false, false, false };
+
     Vector3 mousePos;
     Vector2 mousePos2D;
 
@@ -39,14 +42,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos2D = new Vector2(mousePos.x, mousePos.y);
-        
-
-        TurnOrder();
-        TurnOrderList[0].character.gameObject.GetComponent<Character>().myTurn = true;
-        Debug.Log(TurnOrderList[0].character.name);
-
+        SetMouse();
+        GenerateFirstList();
     }
 
     // Update is called once per frame
@@ -58,6 +55,7 @@ public class GameController : MonoBehaviour
         }*/
         SetMouse();
         EnemyPointedAt();
+        AllyPointedAt();
         moveForv();
         CombatEnd();
 
@@ -65,41 +63,33 @@ public class GameController : MonoBehaviour
         if (endD)
         {
             Debug.Log("DungeonEnd");
+            // sem treba doplnit logiku
         }
         if (endC)
         {
             Debug.Log("CombatEnd");
+            // sem treba doplnit logiku
         }
     }
 
+    //*******************************************************************************************************************************************************************************************************
+    // General game logic methods       
 
-    private void TurnOrder()
+    public void ResetTargets()
     {
         for (int i = 0; i < 4; i++)
         {
-            GameObject character;
-            CharAndSpeed OrderListComponent;
+            targetable[i] = false;
+            target[i] = false;
+            Enemies[i].transform.Find("TargetablePointer").gameObject.SetActive(false);
+            Enemies[i].transform.Find("TargetPointer").gameObject.SetActive(false);
 
-            character = FindChildWithTag(Characters[i], "Character");
-            if (character != null && character.GetComponent<Character>().isAlive)
-            {
-                OrderListComponent.Speed = character.GetComponent<Character>().attackS + (speedKoef * Random.Range(0, 11));
-                OrderListComponent.character = character;
-                TurnOrderList.Add(OrderListComponent);
-            }
-
-
-            character = FindChildWithTag(Enemies[i], "Enemies");
-            if (character != null && character.GetComponent<Character>().isAlive)
-            {
-                OrderListComponent.Speed = character.GetComponent<Character>().attackS + (speedKoef * Random.Range(0, 11));
-                OrderListComponent.character = character;
-                TurnOrderList.Add(OrderListComponent);
-            }
+            // Ally cast
+            targetableAlly[i] = false;
+            targetAlly[i] = false;
+            Characters[i].transform.Find("TargetablePointer").gameObject.SetActive(false);
+            Characters[i].transform.Find("TargetPointer").gameObject.SetActive(false);
         }
-
-        TurnOrderList.Sort((p, q) => p.Speed.CompareTo(q.Speed));
-        TurnOrderList.Reverse();
     }
 
     private void CombatEnd()
@@ -132,7 +122,6 @@ public class GameController : MonoBehaviour
             }
         }
     }
-
 
     public void moveForv()
     {
@@ -174,7 +163,8 @@ public class GameController : MonoBehaviour
 
     }
 
-
+    //*******************************************************************************************************************************************************************************************************
+    // General methods
 
     public static GameObject FindChildWithTag(GameObject parent, string tag)
     {
@@ -192,7 +182,8 @@ public class GameController : MonoBehaviour
         return child;
     }
 
-
+    //*******************************************************************************************************************************************************************************************************
+    // Enemy methods
 
     public void SetTargetable(int min, int max)
     {
@@ -228,19 +219,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-
-    public void ResetTargets()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            targetable[i] = false;
-            target[i] = false;
-            Enemies[i].transform.Find("TargetablePointer").gameObject.SetActive(false);
-            Enemies[i].transform.Find("TargetPointer").gameObject.SetActive(false);
-        }
-    }
-
-
     public EnemyFound GetEnemy()
     {
         EnemyFound enemy;
@@ -264,54 +242,120 @@ public class GameController : MonoBehaviour
         return enemy;
     }
 
+    //*******************************************************************************************************************************************************************************************************
+    // Ally methods
+
+    public void SetTargetableAlly(int min, int max)
+    {
+        for (int i = min; i <= max; i++)
+        {
+            if (GameController.FindChildWithTag(Characters[i], "Character") != null)
+            {
+                targetableAlly[i] = true;
+                Characters[i].transform.Find("TargetablePointer").gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public EnemyFound GetAlly()
+    {
+        EnemyFound ally;
+        ally.found = false;
+        ally.pos = 0;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (GameController.FindChildWithTag(Characters[i], "Character") != null && targetableAlly[i])
+                {
+                    if (Characters[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                    {
+                        ally.pos = i;
+                        ally.found = true;
+                    }
+                }
+            }
+        }
+        return ally;
+    }
+
+    private void AllyPointedAt()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (GameController.FindChildWithTag(Characters[i], "Character") != null)
+            {
+                if (Characters[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                {
+                    if (targetableAlly[i] == true)
+                    {
+                        Characters[i].transform.Find("TargetPointer").gameObject.SetActive(true);
+                    }
+                }
+                else
+                {
+                    Characters[i].transform.Find("TargetPointer").gameObject.SetActive(false);
+                }
+
+            }
+        }
+    }
+
+    //*******************************************************************************************************************************************************************************************************
+    // Order list methods
+
+    private void GenerateFirstList()
+    {
+        TurnOrder();
+        TurnOrderList[0].character.gameObject.GetComponent<Character>().myTurn = true;
+    }
+
+    private void TurnOrder()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject character;
+            CharAndSpeed OrderListComponent;
+
+            character = FindChildWithTag(Characters[i], "Character");
+            if (character != null && character.GetComponent<Character>().isAlive)
+            {
+                OrderListComponent.Speed = character.GetComponent<Character>().attackS + (speedKoef * Random.Range(0, 11));
+                OrderListComponent.character = character;
+                TurnOrderList.Add(OrderListComponent);
+            }
+
+
+            character = FindChildWithTag(Enemies[i], "Enemies");
+            if (character != null && character.GetComponent<Character>().isAlive)
+            {
+                OrderListComponent.Speed = character.GetComponent<Character>().attackS + (speedKoef * Random.Range(0, 11));
+                OrderListComponent.character = character;
+                TurnOrderList.Add(OrderListComponent);
+            }
+        }
+
+        TurnOrderList.Sort((p, q) => p.Speed.CompareTo(q.Speed));
+        TurnOrderList.Reverse();
+    }
+
     public void SetNextActiveChar()
     {
-
-
         TurnOrderList[0].character.GetComponent<Character>().myTurn = false;
         TurnOrderList.RemoveAt(0);
         if (TurnOrderList.Count <= 0)
         {
             TurnOrder();
         }
-        //TurnOrderList[0].character.GetComponent<Character>().checkDeath();
         if(TurnOrderList[0].character is not null)
         {
             TurnOrderList[0].character.GetComponent<Character>().myTurn = true;
         }
-        //CheckNextInTurn();
-
-
-        /*
-        Debug.Log("*********************************************************************************************");
-        foreach (CharAndSpeed character in TurnOrderList)
-        {
-            Debug.Log(character.Speed);
-            Debug.Log(character.character.name);
-        }*/
-        Debug.Log("na rade je " + TurnOrderList[0].character);
-
-
     }
 
-
-    private void CheckNextInTurn()
-    {/*
-        while (TurnOrderList[0].character.gameObject.GetComponent<Character>() == null || !TurnOrderList[0].character.gameObject.GetComponent<Character>().isAlive)
-        {
-            TurnOrderList.RemoveAt(0);
-            Debug.Log("Gumujem kokotka");
-
-            if (TurnOrderList.Count <= 0)
-            {
-                TurnOrder();
-            }
-        }*/
-
-        
-
-
-    }
+//*******************************************************************************************************************************************************************************************************
+// Mouse methods
 
 
     private void SetMouse()

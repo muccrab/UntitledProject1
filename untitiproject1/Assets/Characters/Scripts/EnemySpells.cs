@@ -24,8 +24,8 @@ public class EnemySpells : MonoBehaviour
         GameController.EnemyFound enemyFound = FindTarget(0, 2);
         if (enemyFound.found)
         {
-            DealDMG(enemyFound.pos, 20);
-            transform.parent.parent.GetComponent<GameController>().Characters[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
+            DealDMG(enemyFound.pos, 0);
+            GetGameController().Characters[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
             GoNextChar();
             
         }
@@ -42,7 +42,7 @@ public class EnemySpells : MonoBehaviour
         for (int i = min; i <= max; i++)
         {
             
-            if(GameController.FindChildWithTag(transform.parent.parent.GetComponent<GameController>().Characters[i], "Character") != null)
+            if(GameController.FindChildWithTag(GetGameController().Characters[i], "Character") != null)
             {
                 enemy.found = true;
                 break;
@@ -55,7 +55,7 @@ public class EnemySpells : MonoBehaviour
             {
                 enemy.pos = Random.Range(min, max + 1);
             }
-            while (GameController.FindChildWithTag(transform.parent.parent.GetComponent<GameController>().Characters[enemy.pos], "Character") == null);
+            while (GameController.FindChildWithTag(GetGameController().Characters[enemy.pos], "Character") == null);
         }
 
         return enemy;
@@ -65,12 +65,21 @@ public class EnemySpells : MonoBehaviour
 
     private void DealDMG(int who, int dmg)
     {
-        transform.parent.parent.GetComponent<GameController>().Characters[who].GetComponentInChildren<Character>().health -= dmg;
+        GetGameController().Characters[who].GetComponentInChildren<Character>().health -= dmg;
+    }
+
+    private void Heal(int who, int value)
+    {
+        GetGameController().Enemies[who].GetComponentInChildren<Character>().Heal(value);
     }
 
 
     private void GoNextChar()
     {
-        transform.parent.parent.GetComponent<GameController>().SetNextActiveChar();
+        GetGameController().SetNextActiveChar();
+    }
+    private GameController GetGameController()
+    {
+        return transform.parent.parent.GetComponent<GameController>();
     }
 }
