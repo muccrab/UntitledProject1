@@ -189,11 +189,10 @@ public class CharSpells : MonoBehaviour
 
     private void DealDMG(int who, int dmg)
     {
-        if(GameController.FindChildWithTag(GetGameController().Enemies[who], "Enemies") != null)
-        {
+        
             GetGameController().Enemies[who].GetComponentInChildren<Character>().health -= dmg;
             GetGameController().Enemies[who].GetComponentInChildren<Character>().checkDeath();
-        }
+        
     }
     private void DealAoeDMG(int min, int max, int dmg)
     {

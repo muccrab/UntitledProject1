@@ -25,7 +25,6 @@ public class EnemySpells : MonoBehaviour
         if (enemyFound.found)
         {
             DealDMG(enemyFound.pos, 20);
-            GetGameController().Characters[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
             GoNextChar();
             
         }
@@ -66,6 +65,7 @@ public class EnemySpells : MonoBehaviour
     private void DealDMG(int who, int dmg)
     {
         GetGameController().Characters[who].GetComponentInChildren<Character>().health -= dmg;
+        GetGameController().Characters[who].GetComponentInChildren<Character>().checkDeath();
     }
 
     private void Heal(int who, int value)

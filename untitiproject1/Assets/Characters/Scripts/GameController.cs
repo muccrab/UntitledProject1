@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         SetMouse();
-        GenerateFirstList();
+        GenerateList();
     }
 
     // Update is called once per frame
@@ -62,6 +62,10 @@ public class GameController : MonoBehaviour
         AoePointedAtEnemy();
         moveForv();
         CombatEnd();
+        if (TurnOrderList.Count <= 0)
+        {
+            GenerateList();
+        }
 
 
         if (endD)
@@ -427,7 +431,7 @@ public class GameController : MonoBehaviour
     //*******************************************************************************************************************************************************************************************************
     // Order list methods
 
-    private void GenerateFirstList()
+    private void GenerateList()
     {
         TurnOrder();
         TurnOrderList[0].character.gameObject.GetComponent<Character>().myTurn = true;
@@ -468,10 +472,11 @@ public class GameController : MonoBehaviour
         TurnOrderList.RemoveAt(0);
         if (TurnOrderList.Count <= 0)
         {
-            TurnOrder();
+            GenerateList();
         }
-        if(TurnOrderList[0].character is not null)
+        if (TurnOrderList[0].character != null)
         {
+            Debug.Log(TurnOrderList[0].character.name);
             TurnOrderList[0].character.GetComponent<Character>().myTurn = true;
         }
     }
