@@ -24,7 +24,7 @@ public class EnemySpells : MonoBehaviour
         GameController.EnemyFound enemyFound = FindTarget(0, 2);
         if (enemyFound.found)
         {
-            DealDMG(enemyFound.pos, 0);
+            DealDMG(enemyFound.pos, 20);
             GetGameController().Characters[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
             GoNextChar();
             

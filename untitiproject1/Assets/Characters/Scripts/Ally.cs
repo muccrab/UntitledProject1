@@ -48,7 +48,7 @@ public class Ally : MonoBehaviour
 
     private void Start()
     {
-        int Rnd;                                                          // petko robi veci na zatial kym nie sme spojeny s charGene scriptom
+        //int Rnd;                                                          // petko robi veci na zatial kym nie sme spojeny s charGene scriptom
         for (int x = 0; x < 5; x++)                                       // For loop na odomknutie 5 nahodnych spellov
         {
             /*

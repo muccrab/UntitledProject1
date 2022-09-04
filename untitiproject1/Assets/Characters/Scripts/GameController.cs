@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
     private bool endC;
     private bool endD;
 
+    private bool activeAoe;
+
 
     const int speedKoef = 10;
 
@@ -56,6 +58,8 @@ public class GameController : MonoBehaviour
         SetMouse();
         EnemyPointedAt();
         AllyPointedAt();
+        AoePointedAtAlly();
+        AoePointedAtEnemy();
         moveForv();
         CombatEnd();
 
@@ -79,12 +83,13 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
+            // Enemy part
             targetable[i] = false;
             target[i] = false;
             Enemies[i].transform.Find("TargetablePointer").gameObject.SetActive(false);
             Enemies[i].transform.Find("TargetPointer").gameObject.SetActive(false);
 
-            // Ally cast
+            // Ally part
             targetableAlly[i] = false;
             targetAlly[i] = false;
             Characters[i].transform.Find("TargetablePointer").gameObject.SetActive(false);
@@ -197,24 +202,40 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void EnemyPointedAt()
+    public void SetTargets(int min, int max)
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = min; i <= max; i++)
         {
             if (GameController.FindChildWithTag(Enemies[i], "Enemies") != null)
             {
-                if (Enemies[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
-                {
-                    if (targetable[i] == true)
-                    {
-                        Enemies[i].transform.Find("TargetPointer").gameObject.SetActive(true);
-                    }
-                }
-                else
-                {
-                    Enemies[i].transform.Find("TargetPointer").gameObject.SetActive(false);
-                }
+                targetable[i] = true;
+                Enemies[i].transform.Find("TargetablePointer").gameObject.SetActive(true);
+                target[i] = true;
+            }
+        }
+    }
 
+    private void EnemyPointedAt()
+    {
+        if (activeAoe == false)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (GameController.FindChildWithTag(Enemies[i], "Enemies") != null)
+                {
+                    if (Enemies[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                    {
+                        if (targetable[i] == true)
+                        {
+                            Enemies[i].transform.Find("TargetPointer").gameObject.SetActive(true);
+                        }
+                    }
+                    else
+                    {
+                        Enemies[i].transform.Find("TargetPointer").gameObject.SetActive(false);
+                    }
+
+                }
             }
         }
     }
@@ -240,6 +261,68 @@ public class GameController : MonoBehaviour
             }
         }
         return enemy;
+    }
+
+    private void AoePointedAtEnemy()
+    {
+        if (activeAoe)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (GameController.FindChildWithTag(Enemies[i], "Enemies") != null)
+                {
+                    if (Enemies[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                    {
+                        if (target[i] == true)
+                        {
+                            for (int z = 0; z < 4; z++)
+                            {
+                                if (target[z] == true)
+                                {
+                                    Enemies[z].transform.Find("TargetPointer").gameObject.SetActive(true);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (int z = 0; z < 4; z++)
+                            {
+                                Enemies[z].transform.Find("TargetPointer").gameObject.SetActive(false);
+                            }
+                        }
+                    }
+                    else if(MouseOnAnyEnemy() == false)
+                    {
+                        for (int z = 0; z < 4; z++)
+                        {
+                            if (GameController.FindChildWithTag(Enemies[i], "Enemies") != null)
+                            {
+                                Enemies[z].transform.Find("TargetPointer").gameObject.SetActive(false);
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }           
+    }
+
+    public bool AoeSpellUseEnemy()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (GameController.FindChildWithTag(Enemies[i], "Enemies") != null && target[i])
+                {
+                    if (Enemies[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     //*******************************************************************************************************************************************************************************************************
@@ -282,22 +365,61 @@ public class GameController : MonoBehaviour
 
     private void AllyPointedAt()
     {
-        for (int i = 0; i < 4; i++)
+        if (!activeAoe)
         {
-            if (GameController.FindChildWithTag(Characters[i], "Character") != null)
+            for (int i = 0; i < 4; i++)
             {
-                if (Characters[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                if (GameController.FindChildWithTag(Characters[i], "Character") != null)
                 {
-                    if (targetableAlly[i] == true)
+                    if (Characters[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                    {
+                        if (targetableAlly[i] == true)
+                        {
+                            Characters[i].transform.Find("TargetPointer").gameObject.SetActive(true);
+                        }
+                    }
+                    else
+                    {
+                        Characters[i].transform.Find("TargetPointer").gameObject.SetActive(false);
+                    }
+
+                }
+            }
+        }
+    }
+
+    private void AoePointedAtAlly()
+    {
+        if (activeAoe)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (GameController.FindChildWithTag(Characters[i], "Character") != null)
+                {
+                    if (targetAlly[i] == true)
                     {
                         Characters[i].transform.Find("TargetPointer").gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        Characters[i].transform.Find("TargetPointer").gameObject.SetActive(false);
                     }
                 }
                 else
                 {
                     Characters[i].transform.Find("TargetPointer").gameObject.SetActive(false);
                 }
-
+            }
+        }
+    }
+    public void SetTargetsAlly(int min, int max)
+    {
+        for (int i = min; i <= max; i++)
+        {
+            if (GameController.FindChildWithTag(Characters[i], "Character") != null)
+            {
+                targetableAlly[i] = true;
+                targetAlly[i] = true;
             }
         }
     }
@@ -354,8 +476,23 @@ public class GameController : MonoBehaviour
         }
     }
 
-//*******************************************************************************************************************************************************************************************************
-// Mouse methods
+    //*******************************************************************************************************************************************************************************************************
+    // Mouse methods
+
+    private bool MouseOnAnyEnemy()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            if (GameController.FindChildWithTag(Enemies[i], "Enemies") != null)
+            {
+                if (Enemies[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 
     private void SetMouse()
@@ -363,4 +500,19 @@ public class GameController : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos2D = new Vector2(mousePos.x, mousePos.y);
     }
+    //*******************************************************************************************************************************************************************************************************
+    // AOE methods
+
+    public void ActivateAoe()
+    {
+        activeAoe = true;
+    }
+
+    public void DisableAoe()
+    {
+        activeAoe = false;
+    }
+
+
+
 }

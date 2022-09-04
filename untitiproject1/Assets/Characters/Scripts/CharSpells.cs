@@ -27,30 +27,30 @@ public class CharSpells : MonoBehaviour
         spell6use();
         spell7use();
         spell8use();
+        spell9use();
     }
 
 
 
 
-    public void spell1()
+    public void spell1()                   
     {
-        CurrentSpell = 1;
-        SetTargets(0, 2);
+        SetActiveSpell(1);
+        SingleTargetSpell();
+        SetTargetable(0, 2);
     }
 
 
     private void spell1use()                // treba urobit vlastnu classu pre vsetky use spelly kde bude to iste len to bude zamerane na jednotlive classy !!! nezabudni
-    {
+    {                                       // Takto treba potom robit spelly ( Pattern )
         if (CurrentSpell == 1)
         {
             GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
             if (enemyFound.found)
             {
-                CurrentSpell = 0;
+                SpellReset();
                 DealDMG(enemyFound.pos, 20);
-                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
                 GoNextChar();
-                GetGameController().ResetTargets();
             }
         }
 
@@ -60,9 +60,9 @@ public class CharSpells : MonoBehaviour
 
     public void spell2()
     {
-        CurrentSpell = 2;
-
-        SetTargetsAlly(0, 3);
+        SetActiveSpell(2);
+        SingleTargetSpell();
+        SetTargetableAlly(0, 3);
     }
 
     private void spell2use()
@@ -72,11 +72,9 @@ public class CharSpells : MonoBehaviour
             GameController.EnemyFound AllyFound = GetGameController().GetAlly();
             if (AllyFound.found)
             {
-                CurrentSpell = 0;
+                SpellReset();
                 Heal(AllyFound.pos, 20);
-                Debug.Log("Healujem kokotka");
                 GoNextChar();
-                GetGameController().ResetTargets();
             }
         }
 
@@ -84,23 +82,20 @@ public class CharSpells : MonoBehaviour
 
     public void spell3()
     {
-        CurrentSpell = 3;
-
-        SetTargets(0, 2);
+        SetActiveSpell(3);
+        AoeSpell();
+        SetTargets(0, 1);
     }
 
     private void spell3use()
     {
         if (CurrentSpell == 3)
-        {
-            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
-            if (enemyFound.found)
+        {   
+            if (GetGameController().AoeSpellUseEnemy())
             {
-                CurrentSpell = 0;
-                DealDMG(enemyFound.pos, 20);
-                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
+                SpellReset();
+                DealAoeDMG(0, 1, 10);
                 GoNextChar();
-                GetGameController().ResetTargets();
             }
         }
 
@@ -108,48 +103,28 @@ public class CharSpells : MonoBehaviour
 
     public void spell4()
     {
-        CurrentSpell = 4;
-
-        SetTargets(0, 2);
+        SetActiveSpell(4);
     }
 
     private void spell4use()
     {
         if (CurrentSpell == 4)
         {
-            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
-            if (enemyFound.found)
-            {
-                CurrentSpell = 0;
-                DealDMG(enemyFound.pos, 20);
-                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
-                GoNextChar();
-                GetGameController().ResetTargets();
-            }
+            
         }
 
     }
 
     public void spell5()
     {
-        CurrentSpell = 5;
-
-        SetTargets(0, 2);
+        SetActiveSpell(5);
     }
 
     private void spell5use()
     {
         if (CurrentSpell == 5)
         {
-            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
-            if (enemyFound.found)
-            {
-                CurrentSpell = 0;
-                DealDMG(enemyFound.pos, 20);
-                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
-                GoNextChar();
-                GetGameController().ResetTargets();
-            }
+            
         }
 
     }
@@ -157,23 +132,13 @@ public class CharSpells : MonoBehaviour
     public void spell6()
     {
         CurrentSpell = 6;
-
-        SetTargets(0, 2);
     }
 
     private void spell6use()
     {
         if (CurrentSpell == 6)
         {
-            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
-            if (enemyFound.found)
-            {
-                CurrentSpell = 0;
-                DealDMG(enemyFound.pos, 20);
-                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
-                GoNextChar();
-                GetGameController().ResetTargets();
-            }
+            
         }
 
     }
@@ -181,23 +146,13 @@ public class CharSpells : MonoBehaviour
     public void spell7()
     {
         CurrentSpell = 7;
-
-        SetTargets(0, 2);
     }
 
     private void spell7use()
     {
         if (CurrentSpell == 7)
         {
-            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
-            if (enemyFound.found)
-            {
-                CurrentSpell = 0;
-                DealDMG(enemyFound.pos, 20);
-                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
-                GoNextChar();
-                GetGameController().ResetTargets();
-            }
+            
         }
 
     }
@@ -205,23 +160,13 @@ public class CharSpells : MonoBehaviour
     public void spell8()
     {
         CurrentSpell = 8;
-
-        SetTargets(0, 2);
     }
 
     private void spell8use()
     {
         if (CurrentSpell == 8)
         {
-            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
-            if (enemyFound.found)
-            {
-                CurrentSpell = 0;
-                DealDMG(enemyFound.pos, 20);
-                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
-                GoNextChar();
-                GetGameController().ResetTargets();
-            }
+            
         }
 
     }
@@ -229,23 +174,13 @@ public class CharSpells : MonoBehaviour
     public void spell9()
     {
         CurrentSpell = 9;
-
-        SetTargets(0, 2);
     }
 
     private void spell9use()
     {
         if (CurrentSpell == 9)
         {
-            GameController.EnemyFound enemyFound = GetGameController().GetEnemy();
-            if (enemyFound.found)
-            {
-                CurrentSpell = 0;
-                DealDMG(enemyFound.pos, 20);
-                GetGameController().Enemies[enemyFound.pos].GetComponentInChildren<Character>().checkDeath();
-                GoNextChar();
-                GetGameController().ResetTargets();
-            }
+            
         }
 
     }
@@ -254,19 +189,41 @@ public class CharSpells : MonoBehaviour
 
     private void DealDMG(int who, int dmg)
     {
-        GetGameController().Enemies[who].GetComponentInChildren<Character>().health -= dmg;
+        if(GameController.FindChildWithTag(GetGameController().Enemies[who], "Enemies") != null)
+        {
+            GetGameController().Enemies[who].GetComponentInChildren<Character>().health -= dmg;
+            GetGameController().Enemies[who].GetComponentInChildren<Character>().checkDeath();
+        }
+    }
+    private void DealAoeDMG(int min, int max, int dmg)
+    {
+        for(int i = min; i <= max; i++)
+        {
+            DealDMG(i, 10);
+        }
     }
 
-    private void SetTargets(int min, int max)
+    private void SetTargetable(int min, int max)
     {
         GetGameController().ResetTargets();
         GetGameController().SetTargetable(min, max);
     }
 
-    private void SetTargetsAlly(int min, int max)
+    private void SetTargets(int min, int max)
+    {
+        GetGameController().ResetTargets();
+        GetGameController().SetTargets(min, max);
+    }
+
+    private void SetTargetableAlly(int min, int max)
     {
         GetGameController().ResetTargets();
         GetGameController().SetTargetableAlly(min, max);
+    }
+    private void SetTargetsAlly(int min, int max)
+    {
+        GetGameController().ResetTargets();
+        GetGameController().SetTargetsAlly(min, max);
     }
 
 
@@ -283,6 +240,27 @@ public class CharSpells : MonoBehaviour
     private GameController GetGameController()
     {
         return transform.parent.parent.GetComponent<GameController>();
+    }
+
+    private void SingleTargetSpell()
+    {
+        GetGameController().DisableAoe();
+    }
+
+    private void AoeSpell()
+    {
+        GetGameController().ActivateAoe();
+    }
+
+    private void SetActiveSpell(int spell)
+    {
+        SpellReset();
+        CurrentSpell = spell;
+    }
+
+    private void SpellReset()
+    {
+        CurrentSpell = 0;
     }
 
 
