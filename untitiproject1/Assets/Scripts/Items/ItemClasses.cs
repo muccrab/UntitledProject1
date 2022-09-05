@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemClasses
 {
+    [System.Serializable]
     public class BasicItem
     {
         public string name;
@@ -15,6 +16,7 @@ public class ItemClasses
             this.sprite = sprite;
         }
     }
+    [System.Serializable]
     public class OwnedItem
     {
         public BasicItem ItemRef;
@@ -22,6 +24,10 @@ public class ItemClasses
         public OwnedItem(BasicItem ItemRef, int amount){
             this.ItemRef = ItemRef;
             this.amount = amount;
+        }
+        public OwnedItem(ItemGO item){
+            this.ItemRef = new BasicItem(item.getName(),"",item.strsprite);
+            this.amount = item.getAmount();
         }
     }
 

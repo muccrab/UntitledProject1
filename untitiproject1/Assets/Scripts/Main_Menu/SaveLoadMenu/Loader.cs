@@ -20,6 +20,7 @@ public class Loader : MonoBehaviour
                 LoadController.location = data.Dungeons.getDungeon(data.Dungeons.curDungeon).playerRoom;
                 LoadController.Dungeon = data.Dungeons.getDungeon(data.Dungeons.curDungeon).getDungeon();
             }
+            LoadController.SetGuild(data.Guild);
         }
         LoadController.loadSave = false;
         //Had to find antoher way around to check if scene is in built settings....

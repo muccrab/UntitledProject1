@@ -19,6 +19,7 @@ public class PlayerInventoryGO : MonoBehaviour
         startPosition = ItemParent.transform.position;
         LoadController.temporaryFillParty();
         PartyInventory = LoadController.PartyInventory;
+        Debug.Log(PartyInventory.Count);
         resetItems();
     }
     void Update()
@@ -41,10 +42,24 @@ public class PlayerInventoryGO : MonoBehaviour
         item.Inventory = gameObject;
     }
    public void resetItems(){
+    foreach (GameObject GO in PartyInventoryGOS)
+    {
+        Destroy(GO);
+    }
     PartyInventoryGOS = new List<GameObject>();
-        for (int i = 0; i<PartyInventory.Count;i++){
-            createItem(i,PartyInventory[i].ItemRef.name,PartyInventory[i].amount,PartyInventory[i].ItemRef.sprite,startPosition-new Vector3(0,60*i,0));
-        }
+    for (int i = 0; i<PartyInventory.Count;i++){
+        createItem(i,PartyInventory[i].ItemRef.name,PartyInventory[i].amount,PartyInventory[i].ItemRef.sprite,startPosition-new Vector3(0,60*i,0));
+    }
+    LoadController.PartyInventory = PartyInventory;
+   }
+   public void Insertitems(int ID, OwnedItem item){
+    
+        PartyInventory.Insert(ID,item);
+        resetItems();   
+   }
+   public void Removeitems(int ID){
+        PartyInventory.RemoveAt(ID);
+        resetItems();
    }
 
 }

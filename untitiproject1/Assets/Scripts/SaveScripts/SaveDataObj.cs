@@ -20,11 +20,13 @@ public class SaveAllObj
    public SaveChatactersObj Characters{get;}
    public SaveDungeonsObj Dungeons{get;}
    public SavePlayerObj Player{get;}
+   public SaveGuildObj Guild{get;}
 
-   public SaveAllObj(SaveChatactersObj characters, SaveDungeonsObj dungeons, SavePlayerObj player){
+   public SaveAllObj(SaveChatactersObj characters, SaveDungeonsObj dungeons, SavePlayerObj player, SaveGuildObj guild){
       this.Characters = characters;
       this.Dungeons = dungeons;
       this.Player = player;
+      this.Guild = guild;
    }
    
 }
@@ -143,6 +145,24 @@ public class SavePlayerObj
       this.y = y;
    }
    public Vector3 getPosition(){return new Vector3(x,y,0);}
+
+}
+
+[System.Serializable]
+public class SaveGuildObj
+{
+   public int money{get;}
+   public List<ItemClasses.OwnedItem> GuildInventory{get;}
+   public List<ItemClasses.OwnedItem> PartyInventory{get;}
+   public SaveGuildObj(int money, List<ItemClasses.OwnedItem> GuildInventory, List<ItemClasses.OwnedItem> PartyInventory)
+   {
+      this.money = money;
+      this.GuildInventory = GuildInventory;
+      this.PartyInventory = PartyInventory;
+
+   }  
+   
+
 
 }
 

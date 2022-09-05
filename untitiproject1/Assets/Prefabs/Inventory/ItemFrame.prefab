@@ -133,6 +133,7 @@ MonoBehaviour:
   ID: 0
   amount: 0
   name: 
+  strsprite: 
   sprite: {fileID: 0}
   nameObj: {fileID: 8976725889364154215}
   amountObj: {fileID: 9176746133598526537}
@@ -277,6 +278,7 @@ GameObject:
   - component: {fileID: 8568267790979707663}
   - component: {fileID: 8688022329526831556}
   - component: {fileID: 724015865816995312}
+  - component: {fileID: 4352126831553697244}
   m_Layer: 5
   m_Name: DownCollider
   m_TagString: InventoryCollider
@@ -317,7 +319,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.24969482, y: -0.25027466}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -328,7 +330,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 149.66602, y: 27.02887}
   m_EdgeRadius: 0
 --- !u!114 &724015865816995312
 MonoBehaviour:
@@ -342,7 +344,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67712eb564850c244a65a7bf5c8c9e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderType: PartyDOWN
+  m_function:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724015865816995312}
+        m_TargetAssemblyTypeName: INVcolliderGO, Assembly-CSharp
+        m_MethodName: dropDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  entagledFrame: {fileID: 1073987782597432888}
+  item: {fileID: 0}
+--- !u!50 &4352126831553697244
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3138583544859056097}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4176300782736522723
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +393,7 @@ GameObject:
   - component: {fileID: 4274550939400404993}
   - component: {fileID: 7104810229349175896}
   - component: {fileID: 294990788948111881}
+  - component: {fileID: 2967050296457028731}
   m_Layer: 5
   m_Name: UpCollider
   m_TagString: InventoryCollider
@@ -405,7 +445,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 148.6637, y: 27.028809}
   m_EdgeRadius: 0
 --- !u!114 &294990788948111881
 MonoBehaviour:
@@ -419,7 +459,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67712eb564850c244a65a7bf5c8c9e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderType: PartyUP
+  m_function:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 294990788948111881}
+        m_TargetAssemblyTypeName: INVcolliderGO, Assembly-CSharp
+        m_MethodName: dropUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  entagledFrame: {fileID: 1073987782597432888}
+  item: {fileID: 0}
+--- !u!50 &2967050296457028731
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4176300782736522723}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8329968974480656081
 GameObject:
   m_ObjectHideFlags: 0

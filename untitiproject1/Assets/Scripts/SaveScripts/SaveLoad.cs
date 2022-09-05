@@ -83,8 +83,10 @@ public static class SaveLoad
             SaveDungeonsObj dungeonObj = LoadController.getDungeons();
             //Player Saving
             SavePlayerObj playerObj = LoadController.getPlayer();
+            //Guild Saving
+            SaveGuildObj guildObj = LoadController.GetGuild();
             //Dump All into file
-            SaveAllObj datas = new SaveAllObj(characterObj,dungeonObj,playerObj);
+            SaveAllObj datas = new SaveAllObj(characterObj,dungeonObj,playerObj,guildObj);
             formatter.Serialize(stream, datas);
             stream.Close();
     }

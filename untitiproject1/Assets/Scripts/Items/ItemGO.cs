@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using static Classes;
 
 public class ItemGO : MonoBehaviour
 {
     public int ID, amount;
-    public string name;
+    public string name, strsprite;
     public Sprite sprite;
     public GameObject? nameObj = null, amountObj = null, spriteObj = null;
     public GameObject Inventory;
     public GameObject ItemSelected;
 
+    
     #region SpriteValues
     public List<SpriteString> keyvalue = new List<SpriteString>();
-    Dictionary<string,Sprite> TxttoSprite = new Dictionary<string, Sprite>();
+    Map<string,Sprite> TxttoSprite = new Map<string, Sprite>();
     //AKA Screw Optimisation
     void Awake(){
         foreach (SpriteString s in keyvalue)
         {
-            TxttoSprite[s.key] = s.val;
+            TxttoSprite.Add(s.key,s.val);
         }
     }
     #endregion
@@ -41,11 +43,14 @@ public class ItemGO : MonoBehaviour
     }
     public void setSprite(string sprite){
         if (!TxttoSprite.ContainsKey(sprite)) return;
-        this.sprite = TxttoSprite[sprite];
+        this.strsprite = sprite;
+        this.sprite = TxttoSprite.Forward[sprite];
         if (spriteObj is not null)
             spriteObj.GetComponent<Image>().sprite = this.sprite;
     }
     public void setSprite(Sprite sprite){
+        if (!TxttoSprite.ContainsValue(sprite)) return;
+        this.strsprite = TxttoSprite.Reverse[sprite];
         this.sprite = sprite;
         if (spriteObj is not null)
             spriteObj.GetComponent<Image>().sprite = this.sprite;
@@ -87,6 +92,7 @@ public class ItemGO : MonoBehaviour
         item.ID = ID;
         item.Inventory = Inventory;
         item.transform.parent = transform.parent.parent;
+        Inventory.GetComponent<PlayerInventoryGO>().Removeitems(ID);
         Destroy(gameObject);
     }
     public void selectItem(){
