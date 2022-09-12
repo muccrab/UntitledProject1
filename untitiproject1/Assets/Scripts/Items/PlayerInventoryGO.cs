@@ -25,7 +25,7 @@ public class PlayerInventoryGO : MonoBehaviour
     void Update()
     {
         if (selectChange){
-            
+           
             selectChange = false;
         }
     }
@@ -61,5 +61,6 @@ public class PlayerInventoryGO : MonoBehaviour
         PartyInventory.RemoveAt(ID);
         resetItems();
    }
+   
 
 }

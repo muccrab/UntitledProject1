@@ -12,6 +12,7 @@ TagManager:
   - GateFrom
   - GateTo
   - InventoryCollider
+  - ItemSelected
   layers:
   - Default
   - TransparentFX

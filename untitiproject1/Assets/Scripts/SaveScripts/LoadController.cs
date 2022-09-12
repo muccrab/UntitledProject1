@@ -88,8 +88,10 @@ public static class LoadController
         public static List<OwnedItem> GuildInventory = new List<OwnedItem>();
         public static List<OwnedItem> PartyInventory = new List<OwnedItem>();
         public static void temporaryFillParty(){
+            /*
             PartyInventory.Add(new OwnedItem(new BasicItem("Legendary Sword","","Sword"),1));
             PartyInventory.Add(new OwnedItem(new BasicItem("Random Strawberry","","Strawberry"),5));
+            */
         }
         public static SaveGuildObj GetGuild(){
             return new SaveGuildObj(money,GuildInventory,PartyInventory);

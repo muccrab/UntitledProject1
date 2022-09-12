@@ -9,6 +9,7 @@ public class ItemSelected : MonoBehaviour
     void Update()
     {
         transform.position = Input.mousePosition;
+        if (Input.GetMouseButtonUp(0)) DropObject();
     }
 
     public void DropObject()
@@ -36,7 +37,6 @@ public class ItemSelected : MonoBehaviour
     {
         if (collision.tag == "InventoryCollider"){
             collider = collision.gameObject;
-            Debug.Log("Colider");
         }
         
     }

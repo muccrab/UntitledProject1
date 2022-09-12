@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c7da6a571495b41bb78629bffee923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EmptySprite: {fileID: 21300000, guid: 674f9347eac793e42a40912a7cd3f061, type: 3}
   m_onDown:
     m_PersistentCalls:
       m_Calls: []
@@ -190,6 +191,7 @@ MonoBehaviour:
   waittime: 0.5
   time: 0
   BTNdown: 0
+  SelectedSprite: {fileID: 0}
 --- !u!222 &474090082387803674
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -279,6 +281,8 @@ GameObject:
   - component: {fileID: 8688022329526831556}
   - component: {fileID: 724015865816995312}
   - component: {fileID: 4352126831553697244}
+  - component: {fileID: 8151898233438422724}
+  - component: {fileID: 220692065993708615}
   m_Layer: 5
   m_Name: DownCollider
   m_TagString: InventoryCollider
@@ -361,6 +365,8 @@ MonoBehaviour:
         m_CallState: 2
   entagledFrame: {fileID: 1073987782597432888}
   item: {fileID: 0}
+  collisionSprite: {fileID: 0}
+  defaultSprite: {fileID: 21300000, guid: 674f9347eac793e42a40912a7cd3f061, type: 3}
 --- !u!50 &4352126831553697244
 Rigidbody2D:
   serializedVersion: 4
@@ -382,6 +388,44 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!222 &8151898233438422724
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3138583544859056097}
+  m_CullTransparentMesh: 1
+--- !u!114 &220692065993708615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3138583544859056097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 674f9347eac793e42a40912a7cd3f061, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4176300782736522723
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +438,8 @@ GameObject:
   - component: {fileID: 7104810229349175896}
   - component: {fileID: 294990788948111881}
   - component: {fileID: 2967050296457028731}
+  - component: {fileID: 4844932441917109064}
+  - component: {fileID: 892735394690491370}
   m_Layer: 5
   m_Name: UpCollider
   m_TagString: InventoryCollider
@@ -476,6 +522,8 @@ MonoBehaviour:
         m_CallState: 2
   entagledFrame: {fileID: 1073987782597432888}
   item: {fileID: 0}
+  collisionSprite: {fileID: 0}
+  defaultSprite: {fileID: 21300000, guid: 674f9347eac793e42a40912a7cd3f061, type: 3}
 --- !u!50 &2967050296457028731
 Rigidbody2D:
   serializedVersion: 4
@@ -497,6 +545,44 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!222 &4844932441917109064
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4176300782736522723}
+  m_CullTransparentMesh: 1
+--- !u!114 &892735394690491370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4176300782736522723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 674f9347eac793e42a40912a7cd3f061, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8329968974480656081
 GameObject:
   m_ObjectHideFlags: 0

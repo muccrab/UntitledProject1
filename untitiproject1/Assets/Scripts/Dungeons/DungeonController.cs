@@ -17,14 +17,14 @@ public class DungeonController : MonoBehaviour
     public bool goLast = false, goNext = false; //for hall movement controll, when you enter a gate
     public bool generate = true; 
     Tile SelectedTile=null;
-    NonUnityMethods.RoomNameDivided SelectedObj;
+    Classes.RoomNameDivided SelectedObj;
     
     void Start(){
         if(LoadController.location is not null) Selected = LoadController.location;
         else {Debug.Log("Jesus Christ what now?");}
     }
     void Update(){
-        SelectedObj = new NonUnityMethods.RoomNameDivided(Selected);
+        SelectedObj = new Classes.RoomNameDivided(Selected);
         Debug.Log ("Loaded Location -"+LoadController.location);
         if (SelectedTile is null || SelectedTile.getName()!=Selected)
         if (LoadController.Dungeon.ContainsKey(Selected))
