@@ -9,12 +9,14 @@ public class Buttns : MonoBehaviour
     public GameObject armoryPanel;
     public GameObject hospitalPanel;
     public GameObject churchPanel;
+    public GameObject partydenPanel;
 
     public GameObject shopButt;
     public GameObject tavernButt;
     public GameObject armoryButt;
     public GameObject hospitalButt;
     public GameObject churchButt;
+    public GameObject partydenButt;
 
     private bool panelActie = false;
 
@@ -27,6 +29,7 @@ public class Buttns : MonoBehaviour
             armoryButt.SetActive(false);
             hospitalButt.SetActive(false);
             churchButt.SetActive(false);
+            partydenButt.SetActive(false);
         }
         else
         {
@@ -35,6 +38,7 @@ public class Buttns : MonoBehaviour
             armoryButt.SetActive(true);
             hospitalButt.SetActive(true);
             churchButt.SetActive(true);
+            partydenButt.SetActive(true);
         }
     }
 
@@ -90,6 +94,17 @@ public class Buttns : MonoBehaviour
     public void ChurchButtOff()
     {
         churchPanel.SetActive(false);
+        panelActie = false;
+    }
+
+    public void PartyDenButtOn()
+    {
+        partydenPanel.SetActive(true);
+        panelActie = true;
+    }
+    public void PartyDenButtOff()
+    {
+        partydenPanel.SetActive(false);
         panelActie = false;
     }
 }

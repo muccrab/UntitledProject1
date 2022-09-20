@@ -18,7 +18,7 @@ public class ItemGO : MonoBehaviour
     #region SpriteValues
     public List<SpriteString> keyvalue = new List<SpriteString>();
     Map<string,Sprite> TxttoSprite = new Map<string, Sprite>();
-    //AKA Screw Optimisation
+    //AKA Screw Optimisation----------------------------------------------------------------------------------------------------------------------------------------
     void Awake(){
         foreach (SpriteString s in keyvalue)
         {
