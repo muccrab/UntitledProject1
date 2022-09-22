@@ -235,6 +235,7 @@ public class CharSpells : MonoBehaviour
 
     private void GoNextChar()
     {
+        GetGameController().ResetTargets();
         GetGameController().SetNextActiveChar();
     }
 
