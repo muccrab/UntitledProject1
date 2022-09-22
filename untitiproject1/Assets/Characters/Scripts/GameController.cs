@@ -193,6 +193,7 @@ public class GameController : MonoBehaviour
 
     //*******************************************************************************************************************************************************************************************************
     // Enemy methods
+    #region enemy
 
     public void SetTargetable(int min, int max)
     {
@@ -329,6 +330,8 @@ public class GameController : MonoBehaviour
         return false;
     }
 
+    #endregion enemy
+
     //*******************************************************************************************************************************************************************************************************
     // Ally methods
 
@@ -400,22 +403,60 @@ public class GameController : MonoBehaviour
             {
                 if (GameController.FindChildWithTag(Characters[i], "Character") != null)
                 {
-                    if (targetAlly[i] == true)
+                    if (Characters[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
                     {
-                        Characters[i].transform.Find("TargetPointer").gameObject.SetActive(true);
+                        if (targetAlly[i] == true)
+                        {
+                            for (int z = 0; z < 4; z++)
+                            {
+                                if (targetAlly[z] == true)
+                                {
+                                    Characters[z].transform.Find("TargetPointer").gameObject.SetActive(true);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (int z = 0; z < 4; z++)
+                            {
+                                Characters[z].transform.Find("TargetPointer").gameObject.SetActive(false);
+                            }
+                        }
                     }
-                    else
+                    else if (MouseOnAnyAlly() == false)
                     {
-                        Characters[i].transform.Find("TargetPointer").gameObject.SetActive(false);
+                        for (int z = 0; z < 4; z++)
+                        {
+                            if (GameController.FindChildWithTag(Characters[i], "Character") != null)
+                            {
+                                Characters[z].transform.Find("TargetPointer").gameObject.SetActive(false);
+                            }
+                        }
                     }
-                }
-                else
-                {
-                    Characters[i].transform.Find("TargetPointer").gameObject.SetActive(false);
+
                 }
             }
         }
     }
+
+    public bool AoeSpellUseAlly()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (GameController.FindChildWithTag(Characters[i], "Character") != null && targetAlly[i])
+                {
+                    if (Characters[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     public void SetTargetsAlly(int min, int max)
     {
         for (int i = min; i <= max; i++)
@@ -423,6 +464,7 @@ public class GameController : MonoBehaviour
             if (GameController.FindChildWithTag(Characters[i], "Character") != null)
             {
                 targetableAlly[i] = true;
+                Characters[i].transform.Find("TargetablePointer").gameObject.SetActive(true);
                 targetAlly[i] = true;
             }
         }
@@ -491,6 +533,21 @@ public class GameController : MonoBehaviour
             if (GameController.FindChildWithTag(Enemies[i], "Enemies") != null)
             {
                 if (Enemies[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private bool MouseOnAnyAlly()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (GameController.FindChildWithTag(Characters[i], "Character") != null)
+            {
+                if (Characters[i].GetComponentInChildren<BoxCollider2D>().bounds.Contains(mousePos2D))
                 {
                     return true;
                 }

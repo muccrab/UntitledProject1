@@ -96,13 +96,20 @@ public class CharSpells : MonoBehaviour
     public void spell4()
     {
         SetActiveSpell(4);
+        AoeSpell();
+        SetTargetsAlly(0, 2);
     }
 
     private void spell4use()
     {
         if (CurrentSpell == 4)
         {
-            
+            if (GetGameController().AoeSpellUseAlly())
+            {
+                SpellReset();
+                AoeHeal(0, 2, 50);
+                GoNextChar();
+            }
         }
 
     }
@@ -242,6 +249,14 @@ public class CharSpells : MonoBehaviour
     private void Heal(int who, int value)
     {
         GetGameController().Characters[who].GetComponentInChildren<Character>().Heal(value);
+    }
+
+    private void AoeHeal(int min, int max, int value)
+    {
+        for (int i = min; i <= max; i++)
+        {
+            Heal(i, value);
+        }
     }
 
     private GameController GetGameController()
