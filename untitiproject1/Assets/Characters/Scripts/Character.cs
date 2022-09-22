@@ -5,11 +5,44 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-   
+    #region variables
+
     //*********************************************************************************************************************************************************************
+
     public bool isAlive = true;
     public bool myTurn = false;
+    private bool startOfTurn = true;
 
+    //*********************************************************************************************************************************************************************
+
+    //*********************************************************************************************************************************************************************
+    // Effects 
+
+    #region definition
+
+    public struct bleed
+    {
+        public int turns;
+        public int dmg;
+    }
+    public struct effects
+    {
+        public bleed bleed;
+
+    }
+
+    #endregion definition
+
+    #region implementation
+
+    public effects Effects;
+
+    #endregion implementation
+    // Effects
+    //*********************************************************************************************************************************************************************
+
+    //*********************************************************************************************************************************************************************
+    // Staty a zakladne logicke parametre
     public int str;
     public int dex;
     public int health;
@@ -19,15 +52,28 @@ public class Character : MonoBehaviour
     public int willP;
     public int morale;
     public int minDmg;
-    public int maxDmg;                                                                                                                  // Staty a zakladne logicke parametre
+    public int maxDmg;
+    // Staty a zakladne logicke parametre
     //*********************************************************************************************************************************************************************
+    #endregion variables
 
 
 
-
+    //*********************************************************************************************************************************************************************
     private void Update()
     {
-     //   checkDeath();
+        if(myTurn)
+        {
+            if(startOfTurn)
+            {
+                startOfTurn = false;
+                CheckEffects();
+            }
+        }
+        else
+        {
+            startOfTurn = true;
+        }
     }
 
 
@@ -105,6 +151,38 @@ public class Character : MonoBehaviour
             health = maxHealth;
         }
     }
+
+    private void CheckEffects()
+    {
+        Bleed();
+    }
+
+    private void Bleed()
+    {
+        if(Effects.bleed.turns > 0)
+        {
+            Effects.bleed.turns -= 1;
+            if(Effects.bleed.turns <= 0 )
+            {
+                CureBleed();
+            }
+            health -= Effects.bleed.dmg;
+            Effects.bleed.dmg += Effects.bleed.dmg / 3;                                         // idk but sure makes sense ( dmg upgrade )
+        }
+    }
+
+    public void CureBleed()
+    {
+        Effects.bleed.dmg = 0;
+        Effects.bleed.turns = 0;
+    }
+
+    public void ApplyBleed( int turns, int dmg )
+    {
+        Effects.bleed.turns += turns;
+        Effects.bleed.dmg += dmg;                           // musime sa dohodnut ako to bude fungovat
+    }
+
 
 
 }

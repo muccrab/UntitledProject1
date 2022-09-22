@@ -19,20 +19,12 @@ public class CharSpells : MonoBehaviour
 
     private void Update()
     {
-        spell1use();
-        spell2use();
-        spell3use();
-        spell4use();
-        spell5use();
-        spell6use();
-        spell7use();
-        spell8use();
-        spell9use();
+        useSpells();
     }
 
 
 
-
+    #region spells
     public void spell1()                   
     {
         SetActiveSpell(1);
@@ -184,6 +176,21 @@ public class CharSpells : MonoBehaviour
         }
 
     }
+
+    private void useSpells()
+    {
+        spell1use();
+        spell2use();
+        spell3use();
+        spell4use();
+        spell5use();
+        spell6use();
+        spell7use();
+        spell8use();
+        spell9use();
+    }
+
+    #endregion spells
 
 
 

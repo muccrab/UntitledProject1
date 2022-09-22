@@ -70,7 +70,6 @@ public class Ally : MonoBehaviour
             isGenerated = true;
             GenerateAllSpells();
 
-
             SetSpellsActiveFalse();
         }
 
@@ -78,7 +77,6 @@ public class Ally : MonoBehaviour
         {
             SetSpellsActiveTrue();
         }
-
         else
         {
             SetSpellsActiveFalse();
